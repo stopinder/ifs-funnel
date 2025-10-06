@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Starfield Animation */
+@layer utilities {
+  .animate-stars {
+    background: radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+    animation: moveStars 60s linear infinite;
+    opacity: 0.2;
+  }
+
+  @keyframes moveStars {
+    from {
+      background-position: 0 0, 50px 50px;
+    }
+    to {
+      background-position: -1000px 1000px, -950px 1050px;
+    }
+  }
+}
+/* src/main.css */
+body {
+  @apply bg-gradient-to-b from-indigo-950 via-purple-900 to-black text-white font-sans;
+}
+
+
