@@ -39,9 +39,9 @@ import BookCta from './BookCta.vue'
 const testimonials = [
   {
     quote:
-        'I left our session with a deep sense of calm and clarity. The AI reflection helped me see patterns I’d missed for years.',
+        'These summaries are gold.',
     name: 'A.L.',
-    location: 'London, UK',
+    location: 'Brighton, UK',
   },
   {
     quote:
@@ -54,6 +54,12 @@ const testimonials = [
         'Professional, grounded, and insightful. The blend of therapy and AI reflection is genuinely transformative.',
     name: 'S.R.',
     location: 'Sydney, Australia',
+  },
+  {
+    quote:
+        'I left our session with a deep sense of calm and clarity. The summary helped me see patterns I’d missed for years.',
+    name: 'G.L.',
+    location: 'London, UK',
   },
 ]
 

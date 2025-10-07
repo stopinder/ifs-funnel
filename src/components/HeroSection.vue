@@ -34,7 +34,51 @@
               class="bg-white text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-slate-200 transition
                    animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
           >
-            Begin Your Session
+            Book<!doctype html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Sample Insight Report – Heliosynthesis</title>
+              <style>
+                body {
+                  font-family: system-ui, sans-serif;
+                  background-color: #0b0b1a;
+                  color: white;
+                  text-align: center;
+                  margin: 0;
+                  padding: 0;
+                }
+                .back-button {
+                  display: inline-block;
+                  margin: 20px;
+                  padding: 10px 18px;
+                  background-color: #4f46e5;
+                  color: white;
+                  text-decoration: none;
+                  border-radius: 9999px;
+                  font-weight: 600;
+                  transition: background-color 0.2s ease;
+                }
+                .back-button:hover {
+                  background-color: #6366f1;
+                }
+                iframe {
+                  width: 100%;
+                  height: 90vh;
+                  border: none;
+                }
+              </style>
+            </head>
+            <body>
+            <a href="/" class="back-button">← Back to Heliosynthesis</a>
+            <iframe
+                src="https://docs.google.com/document/d/e/2PACX-1vQl1kY24CP0VRGk5u4n9_G-wilD98v873eSy8DxcSXsVYvez-ZDvv1dvH2EKAUAJg0YIwfXm10XuTT2/pub?embedded=true"
+                title="Sample Insight Report"
+            ></iframe>
+            </body>
+            </html>
+            Your Session
           </button>
         </a>
 
