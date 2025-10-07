@@ -10,7 +10,7 @@
     <!-- MAIN CONTENT -->
     <div class="relative z-10 space-y-6 py-24 sm:py-32">
       <h1 class="text-4xl sm:text-6xl font-bold leading-tight max-w-3xl mx-auto">
-        50-Minute IFS Session + Personalised Insight Report
+        50-Minute IFS Session + Personalized Insight Report
       </h1>
 
       <p class="text-lg sm:text-xl max-w-xl mx-auto text-slate-300">
@@ -24,6 +24,7 @@
 
       <!-- CTA Block -->
       <div class="mt-8 flex flex-col items-center space-y-3">
+
         <!-- Main Button -->
         <a
             href="https://calendly.com/robormiston/new-meeting-3"
@@ -34,69 +35,31 @@
               class="bg-white text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-slate-200 transition
                    animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
           >
-            Book<!doctype html>
-            <html lang="en">
-            <head>
-              <meta charset="UTF-8" />
-              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <title>Sample Insight Report – Heliosynthesis</title>
-              <style>
-                body {
-                  font-family: system-ui, sans-serif;
-                  background-color: #0b0b1a;
-                  color: white;
-                  text-align: center;
-                  margin: 0;
-                  padding: 0;
-                }
-                .back-button {
-                  display: inline-block;
-                  margin: 20px;
-                  padding: 10px 18px;
-                  background-color: #4f46e5;
-                  color: white;
-                  text-decoration: none;
-                  border-radius: 9999px;
-                  font-weight: 600;
-                  transition: background-color 0.2s ease;
-                }
-                .back-button:hover {
-                  background-color: #6366f1;
-                }
-                iframe {
-                  width: 100%;
-                  height: 90vh;
-                  border: none;
-                }
-              </style>
-            </head>
-            <body>
-            <a href="/" class="back-button">← Back to Heliosynthesis</a>
-            <iframe
-                src="https://docs.google.com/document/d/e/2PACX-1vQl1kY24CP0VRGk5u4n9_G-wilD98v873eSy8DxcSXsVYvez-ZDvv1dvH2EKAUAJg0YIwfXm10XuTT2/pub?embedded=true"
-                title="Sample Insight Report"
-            ></iframe>
-            </body>
-            </html>
-            Your Session
+            Book Your Session
           </button>
         </a>
 
         <!-- Sample Report Link -->
         <a
-            href="https://docs.google.com/document/d/e/2PACX-1vQl1kY24CP0VRGk5u4n9_G-wilD98v873eSy8DxcSXsVYvez-ZDvv1dvH2EKAUAJg0YIwfXm10XuTT2/pub"
+            href="/report-sample.html"
             target="_blank"
             rel="noopener noreferrer"
             class="text-sm text-purple-300 hover:text-purple-200 underline/50"
         >
           See a sample Insight Report →
         </a>
+
       </div>
     </div>
   </section>
 </template>
 
+<script setup>
+// no script needed here yet
+</script>
+
 <style scoped>
+/* ✨ Subtle bounce animation for CTA button */
 @keyframes subtle-bounce {
   0%, 100% {
     transform: translateY(0);
@@ -109,6 +72,7 @@
   animation: subtle-bounce 3.5s ease-in-out infinite;
 }
 
+/* 🌌 Starfield background animations */
 @keyframes moveStars {
   from {
     background-position: 0 0, 100px 100px;
@@ -135,45 +99,7 @@
   opacity: 0.18;
 }
 
-
-</style>
-
-
-<script setup>
-</script>
-
-<style scoped>
-@keyframes subtle-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-.animate-subtle-bounce {
-  animation: subtle-bounce 2s ease-in-out infinite;
-}
-
-@keyframes moveStars {
-  from {
-    background-position: 0 0, 50px 50px;
-  }
-  to {
-    background-position: -1000px 1000px, -950px 1050px;
-  }
-}
-
-.animate-stars {
-  background: radial-gradient(white 1px, transparent 1px),
-  radial-gradient(white 1px, transparent 1px);
-  background-size: 100px 100px;
-  background-position: 0 0, 50px 50px;
-  animation: moveStars 60s linear infinite;
-  opacity: 0.2;
-}
-
-/* Subtle gradient overlay for readability */
+/* Optional gradient overlay for readability */
 section::before {
   content: "";
   position: absolute;
