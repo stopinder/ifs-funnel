@@ -22,6 +22,15 @@
         <a href="#faq" class="hover:text-white transition">FAQ</a>
         <a href="#testimonials" class="hover:text-white transition">Client Reflections</a>
         <a
+            href="/terms.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-400 hover:text-white text-xs underline/50"
+        >
+          Terms & Privacy
+        </a>
+
+        <a
             href="https://calendly.com/robormiston/new-meeting-3"
             target="_blank"
             rel="noopener noreferrer"
@@ -33,7 +42,19 @@
 
       <!-- CREDENTIALS + COPYRIGHT -->
       <p class="text-xs text-slate-400 leading-relaxed text-center max-w-lg">
-        Registered Member MBACP (British Association for Counselling and Psychotherapy) · Confidential & Secure
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Registered Member <strong>MBACP</strong> (Membership No. 00948196) ·
+          <a
+              href="https://www.bacp.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-purple-300 hover:text-purple-200 underline/50"
+          >
+            British Association for Counselling and Psychotherapy
+          </a>
+          · Confidential &amp; Secure
+        </p>
+
         <br />
         © {{ new Date().getFullYear() }} Robert Ormiston · Heliosynthesis · All rights reserved
       </p>

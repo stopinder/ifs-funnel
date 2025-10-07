@@ -9,11 +9,14 @@
     <SectionDivider />
     <Testimonials />
     <SectionDivider />
+    <ForTherapists />
     <Footer />
   </main>
 </template>
 
 <script setup>
+import ForTherapists from './components/ForTherapists.vue'
+
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutMe from './components/AboutMe.vue'

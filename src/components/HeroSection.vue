@@ -10,7 +10,7 @@
     <!-- MAIN CONTENT -->
     <div class="relative z-10 space-y-6 py-24 sm:py-32">
       <h1 class="text-4xl sm:text-6xl font-bold leading-tight max-w-3xl mx-auto">
-        50-Minute IFS Session + Personalized Insight Report
+        50-Minute IFS Session + Personalised Insight Report
       </h1>
 
       <p class="text-lg sm:text-xl max-w-xl mx-auto text-slate-300">

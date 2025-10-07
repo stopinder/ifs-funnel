@@ -104,8 +104,6 @@
 </template>
 
 <script setup>
-import BookCta from './BookCta.vue'
-
 import { ref } from 'vue'
 const expanded = ref(false)
 </script>
