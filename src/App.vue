@@ -1,14 +1,16 @@
 <template>
-  <div class="min-h-screen flex flex-col justify-between bg-slate-950 text-white">
-    <main>
-      <NavBar />
-      <HeroSection />
-      <AboutMe />
-      <FaqSection />
-      <Testimonials />
-    </main>
+  <main>
+    <NavBar />
+    <HeroSection />
+    <SectionDivider />
+    <AboutMe />
+    <SectionDivider />
+    <FaqSection />
+    <SectionDivider />
+    <Testimonials />
+    <SectionDivider />
     <Footer />
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -17,8 +19,10 @@ import HeroSection from './components/HeroSection.vue'
 import AboutMe from './components/AboutMe.vue'
 import FaqSection from './components/FaqSection.vue'
 import Testimonials from './components/Testimonials.vue'
-import Footer from './components/Footer.vue' // 👈 You were missing this line
+import SectionDivider from './components/SectionDivider.vue'
+import Footer from './components/Footer.vue'
 </script>
+
 
 
 

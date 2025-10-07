@@ -24,11 +24,17 @@
         </footer>
       </article>
     </div>
+    <!-- Call to Action -->
+    <div class="mt-12 text-center">
+      <BookCta />
+    </div>
+
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import BookCta from './BookCta.vue'
 
 const testimonials = [
   {

@@ -47,12 +47,17 @@
         </transition>
       </div>
     </div>
+    <!-- Call to Action -->
+    <div class="mt-12 text-center">
+      <BookCta />
+    </div>
+
   </section>
 </template>
 
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
-
+import BookCta from './BookCta.vue'
 const faqs = reactive([
   {
     question: 'What is Internal Family Systems (IFS)?',

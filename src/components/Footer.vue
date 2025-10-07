@@ -1,30 +1,63 @@
 <template>
-  <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto px-6 grid gap-8 md:grid-cols-2 text-center md:text-left">
+  <footer
+      id="footer"
+      class="relative px-6 py-16 text-slate-300 text-center overflow-hidden bg-gradient-to-b from-black via-purple-950 to-indigo-950"
+  >
+    <!-- ⭐ STARFIELD BACKGROUND -->
+    <div class="absolute inset-0 z-0 animate-stars pointer-events-none"></div>
 
-      <!-- COLUMN 1: Credentials -->
-      <div>
-        <h3 class="text-white font-semibold mb-3 text-lg">Credentials</h3>
-        <ul class="space-y-2">
-          <li>Registered Member of <span class="font-medium text-slate-200">BACP</span></li>
-          <li>Trained at <span class="font-medium text-slate-200">Syzygy Institute</span></li>
-          <li>Graduate of <span class="font-medium text-slate-200">University of Chichester</span></li>
-        </ul>
-      </div>
+    <!-- MAIN CONTENT -->
+    <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center space-y-6">
+      <!-- SMALL PROFILE IMAGE -->
+      <img
+          src="/profile.jpg"
+          alt="Portrait of psychotherapist Robert Ormiston"
+          class="w-20 h-20 rounded-full object-cover border border-slate-700 shadow-md"
+          loading="lazy"
+      />
 
-      <!-- COLUMN 2: Contact & Social -->
-      <div class="flex flex-col items-center md:items-end space-y-2">
-        <a href="mailto:discover@heliosynthesis.org" class="hover:text-purple-300 transition">discover@heliosynthesis.org</a>
-        <div class="flex space-x-4">
-          <a href="https://www.linkedin.com/in/robormiston" target="_blank" rel="noopener" class="hover:text-purple-300 transition">LinkedIn</a>
-          <a href="https://www.facebook.com/robormiston" target="_blank" rel="noopener" class="hover:text-purple-300 transition">Facebook</a>
-        </div>
-        <p class="text-sm text-slate-500 mt-4">© 2025 Rob Ormiston. All rights reserved.</p>
-      </div>
+      <!-- NAV LINKS -->
+      <nav class="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm">
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+        <a href="#testimonials" class="hover:text-white transition">Client Reflections</a>
+        <a
+            href="https://calendly.com/robormiston/new-meeting-3"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white transition"
+        >
+          Book a Session
+        </a>
+      </nav>
 
+      <!-- CREDENTIALS + COPYRIGHT -->
+      <p class="text-xs text-slate-400 leading-relaxed text-center max-w-lg">
+        Registered Member MBACP (British Association for Counselling and Psychotherapy) · Confidential & Secure
+        <br />
+        © {{ new Date().getFullYear() }} Robert Ormiston · Heliosynthesis · All rights reserved
+      </p>
     </div>
   </footer>
 </template>
 
-<script setup>
-</script>
+<style scoped>
+@keyframes moveStars {
+  from {
+    background-position: 0 0, 50px 50px;
+  }
+  to {
+    background-position: -1000px 1000px, -950px 1050px;
+  }
+}
+
+.animate-stars {
+  background: radial-gradient(white 1px, transparent 1px),
+  radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.10; /* Softer opacity for footer */
+}
+</style>
+

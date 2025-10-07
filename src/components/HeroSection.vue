@@ -22,21 +22,67 @@
         For those ready to listen inward — and meet every part with understanding.
       </p>
 
-      <a
-          href="https://calendly.com/robormiston/new-meeting-3"
-          target="_blank"
-          rel="noopener noreferrer"
-      >
-        <button
-            class="mt-4 bg-white text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-slate-200 transition
-                 animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
+      <!-- CTA Block -->
+      <div class="mt-8 flex flex-col items-center space-y-3">
+        <!-- Main Button -->
+        <a
+            href="https://calendly.com/robormiston/new-meeting-3"
+            target="_blank"
+            rel="noopener noreferrer"
         >
-          Begin Your Session
-        </button>
-      </a>
+          <button
+              class="bg-white text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-slate-200 transition
+                   animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
+          >
+            Begin Your Session
+          </button>
+        </a>
+
+        <!-- Sample Report Link -->
+        <a
+            href="https://docs.google.com/document/d/e/2PACX-1vQl1kY24CP0VRGk5u4n9_G-wilD98v873eSy8DxcSXsVYvez-ZDvv1dvH2EKAUAJg0YIwfXm10XuTT2/pub"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-purple-300 hover:text-purple-200 underline/50"
+        >
+          See a sample Insight Report →
+        </a>
+      </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+@keyframes subtle-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+.animate-subtle-bounce {
+  animation: subtle-bounce 3.5s ease-in-out infinite;
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0, 50px 50px;
+  }
+  to {
+    background-position: -1000px 1000px, -950px 1050px;
+  }
+}
+.animate-stars {
+  background: radial-gradient(white 1px, transparent 1px),
+  radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.2;
+}
+</style>
+
 
 <script setup>
 </script>

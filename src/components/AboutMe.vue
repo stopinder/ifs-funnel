@@ -1,35 +1,29 @@
 <template>
   <section
       id="about"
-      class="px-6 py-24 max-w-5xl mx-auto text-white opacity-0 translate-y-6 transition-all duration-700 ease-out"
+      class="relative px-6 py-24 max-w-5xl mx-auto text-white overflow-hidden"
       itemscope
       itemtype="https://schema.org/Person"
-      ref="aboutSection"
   >
-    <div class="flex flex-col md:flex-row items-center md:items-start gap-12 text-center md:text-left">
+    <!-- ⭐ STARFIELD BACKGROUND -->
+    <div class="absolute inset-0 z-0 animate-stars pointer-events-none"></div>
+
+    <div
+        class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-12 text-center md:text-left"
+    >
       <!-- PROFILE IMAGE -->
-      <div class="relative flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto">
-        <div
-            class="absolute inset-0 m-auto w-48 h-48 rounded-full bg-gradient-radial from-purple-600/30 to-transparent blur-2xl"
-            aria-hidden="true"
-        ></div>
+      <div class="flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto">
         <img
             src="/profile.jpg"
             alt="Portrait of psychotherapist Robert Ormiston"
-            class="relative w-44 h-44 rounded-full object-cover border border-slate-700 shadow-md mx-auto md:mx-0"
+            class="w-44 h-44 rounded-full object-cover border border-slate-700 shadow-md mx-auto md:mx-0"
             itemprop="image"
         />
       </div>
 
       <!-- TEXT BLOCK -->
       <div class="max-w-2xl">
-        <h2
-            class="text-3xl font-bold mb-6 focus:outline-none"
-            itemprop="name"
-            tabindex="0"
-        >
-          About Robert Ormiston
-        </h2>
+        <h2 class="text-3xl font-bold mb-6" itemprop="name">About Robert Ormiston</h2>
 
         <p class="text-slate-200 mb-6 leading-relaxed" itemprop="description">
           I’m a psychotherapist and the founder of
@@ -54,7 +48,7 @@
         <!-- TOGGLE BUTTON -->
         <button
             @click="expanded = !expanded"
-            class="text-sm bg-gradient-to-r from-purple-100 to-white text-slate-900 rounded-full px-5 py-2 hover:from-purple-200 hover:to-white transition focus:outline-none focus:ring-4 focus:ring-purple-500/40"
+            class="text-sm bg-white text-slate-900 font-semibold rounded-full px-5 py-2 hover:bg-slate-200 transition focus:outline-none focus:ring-4 focus:ring-purple-500/40"
             :aria-expanded="expanded.toString()"
             aria-controls="fullBio"
         >
@@ -80,70 +74,65 @@
               At St Bart’s, I contributed to the pioneering
               <span class="italic">Project 2000 Nursing Curriculum</span>, integrating
               counselling and psychological models into traditionally custodial
-              environments.
+              environments. These experiences deepened my belief that meaningful change
+              begins in relationship — whether within systems or within the self.
             </p>
             <p>
-              During the pandemic, I began bridging psychotherapy and technology —
+              During the pandemic, I began bridging psychotherapy and technology,
               becoming a prompt engineer and full-stack developer. I now build
-              AI-powered therapeutic tools, develop container-based apps for clinicians,
-              and contribute to the evolving field of human–AI integration in mental
-              health.
+              AI-powered therapeutic tools, develop container-based applications for
+              clinicians, and contribute to the evolving field of human–AI integration in
+              mental health.
             </p>
             <p>
-              My focus remains on supporting reflective, trauma-informed care while
-              reducing the administrative and emotional burden on practitioners.
+              I am a registered member of the
+              <span class="font-semibold">British Association for Counselling and Psychotherapy (BACP)</span>
+              and remain dedicated to reflective, trauma-informed care — helping both
+              clients and practitioners work with clarity while reducing the
+              administrative and emotional burden of clinical practice.
             </p>
           </div>
         </transition>
       </div>
     </div>
+    <!-- Call to Action -->
+    <div class="mt-12 text-center">
+      <BookCta />
+    </div>
+
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import BookCta from './BookCta.vue'
 
+import { ref } from 'vue'
 const expanded = ref(false)
-const aboutSection = ref(null)
-
-// Scroll fade-in effect
-onMounted(() => {
-  const el = aboutSection.value
-  const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            el.classList.remove('opacity-0', 'translate-y-6')
-            el.classList.add('opacity-100', 'translate-y-0')
-            observer.unobserve(el)
-          }
-        })
-      },
-      { threshold: 0.2 }
-  )
-  if (el) observer.observe(el)
-})
 </script>
 
 <style scoped>
-@keyframes slide-fade-enter {
+@keyframes moveStars {
   from {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-4px);
+    background-position: 0 0, 50px 50px;
   }
   to {
-    max-height: 1000px;
-    opacity: 1;
-    transform: translateY(0);
+    background-position: -1000px 1000px, -950px 1050px;
   }
+}
+
+.animate-stars {
+  background: radial-gradient(white 1px, transparent 1px),
+  radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.15;
 }
 
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: all 0.5s ease;
 }
-
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   max-height: 0;
@@ -151,3 +140,4 @@ onMounted(() => {
   overflow: hidden;
 }
 </style>
+
