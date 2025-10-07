@@ -24,7 +24,8 @@
 }
 /* src/main.css */
 body {
-  @apply bg-gradient-to-b from-indigo-950 via-purple-900 to-black text-white font-sans;
+  @apply text-white font-sans bg-black;
 }
+
 
 

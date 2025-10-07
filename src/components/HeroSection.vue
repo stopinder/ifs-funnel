@@ -67,20 +67,31 @@
 
 @keyframes moveStars {
   from {
-    background-position: 0 0, 50px 50px;
+    background-position: 0 0, 100px 100px;
   }
   to {
-    background-position: -1000px 1000px, -950px 1050px;
+    background-position: -500px 1000px, 500px -1000px;
   }
 }
-.animate-stars {
-  background: radial-gradient(white 1px, transparent 1px),
-  radial-gradient(white 1px, transparent 1px);
-  background-size: 100px 100px;
-  background-position: 0 0, 50px 50px;
-  animation: moveStars 60s linear infinite;
-  opacity: 0.2;
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.26; }
 }
+
+.animate-stars {
+  background:
+      radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+      radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+  background-size: 120px 120px;
+  background-position: 0 0, 100px 100px;
+  animation:
+      moveStars 90s linear infinite,
+      twinkle 4s ease-in-out infinite alternate;
+  opacity: 0.18;
+}
+
+
 </style>
 
 

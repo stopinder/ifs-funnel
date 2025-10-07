@@ -75,10 +75,10 @@
 .animate-stars {
   background: radial-gradient(white 1px, transparent 1px),
   radial-gradient(white 1px, transparent 1px);
-  background-size: 100px 100px;
+  background-size: 80px 80px;
   background-position: 0 0, 50px 50px;
-  animation: moveStars 60s linear infinite;
-  opacity: 0.10; /* Softer opacity for footer */
+  animation: moveStars 45s linear infinite;
+  opacity: 0.20; /* Softer opacity for footer */
 }
 </style>
 

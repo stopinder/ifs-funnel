@@ -111,31 +111,30 @@ const expanded = ref(false)
 <style scoped>
 @keyframes moveStars {
   from {
-    background-position: 0 0, 50px 50px;
+    background-position: 0 0, 100px 100px;
   }
   to {
-    background-position: -1000px 1000px, -950px 1050px;
+    background-position: -500px 1000px, 500px -1000px;
   }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.26; }
 }
 
 .animate-stars {
-  background: radial-gradient(white 1px, transparent 1px),
-  radial-gradient(white 1px, transparent 1px);
-  background-size: 100px 100px;
-  background-position: 0 0, 50px 50px;
-  animation: moveStars 60s linear infinite;
-  opacity: 0.15;
+  background:
+      radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+      radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+  background-size: 120px 120px;
+  background-position: 0 0, 100px 100px;
+  animation:
+      moveStars 90s linear infinite,
+      twinkle 4s ease-in-out infinite alternate;
+  opacity: 0.18;
 }
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.5s ease;
-}
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-}
+
 </style>
 
