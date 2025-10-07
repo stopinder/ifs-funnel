@@ -10,6 +10,7 @@
     <Testimonials />
     <SectionDivider />
     <ForTherapists />
+    <SectionDivider />
     <Footer />
   </main>
 </template>
