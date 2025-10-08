@@ -91,6 +91,23 @@
               clients and practitioners work with clarity while reducing the
               administrative and emotional burden of clinical practice.
             </p>
+            <hr class="my-8 border-slate-700 opacity-40" />
+
+            <p class="text-slate-300 leading-relaxed mt-6">
+              Over time, my focus has shifted from traditional talk therapy toward something quieter and more integrative.
+              What I’ve come to understand is that healing rarely comes from more words — it comes from how we pay attention.
+              This reflection has shaped how I now work with clients and therapists alike.
+            </p>
+
+            <p class="mt-4">
+              <a
+                  href="#philosophy"
+                  class="text-purple-300 hover:text-purple-200 underline/50 text-sm"
+              >
+                Read more about my philosophy of practice ↓
+              </a>
+            </p>
+
           </div>
         </transition>
       </div>

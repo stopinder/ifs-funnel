@@ -5,6 +5,8 @@
     <SectionDivider />
     <AboutMe />
     <SectionDivider />
+    <PhilosophyOfPractice />
+    <SectionDivider />
     <FaqSection />
     <SectionDivider />
     <Testimonials />
@@ -17,7 +19,7 @@
 
 <script setup>
 import ForTherapists from './components/ForTherapists.vue'
-
+import PhilosophyOfPractice from './components/PhilosophyOfPractice.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutMe from './components/AboutMe.vue'
