@@ -6,18 +6,20 @@
   >
     <h2 class="text-3xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
     <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-      Quick answers to common questions about IFS sessions and the AI reflection process.
+      Quick answers to common questions about Internal Family Systems (IFS) sessions and the reflective AI process.
     </p>
 
     <div class="space-y-6">
       <div
           v-for="(faq, index) in faqs"
           :key="index"
-          class="bg-gradient-to-b from-slate-900 via-purple-900/70 to-black border border-slate-800 rounded-xl p-6 sm:p-8 shadow-md"
+          class="bg-gradient-to-b from-slate-900 via-purple-800/60 to-black border border-slate-800 rounded-xl p-6 sm:p-8 shadow-md"
       >
         <button
+            role="button"
             @click="toggle(index)"
             @keyup.enter="toggle(index)"
+            tabindex="0"
             class="w-full flex justify-between items-center text-left focus:outline-none"
             :aria-expanded="faq.open.toString()"
             :aria-controls="'answer-' + index"
@@ -26,7 +28,7 @@
             {{ faq.question }}
           </span>
           <svg
-              :class="['w-5 h-5 transition-transform', faq.open ? 'rotate-180' : 'rotate-0']"
+              :class="['w-5 h-5 transition-transform text-purple-300', faq.open ? 'rotate-180' : 'rotate-0']"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -47,40 +49,47 @@
         </transition>
       </div>
     </div>
+
     <!-- Call to Action -->
     <div class="mt-12 text-center">
       <BookCta />
     </div>
-
   </section>
 </template>
 
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
 import BookCta from './BookCta.vue'
+
 const faqs = reactive([
   {
     question: 'What is Internal Family Systems (IFS)?',
     answer:
-        'Internal Family Systems is a therapeutic model that helps you understand the different “parts” within yourself — protectors, exiles, and managers — so that you can meet each with compassion and curiosity.',
+        'Internal Family Systems is a collaborative approach to understanding the many “parts” of your inner life — the protectors, the critics, the exiles, and the quieter places within you. Rather than analysing them, we learn to meet each one with curiosity and care, allowing the system to find its own balance.',
     open: false,
   },
   {
     question: 'What happens in a 50-minute IFS session?',
     answer:
-        'We begin with grounding, then explore the inner dialogue between your parts. You set the pace and depth. The goal is understanding, not analysis — a space where every part can be heard safely.',
+        'Each session begins with grounding and a brief check-in. From there, we follow your pace. Together we listen for what wants attention — not through performance or effort, but through noticing. The process is gentle, reflective, and guided by your sense of safety. Every part is welcome, and nothing is forced.',
     open: false,
   },
   {
     question: 'What is the AI Insight Report?',
     answer:
-        'After your session, a secure AI tool generates a reflective summary that I personally review and refine. It highlights patterns and insights to help you integrate what emerged.',
+        'After your session, a secure AI tool generates a reflective summary that I personally review and refine. It highlights themes and patterns to support integration — a mirror for meaning, not a replacement for human presence. You receive a concise reflection that helps you stay connected to what emerged in the work.',
     open: false,
   },
   {
     question: 'Is this confidential?',
     answer:
-        'Yes. All sessions follow standard clinical confidentiality. The AI-assisted report is stored securely and used only with your explicit consent.',
+        'Yes. All sessions follow the same standards of clinical confidentiality you would expect in psychotherapy. The AI-assisted reflection is stored securely, reviewed only by me, and created with your explicit consent. Your material is never shared or used beyond your own therapeutic process.',
+    open: false,
+  },
+  {
+    question: 'Do I need to have therapy experience to benefit from this work?',
+    answer:
+        'No. Some people come with years of therapeutic experience; others are simply curious about self-understanding. This work meets you where you are. What matters most is your willingness to pay quiet attention to what arises.',
     open: false,
   },
 ])
@@ -119,5 +128,11 @@ onMounted(() => {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide-fade-enter-active,
+  .slide-fade-leave-active {
+    transition: none;
+  }
 }
 </style>

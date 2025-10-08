@@ -14,6 +14,12 @@
         an inquiry into attention itself. The following reflection captures the essence of that shift.
       </p>
 
+      <p>
+        My approach weaves psychological precision with embodied presence. I work briefly and integratively,
+        helping people reconnect with the steady attention that underlies real change.
+        Talking alone can open awareness; presence makes it real.
+      </p>
+
       <h3 class="text-xl font-semibold text-purple-300 mt-10">
         🌾 Why Talking Therapy No Longer Works the Way We Think It Does
       </h3>
@@ -35,6 +41,10 @@
         Attention is the first movement of love — how we meet experience before we interpret it.
         When attention becomes coherent, the nervous system regulates, thought quiets, and emotion finds its natural pulse.
       </p>
+      <p>
+        Attention, when embodied, becomes its own method — a way of listening that precedes words.
+        This is where my approach to IFS diverges slightly from how it’s often taught.
+      </p>
 
       <h3 class="text-xl font-semibold text-purple-300 mt-10">
         🍂 From Parts Work to Wholeness Work
@@ -42,10 +52,31 @@
       <p>
         I still draw on Internal Family Systems — but as a short, catalytic process, not a lifelong excavation.
         A few conversations can reveal the architecture of the inner world: the critic, the controller, the weary child, the rescuer.
-        Once they’re seen, the aim is not to catalogue them endlessly but to listen through them.
+        Once they’re seen, the task is not to catalogue them endlessly but to listen through them.
       </p>
       <p>
         IFS becomes the doorway, not the dwelling. The true movement is from working on parts to living from the wholeness that already holds them.
+      </p>
+
+      <h3 class="text-xl font-semibold text-purple-300 mt-10">
+        🌿 Embodied, Not Performed
+      </h3>
+      <p>
+        Although my work draws from Internal Family Systems (IFS), I hold the process lightly.
+        I’m not drawn to the theatrical or overly scripted versions of parts work often seen in demonstrations.
+        In my experience, genuine transformation doesn’t come from acting out inner roles, but from learning to
+        <span class="italic">listen through</span> them — to sense how each part lives in the body, in breath, in subtle shifts of tone or temperature.
+      </p>
+      <p>
+        In practice, IFS becomes a quiet, embodied dialogue.<br />
+        It doesn’t require performance, only presence: the willingness
+        to stay with what is real rather than what is rehearsed. Protectors, exiles, and critics all reveal themselves more
+        truthfully in silence than in speech.<br />
+        When we stop performing our inner life, it begins to move again — slowly, honestly,
+        and in rhythm with the body’s own intelligence.
+      </p>
+      <p>
+        Real change, I believe, begins there: not in display, but in depth; not in drama, but in the steady work of attention.
       </p>
 
       <h3 class="text-xl font-semibold text-purple-300 mt-10">
@@ -64,8 +95,9 @@
         🌾 How We Might Work Together
       </h3>
       <p>
-        My work now is brief, integrative, and alive — a meeting or two, perhaps a small arc of sessions,
-        focused on helping you realign attention itself. Together we might clarify which parts still over-function or over-guard,
+        My work now is brief, integrative, and alive to what’s immediate — a meeting or two, perhaps a small arc of sessions,
+        focused on helping you realign attention itself.<br />
+        Together we might clarify which parts still over-function or over-guard,
         notice where thought overrides sensation, and re-tune attention so that the whole system can breathe again.
       </p>
 
@@ -88,8 +120,8 @@
       </p>
       <p>
         You don’t have to keep orbiting your story.
-        You can return to gravity, to ground, to breath.
-        Healing begins when talking ends and attention begins.
+        You can return to gravity, to ground, to breath.<br />
+        Healing begins when words fall quiet and attention begins.
       </p>
 
       <p class="mt-10 text-slate-400 text-sm italic text-center">

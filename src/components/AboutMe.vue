@@ -35,15 +35,16 @@
         </p>
 
         <p class="text-slate-200 mb-8 leading-relaxed">
-          My work is shaped by
+          Informed by
           <span class="italic" itemprop="knowsAbout">Internal Family Systems (IFS)</span>
           and
-          <span class="italic" itemprop="knowsAbout">EMDR</span>, and grounded in a
-          belief that healing happens through relationship — with ourselves and with one
-          another. I bring a reflective, symbolic, and relational approach: one that
-          holds both the science of trauma and the poetry of meaning. My intention is to
-          offer spaces of clarity, containment, and authentic connection.
+          <span class="italic" itemprop="knowsAbout">EMDR</span>, my work rests on a simple
+          premise: healing grows where safety and awareness meet. I bring a reflective,
+          symbolic, and integrative approach — one that holds both the science of trauma and
+          the poetry of meaning — and I aim to offer a grounded space where clarity,
+          coherence, and genuine connection can emerge in their own time.
         </p>
+
 
         <!-- TOGGLE BUTTON -->
         <button
@@ -62,34 +63,59 @@
               id="fullBio"
               class="mt-8 space-y-4 text-slate-300 leading-relaxed"
           >
-            <p>
-              My early clinical career was shaped by the transformation of psychiatric
-              services in the UK. I worked on commissioning teams for several landmark
-              projects — including the first psychiatric intensive care unit at Hackney
-              Hospital, a community mental health hospital in East Sussex, and the
-              mental-health unit at St Bartholomew’s Hospital under Professor
-              Silverstone.
+            <p class="text-slate-200 mb-8 leading-relaxed">
+              My early clinical career unfolded during a period of profound transformation in psychiatric care across the UK.
+              I worked on commissioning teams for several landmark projects that reshaped how mental-health services were delivered.
+              These included the creation of the
+              <span class="italic">first Psychiatric Intensive Care Unit (PICU) at Hackney Hospital</span>,
+              the establishment of the
+              <span class="italic">first community mental-health hospital in East Sussex</span>,
+              and the development of the
+              <span class="italic">first dedicated mental-health unit at St Bartholomew’s Hospital, London</span> —
+              the first in the hospital’s long history.
             </p>
-            <p>
-              At St Bart’s, I contributed to the pioneering
-              <span class="italic">Project 2000 Nursing Curriculum</span>, integrating
-              counselling and psychological models into traditionally custodial
-              environments. These experiences deepened my belief that meaningful change
-              begins in relationship — whether within systems or within the self.
+
+            <p class="text-slate-200 mb-8 leading-relaxed">
+              At St Bartholomew’s, I contributed to the pioneering
+              <span class="italic">Project 2000 Nursing Curriculum</span>
+              under Professor Silverstone, integrating counselling and psychological models into traditionally custodial,
+              medically dominated environments.
+              These experiences deepened my conviction that meaningful change begins in relationship —
+              whether within large healthcare systems or within the psyche itself.
             </p>
-            <p>
-              During the pandemic, I began bridging psychotherapy and technology,
-              becoming a prompt engineer and full-stack developer. I now build
-              AI-powered therapeutic tools, develop container-based applications for
-              clinicians, and contribute to the evolving field of human–AI integration in
-              mental health.
+
+            <p class="text-slate-200 mb-8 leading-relaxed">
+              Alongside clinical work, I participated in
+              <span class="italic">international forums on eating disorders</span>
+              and helped inform
+              <span class="italic">policy development at clinical levels</span>,
+              contributing to discussions on early intervention, somatic integration, and the ethics of care.
+              These cross-disciplinary collaborations strengthened my belief that genuine innovation in mental health arises
+              through cooperation — between professions, between ideas, and between human beings.
             </p>
-            <p>
+
+            <p class="text-slate-200 mb-8 leading-relaxed">
+              During the pandemic, my focus evolved toward bridging psychotherapy and technology.
+              I trained as a
+              <span class="italic">prompt engineer and full-stack developer</span>,
+              designing <span class="italic">AI-powered therapeutic tools</span> and
+              <span class="italic">container-based applications for clinicians</span>.
+              My current work explores how digital systems can support reflection,
+              streamline clinical administration, and protect the human presence at the heart of care.
+              The goal remains the same as ever: to create structures — human or digital —
+              that make room for presence, not replace it.
+            </p>
+
+            <p class="text-slate-200 mb-8 leading-relaxed">
               I am a registered member of the
-              <span class="font-semibold">British Association for Counselling and Psychotherapy (BACP)</span>
-              and remain dedicated to reflective, trauma-informed care — helping both
-              clients and practitioners work with clarity while reducing the
-              administrative and emotional burden of clinical practice.
+              <span class="italic" itemprop="affiliation">British Association for Counselling and Psychotherapy (BACP)</span>
+              and remain committed to reflective, trauma-informed practice.
+              My orientation integrates
+              <span class="italic" itemprop="knowsAbout">Internal Family Systems (IFS)</span>,
+              <span class="italic" itemprop="knowsAbout">EMDR</span>, and symbolic-relational approaches —
+              bringing together the science of trauma and the poetry of meaning.
+              Across every phase of my work — from hospitals to code — my aim has remained constant:
+              to help both clients and practitioners work with clarity, coherence, and compassion.
             </p>
             <hr class="my-8 border-slate-700 opacity-40" />
 
@@ -140,17 +166,45 @@ const expanded = ref(false)
   50% { opacity: 0.26; }
 }
 
+/* 🌟 Three-Layer Golden Starfield */
 .animate-stars {
   background:
-      radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1px),
-      radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px);
-  background-size: 120px 120px;
-  background-position: 0 0, 100px 100px;
+    /* Foreground stars – bright gold */
+      radial-gradient(rgba(255, 230, 150, 0.9) 1px, transparent 1px),
+        /* Midground stars – softer gold */
+      radial-gradient(rgba(255, 215, 100, 0.7) 1px, transparent 1px),
+        /* Background stars – faint champagne tone */
+      radial-gradient(rgba(255, 200, 80, 0.5) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 200px 200px;
+  background-position: 0 0, 100px 100px, 200px 200px;
   animation:
-      moveStars 90s linear infinite,
+      moveStars1 60s linear infinite,
+      moveStars2 120s linear infinite,
+      moveStars3 180s linear infinite,
       twinkle 4s ease-in-out infinite alternate;
   opacity: 0.18;
 }
+
+/* 🌌 Layer movement animations */
+@keyframes moveStars1 {
+  from { background-position: 0 0, 100px 100px, 200px 200px; }
+  to   { background-position: -600px 800px, 100px 100px, 200px 200px; }
+}
+@keyframes moveStars2 {
+  from { background-position: 0 0, 100px 100px, 200px 200px; }
+  to   { background-position: 0 0, -400px 900px, 200px 200px; }
+}
+@keyframes moveStars3 {
+  from { background-position: 0 0, 100px 100px, 200px 200px; }
+  to   { background-position: 0 0, 100px 100px, -300px 700px; }
+}
+
+/* ✨ Gentle shimmer animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}
+
 
 
 </style>

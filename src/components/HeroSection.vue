@@ -87,24 +87,43 @@
   50% { opacity: 0.26; }
 }
 
+/* 🌟 Three-Layer Golden Starfield */
 .animate-stars {
   background:
-      radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1px),
-      radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px);
-  background-size: 120px 120px;
-  background-position: 0 0, 100px 100px;
+    /* Foreground stars – bright gold */
+      radial-gradient(rgba(255, 230, 150, 0.9) 1px, transparent 1px),
+        /* Midground stars – softer gold */
+      radial-gradient(rgba(255, 215, 100, 0.7) 1px, transparent 1px),
+        /* Background stars – faint champagne tone */
+      radial-gradient(rgba(255, 200, 80, 0.5) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 200px 200px;
+  background-position: 0 0, 100px 100px, 200px 200px;
   animation:
-      moveStars 90s linear infinite,
+      moveStars1 60s linear infinite,
+      moveStars2 120s linear infinite,
+      moveStars3 180s linear infinite,
       twinkle 4s ease-in-out infinite alternate;
   opacity: 0.18;
 }
 
-/* Optional gradient overlay for readability */
-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
-  z-index: 1;
+/* 🌌 Layer movement animations */
+@keyframes moveStars1 {
+  from { background-position: 0 0, 100px 100px, 200px 200px; }
+  to   { background-position: -600px 800px, 100px 100px, 200px 200px; }
 }
+@keyframes moveStars2 {
+  from { background-position: 0 0, 100px 100px, 200px 200px; }
+  to   { background-position: 0 0, -400px 900px, 200px 200px; }
+}
+@keyframes moveStars3 {
+  from { background-position: 0 0, 100px 100px, 200px 200px; }
+  to   { background-position: 0 0, 100px 100px, -300px 700px; }
+}
+
+/* ✨ Gentle shimmer animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}
+
 </style>
