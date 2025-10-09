@@ -10,7 +10,7 @@
     <!-- MAIN CONTENT -->
     <div class="relative z-10 space-y-6 py-24 sm:py-32">
       <h1 class="text-4xl sm:text-6xl font-bold leading-tight max-w-3xl mx-auto">
-        50-Minute IFS Session + Personalized Insight Report
+        50-Minute IFS Session + Personalised Insight Report
       </h1>
 
       <p class="text-lg sm:text-xl max-w-xl mx-auto text-slate-300">
@@ -26,18 +26,15 @@
       <div class="mt-8 flex flex-col items-center space-y-3">
 
         <!-- Main Button -->
-        <a
-            href="https://calendly.com/robormiston/new-meeting-3"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
+        <a href="#book-cta">
           <button
               class="bg-white text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-slate-200 transition
-                   animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
+           animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
           >
             Book Your Session
           </button>
         </a>
+
 
         <!-- Sample Report Link -->
         <a

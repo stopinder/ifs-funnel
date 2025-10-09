@@ -1,36 +1,50 @@
+# src/App.vue
+```vue
 <template>
-  <main>
+  <div>
+    <!-- Navigation -->
     <NavBar />
-    <HeroSection />
-    <SectionDivider />
-    <AboutMe />
-    <SectionDivider />
-    <PhilosophyOfPractice />
-    <SectionDivider />
-    <FaqSection />
-    <SectionDivider />
-    <Testimonials />
-    <SectionDivider />
-    <ForTherapists />
-    <SectionDivider />
+
+    <!-- Main Content Wrapper -->
+    <main>
+      <HeroSection />
+      <SectionDivider />
+      <AboutMe />
+      <SectionDivider />
+      <PhilosophyOfPractice />
+      <SectionDivider />
+      <OfferSection />
+      <SectionDivider />
+      <FaqSection />
+      <SectionDivider />
+      <Testimonials />
+      <SectionDivider />
+      <ForTherapists />
+      <SectionDivider />
+    </main>
+
+    <!-- Footer -->
     <Footer />
-  </main>
+  </div>
 </template>
 
 <script setup>
-import ForTherapists from './components/ForTherapists.vue'
-import PhilosophyOfPractice from './components/PhilosophyOfPractice.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
+import SectionDivider from './components/SectionDivider.vue'
 import AboutMe from './components/AboutMe.vue'
+import PhilosophyOfPractice from './components/PhilosophyOfPractice.vue'
+import OfferSection from './components/OfferSection.vue'
 import FaqSection from './components/FaqSection.vue'
 import Testimonials from './components/Testimonials.vue'
-import SectionDivider from './components/SectionDivider.vue'
+import ForTherapists from './components/ForTherapists.vue'
 import Footer from './components/Footer.vue'
+// BookCTA import removed to eliminate duplicate booking section
 </script>
 
-
-
-
-
-
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+</style>

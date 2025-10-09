@@ -24,10 +24,7 @@
         </footer>
       </article>
     </div>
-    <!-- Call to Action -->
-    <div class="mt-12 text-center">
-      <BookCta />
-    </div>
+
 
   </section>
 </template>
