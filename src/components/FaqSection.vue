@@ -1,63 +1,73 @@
 <template>
   <section
       id="faq"
-      class="px-6 py-24 max-w-5xl mx-auto text-white opacity-0 translate-y-6 transition-all duration-700 ease-out"
       ref="faqSection"
+      class="relative px-6 py-24 max-w-5xl mx-auto text-slate-100 opacity-0 translate-y-6 transition-all duration-700 ease-out"
   >
-    <h2 class="text-3xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
-    <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-      Quick answers to common questions about Internal Family Systems (IFS) sessions and the reflective AI process.
-    </p>
+    <!-- Soft navy gradient background -->
+    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#24263e]/80 to-[#181a2f]"></div>
 
-    <div class="space-y-6">
-      <div
-          v-for="(faq, index) in faqs"
-          :key="index"
-          class="bg-gradient-to-b from-slate-900 via-purple-800/60 to-black border border-slate-800 rounded-xl p-6 sm:p-8 shadow-md"
-      >
-        <button
-            role="button"
-            @click="toggle(index)"
-            @keyup.enter="toggle(index)"
-            tabindex="0"
-            class="w-full flex justify-between items-center text-left focus:outline-none"
-            :aria-expanded="faq.open.toString()"
-            :aria-controls="'answer-' + index"
+    <!-- Gentle radial glow -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-[radial-gradient(circle_at_top_center,rgba(212,165,93,0.06),transparent_80%)] blur-3xl z-0"
+        aria-hidden="true"
+    ></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10">
+      <h2 class="text-3xl font-serif font-semibold mb-4 text-center text-amber-100">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-slate-300 text-center mb-12 max-w-2xl mx-auto">
+        Responses to common questions about Internal Family Systems sessions and the reflective report process.
+      </p>
+
+      <div class="space-y-6">
+        <div
+            v-for="(faq, index) in faqs"
+            :key="index"
+            class="bg-slate-800/40 border border-amber-100/10 rounded-2xl p-6 sm:p-8 shadow-md backdrop-blur-sm hover:bg-slate-800/60 transition-colors"
         >
-          <span class="text-lg font-semibold text-slate-100">
-            {{ faq.question }}
-          </span>
-          <svg
-              :class="['w-5 h-5 transition-transform text-purple-300', faq.open ? 'rotate-180' : 'rotate-0']"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <button
+              role="button"
+              @click="toggle(index)"
+              @keyup.enter="toggle(index)"
+              tabindex="0"
+              class="w-full flex justify-between items-center text-left focus:outline-none"
+              :aria-expanded="faq.open.toString()"
+              :aria-controls="'answer-' + index"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+            <span class="text-lg font-semibold text-slate-100 font-serif">
+              {{ faq.question }}
+            </span>
+            <svg
+                :class="['w-5 h-5 transition-transform text-amber-300', faq.open ? 'rotate-180' : 'rotate-0']"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-        <transition name="slide-fade">
-          <div
-              v-if="faq.open"
-              :id="'answer-' + index"
-              class="mt-4 text-slate-300 leading-relaxed"
-          >
-            <p>{{ faq.answer }}</p>
-          </div>
-        </transition>
+          <transition name="slide-fade">
+            <div
+                v-if="faq.open"
+                :id="'answer-' + index"
+                class="mt-4 text-slate-300 leading-relaxed font-inter"
+            >
+              <p>{{ faq.answer }}</p>
+            </div>
+          </transition>
+        </div>
       </div>
     </div>
-
-
-
   </section>
 </template>
 
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
-
 
 const faqs = reactive([
   {
@@ -73,15 +83,15 @@ const faqs = reactive([
     open: false,
   },
   {
-    question: 'What is the AI Insight Report?',
+    question: 'What is the Insight Report?',
     answer:
-        'After your session, a secure AI tool generates a reflective summary that I personally review and refine. It highlights themes and patterns to support integration — a mirror for meaning, not a replacement for human presence. You receive a concise reflection that helps you stay connected to what emerged in the work.',
+        'After your session, I prepare a reflective summary supported by a professional Thought Assistant. It highlights themes and patterns to support integration — a mirror for meaning, not a replacement for human presence. You receive a concise reflection that helps you stay connected to what emerged in the work.',
     open: false,
   },
   {
     question: 'Is this confidential?',
     answer:
-        'Yes. All sessions follow the same standards of clinical confidentiality you would expect in psychotherapy. The AI-assisted reflection is stored securely, reviewed only by me, and created with your explicit consent. Your material is never shared or used beyond your own therapeutic process.',
+        'Yes. All sessions follow the same standards of clinical confidentiality you would expect in psychotherapy. The reflective summary is stored securely, reviewed only by me, and created with your explicit consent. Your material is never shared or used beyond your own therapeutic process.',
     open: false,
   },
   {
@@ -127,6 +137,13 @@ onMounted(() => {
   opacity: 0;
   overflow: hidden;
 }
+h2 {
+  font-family: Lora, Georgia, serif;
+}
+p,
+button {
+  font-family: Inter, system-ui, sans-serif;
+}
 @media (prefers-reduced-motion: reduce) {
   .slide-fade-enter-active,
   .slide-fade-leave-active {
@@ -134,3 +151,4 @@ onMounted(() => {
   }
 }
 </style>
+

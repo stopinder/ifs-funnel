@@ -33,6 +33,7 @@ import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import SectionDivider from './components/SectionDivider.vue'
 import AboutMe from './components/AboutMe.vue'
+
 import PhilosophyOfPractice from './components/PhilosophyOfPractice.vue'
 import OfferSection from './components/OfferSection.vue'
 import FaqSection from './components/FaqSection.vue'
@@ -43,8 +44,11 @@ import Footer from './components/Footer.vue'
 </script>
 
 <style>
-body {
+body,
+main {
+  background-color: #1e213b; /* same as your navy */
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  padding: 0;
 }
+
 </style>

@@ -1,54 +1,35 @@
 <template>
-  <section
-      id="hero"
-      class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 text-white overflow-hidden
-           bg-gradient-to-b from-indigo-950 via-purple-900 to-black"
-  >
-    <!-- ⭐ STARFIELD BACKGROUND -->
-    <div class="absolute inset-0 z-0 animate-stars pointer-events-none"></div>
+  <section id="hero" class="hero-section">
+    <!-- Background overlay -->
+    <div class="overlay" aria-hidden="true"></div>
 
-    <!-- MAIN CONTENT -->
-    <div class="relative z-10 space-y-6 py-24 sm:py-32">
-      <h1 class="text-4xl sm:text-6xl font-bold leading-tight max-w-3xl mx-auto">
-        50-Minute IFS Session + Personalised Insight Report
+    <!-- Main content -->
+    <div class="hero-content">
+      <h1 class="headline">
+        Psychotherapy for Clarity, Integration, and Renewal
       </h1>
 
-      <p class="text-lg sm:text-xl max-w-xl mx-auto text-slate-300">
-        A deeply reflective Internal Family Systems session — followed by a therapist-curated,
-        AI-assisted reflection designed to help you understand your inner world with clarity and compassion.
+      <p class="intro">
+        Each 50-minute session offers a calm, structured space to explore what’s unfolding within.
+        Drawing from Internal Family Systems and EMDR-informed practice, the work supports emotional
+        balance and lasting change.
       </p>
 
-      <p class="text-base text-slate-400 max-w-lg mx-auto italic">
-        For those ready to listen inward — and meet every part with understanding.
+      <p class="subtext">
+        Thoughtfully prepared written reflections provide a bridge between sessions —
+        a grounded way to keep the insights alive.
       </p>
 
-      <!-- CTA Block -->
-      <div class="mt-8 flex flex-col items-center space-y-3">
-
-        <!-- Main Button -->
-        <a href="#book-cta">
-          <button
-              class="bg-white text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-slate-200 transition
-           animate-subtle-bounce shadow-lg hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/40"
-          >
-            Book Your Session
-          </button>
-        </a>
-
-
-        <!-- Sample Report Link -->
-        <a
-            href="/report-sample.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-purple-300 hover:text-purple-200 underline/50"
-        >
-          See a sample Insight Report →
-        </a>
-
+      <div class="cta">
+        <a href="#book-cta" class="btn btn-primary" aria-label="Book a therapy session">Book a Session</a>
+        <a href="#approach" class="btn btn-secondary" aria-label="Learn more about this approach">Learn More</a>
       </div>
     </div>
+
+    <!-- Soft fade into next section -->
+    <div class="hero-fade" aria-hidden="true"></div>
   </section>
+
 </template>
 
 <script setup>
@@ -56,71 +37,163 @@
 </script>
 
 <style scoped>
-/* ✨ Subtle bounce animation for CTA button */
-@keyframes subtle-bounce {
-  0%, 100% {
-    transform: translateY(0);
+:root {
+  --navH: 64px;
+  --gold: #d4a55d;
+  --goldH: #c49746;
+  --navy: #1e213b;
+}
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  height: calc(100vh - var(--navH)); /* fill screen minus navbar height */
+  min-height: 600px; /* safety floor for smaller screens */
+  background: url("/misty-path.jpg") center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f8f7f4;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0 1.5rem;
+}
+
+/* Overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at center,
+      rgba(30,33,59,0.45) 0%,
+      rgba(30,33,59,0.75) 80%
+  );
+  backdrop-filter: contrast(1.1) saturate(1.1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* CONTENT BLOCK */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding: 2rem;
+  background: rgba(30, 33, 59, 0.3); /* gentle contrast */
+  border-radius: 8px;
+  transform: translateY(-5vh);
+}
+
+/* TEXT HIERARCHY */
+.headline {
+  font-family: Lora, Georgia, serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  line-height: 1.25;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+/* Elegant gold underline */
+.headline::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 0.8rem auto 1.5rem;
+}
+
+.intro {
+  font-size: 1.15rem;
+  color: #f0f0f0;
+  line-height: 1.7;
+  margin: 0 auto 1.2rem;
+}
+
+.subtext {
+  font-size: 1rem;
+  color: #e2e2e2;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* CTA BUTTONS */
+.cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--goldH);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
+}
+
+.btn-secondary {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: rgba(30, 33, 59, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary:hover {
+  background: rgba(30, 33, 59, 0.6);
+}
+/* ---------- HERO → NEXT SECTION FADE ---------- */
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px; /* adjust to taste: 100–180px */
+  background: linear-gradient(
+      to bottom,
+      rgba(30, 33, 59, 0) 0%,
+      rgba(30, 33, 59, 0.4) 40%,
+      rgba(30, 33, 59, 0.9) 100%
+  );
+  pointer-events: none;
+  z-index: 2; /* sits above .overlay (z:0) and below .hero-content (z:1)? see Step 3 */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-section {
+    height: calc(100vh - 56px);
+    min-height: 480px;
   }
-  50% {
-    transform: translateY(4px);
+  .hero-content {
+    padding: 1.5rem;
+    transform: translateY(-3vh);
+  }
+  .headline {
+    font-size: 1.9rem;
+  }
+  .intro,
+  .subtext {
+    font-size: 1rem;
   }
 }
-.animate-subtle-bounce {
-  animation: subtle-bounce 3.5s ease-in-out infinite;
-}
-
-/* 🌌 Starfield background animations */
-@keyframes moveStars {
-  from {
-    background-position: 0 0, 100px 100px;
-  }
-  to {
-    background-position: -500px 1000px, 500px -1000px;
-  }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.18; }
-  50% { opacity: 0.26; }
-}
-
-/* 🌟 Three-Layer Golden Starfield */
-.animate-stars {
-  background:
-    /* Foreground stars – bright gold */
-      radial-gradient(rgba(255, 230, 150, 0.9) 1px, transparent 1px),
-        /* Midground stars – softer gold */
-      radial-gradient(rgba(255, 215, 100, 0.7) 1px, transparent 1px),
-        /* Background stars – faint champagne tone */
-      radial-gradient(rgba(255, 200, 80, 0.5) 1px, transparent 1px);
-  background-size: 80px 80px, 120px 120px, 200px 200px;
-  background-position: 0 0, 100px 100px, 200px 200px;
-  animation:
-      moveStars1 60s linear infinite,
-      moveStars2 120s linear infinite,
-      moveStars3 180s linear infinite,
-      twinkle 4s ease-in-out infinite alternate;
-  opacity: 0.18;
-}
-
-/* 🌌 Layer movement animations */
-@keyframes moveStars1 {
-  from { background-position: 0 0, 100px 100px, 200px 200px; }
-  to   { background-position: -600px 800px, 100px 100px, 200px 200px; }
-}
-@keyframes moveStars2 {
-  from { background-position: 0 0, 100px 100px, 200px 200px; }
-  to   { background-position: 0 0, -400px 900px, 200px 200px; }
-}
-@keyframes moveStars3 {
-  from { background-position: 0 0, 100px 100px, 200px 200px; }
-  to   { background-position: 0 0, 100px 100px, -300px 700px; }
-}
-
-/* ✨ Gentle shimmer animation */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.25; }
-}
-
 </style>
