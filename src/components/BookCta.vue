@@ -2,8 +2,9 @@
   <section
       id="book-cta"
       ref="cta"
-      class="text-center py-16 bg-gradient-to-r from-midnight to-slate-900 text-white space-y-6 opacity-0 transition-opacity duration-1000 ease-out"
+      class="relative text-center py-16 text-white space-y-6 opacity-0 transition-opacity duration-1000 ease-out bg-cover bg-center"
       :class="{ 'opacity-100': visible }"
+      style="background-image: url('/moon-pink.jpg');"
   >
     <h2 class="text-3xl font-bold">50-Minute IFS Session</h2>
     <p class="text-lg">£95 per session</p>
@@ -14,7 +15,7 @@
         rel="noopener noreferrer"
     >
       <button
-          class="bg-purple-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-purple-700 transition shadow-lg shadow-purple-500/40 focus:outline-none focus:ring-4 focus:ring-purple-500/50"
+          class="bg-white text-black font-medium px-6 py-3 rounded-full mt-6 focus:outline-none focus:ring-2 focus:ring-gray-600/50"
       >
         Book Your Session
       </button>
@@ -33,6 +34,29 @@
     </a>
   </section>
 </template>
+
+<style scoped>
+#book-cta::before,
+#book-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#book-cta::before {
+  top: 0;
+  background: linear-gradient(to bottom, #0f172a, transparent); /* from-midnight to transparent */
+}
+
+#book-cta::after {
+  bottom: 0;
+  background: linear-gradient(to top, #0f172a, transparent); /* from-midnight to transparent */
+}
+</style>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'

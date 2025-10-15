@@ -27,9 +27,7 @@
         </a>
 
         <!-- Smooth scroll to approach section -->
-        <a href="#approach" class="btn btn-secondary" aria-label="Scroll to learn more about this approach">
-          Learn More
-        </a>
+
       </div>
     </div>
 
