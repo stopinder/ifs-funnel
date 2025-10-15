@@ -1,5 +1,3 @@
-# src/App.vue
-```vue
 <template>
   <div>
     <!-- Navigation -->
@@ -16,6 +14,13 @@
       <OfferSection />
       <SectionDivider />
       <FaqSection />
+
+      <!-- Divider before CTA -->
+      <SectionDivider />
+
+      <!-- Book CTA (target for smooth scroll) -->
+      <BookCta />
+
       <SectionDivider />
       <Testimonials />
       <SectionDivider />
@@ -31,16 +36,15 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
+import BookCta from './components/BookCta.vue'
 import SectionDivider from './components/SectionDivider.vue'
 import AboutMe from './components/AboutMe.vue'
-
 import PhilosophyOfPractice from './components/PhilosophyOfPractice.vue'
 import OfferSection from './components/OfferSection.vue'
 import FaqSection from './components/FaqSection.vue'
 import Testimonials from './components/Testimonials.vue'
 import ForTherapists from './components/ForTherapists.vue'
 import Footer from './components/Footer.vue'
-// BookCTA import removed to eliminate duplicate booking section
 </script>
 
 <style>
@@ -50,5 +54,4 @@ main {
   margin: 0;
   padding: 0;
 }
-
 </style>

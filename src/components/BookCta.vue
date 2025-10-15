@@ -1,10 +1,9 @@
-# src/components/bookcta.vue
-```vue
 <template>
-  <!-- Booking CTA Section -->
   <section
       id="book-cta"
-      class="text-center py-16 bg-gradient-to-r from-midnight to-slate-900 text-white space-y-6"
+      ref="cta"
+      class="text-center py-16 bg-gradient-to-r from-midnight to-slate-900 text-white space-y-6 opacity-0 transition-opacity duration-1000 ease-out"
+      :class="{ 'opacity-100': visible }"
   >
     <h2 class="text-3xl font-bold">50-Minute IFS Session</h2>
     <p class="text-lg">£95 per session</p>
@@ -36,9 +35,24 @@
 </template>
 
 <script setup>
-// No imports needed here
-</script>
+import { ref, onMounted, onUnmounted } from 'vue'
 
-<style scoped>
-/* CTA-specific styling */
-</style>
+const cta = ref(null)
+const visible = ref(false)
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          visible.value = true
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.25 }
+  )
+
+  if (cta.value) observer.observe(cta.value)
+
+  onUnmounted(() => observer.disconnect())
+})
+</script>

@@ -21,19 +21,25 @@
       </p>
 
       <div class="cta">
-        <a href="#book-cta" class="btn btn-primary" aria-label="Book a therapy session">Book a Session</a>
-        <a href="#approach" class="btn btn-secondary" aria-label="Learn more about this approach">Learn More</a>
+        <!-- Smooth scroll to Book CTA section -->
+        <a href="#book-cta" class="btn btn-primary" aria-label="Scroll to booking section and book a therapy session">
+          Book a Session
+        </a>
+
+        <!-- Smooth scroll to approach section -->
+        <a href="#approach" class="btn btn-secondary" aria-label="Scroll to learn more about this approach">
+          Learn More
+        </a>
       </div>
     </div>
 
     <!-- Soft fade into next section -->
     <div class="hero-fade" aria-hidden="true"></div>
   </section>
-
 </template>
 
 <script setup>
-// no script needed here yet
+// no script needed here
 </script>
 
 <style scoped>
@@ -47,8 +53,8 @@
 /* HERO SECTION */
 .hero-section {
   position: relative;
-  height: calc(100vh - var(--navH)); /* fill screen minus navbar height */
-  min-height: 600px; /* safety floor for smaller screens */
+  height: calc(100vh - var(--navH));
+  min-height: 600px;
   background: url("/misty-path.jpg") center center / cover no-repeat;
   display: flex;
   align-items: center;
@@ -60,33 +66,25 @@
   padding: 0 1.5rem;
 }
 
-/* Overlay for readability */
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-      circle at center,
-      rgba(30,33,59,0.45) 0%,
-      rgba(30,33,59,0.75) 80%
-  );
+  background: radial-gradient(circle at center, rgba(30, 33, 59, 0.45) 0%, rgba(30, 33, 59, 0.75) 80%);
   backdrop-filter: contrast(1.1) saturate(1.1);
   z-index: 0;
   pointer-events: none;
 }
 
-
-/* CONTENT BLOCK */
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 680px;
   padding: 2rem;
-  background: rgba(30, 33, 59, 0.3); /* gentle contrast */
+  background: rgba(30, 33, 59, 0.3);
   border-radius: 8px;
   transform: translateY(-5vh);
 }
 
-/* TEXT HIERARCHY */
 .headline {
   font-family: Lora, Georgia, serif;
   font-size: clamp(2.4rem, 4.5vw, 3.6rem);
@@ -97,7 +95,6 @@
   position: relative;
 }
 
-/* Elegant gold underline */
 .headline::after {
   content: "";
   display: block;
@@ -123,7 +120,6 @@
   margin-bottom: 2rem;
 }
 
-/* CTA BUTTONS */
 .cta {
   display: flex;
   justify-content: center;
@@ -161,36 +157,33 @@
 .btn-secondary:hover {
   background: rgba(30, 33, 59, 0.6);
 }
-/* ---------- HERO → NEXT SECTION FADE ---------- */
+
 .hero-fade {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 140px; /* adjust to taste: 100–180px */
-  background: linear-gradient(
-      to bottom,
-      rgba(30, 33, 59, 0) 0%,
-      rgba(30, 33, 59, 0.4) 40%,
-      rgba(30, 33, 59, 0.9) 100%
-  );
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(30, 33, 59, 0) 0%, rgba(30, 33, 59, 0.4) 40%, rgba(30, 33, 59, 0.9) 100%);
   pointer-events: none;
-  z-index: 2; /* sits above .overlay (z:0) and below .hero-content (z:1)? see Step 3 */
+  z-index: 2;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-section {
     height: calc(100vh - 56px);
     min-height: 480px;
   }
+
   .hero-content {
     padding: 1.5rem;
     transform: translateY(-3vh);
   }
+
   .headline {
     font-size: 1.9rem;
   }
+
   .intro,
   .subtext {
     font-size: 1rem;
