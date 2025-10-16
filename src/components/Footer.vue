@@ -28,10 +28,43 @@
           </a>
           · Confidential & Secure
         </p>
+
+        <p>
+          Graduate of the
+          <a
+              href="https://www.chi.ac.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-300 hover:text-slate-100 underline/50"
+          >
+            University of Chichester
+          </a>
+          · Trained at
+          <a
+              href="https://www.syzygy.org.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-300 hover:text-slate-100 underline/50"
+          >
+            SYZERGY
+          </a>
+          · EMDR trained with
+          <a
+              href="https://emdrmasterclass.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-300 hover:text-slate-100 underline/50"
+          >
+            EMDR Masterclass
+          </a>
+        </p>
+
         <p>
           © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy Services · All rights reserved
         </p>
       </div>
+
+
 
       <!-- Column 2: Chrysalis logo -->
       <div class="flex justify-center">
