@@ -1,7 +1,7 @@
 <template>
   <section
       id="philosophy"
-      class="relative px-6 py-24 max-w-4xl mx-auto text-slate-100 leading-loose text-base md:text-lg"
+      class="relative px-6 py-24 max-w-4xl mx-auto text-slate-300 leading-relaxed text-base md:text-lg"
   >
     <!-- Background -->
     <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#20233e] to-[#181a2f]"></div>
@@ -80,13 +80,12 @@
   </section>
 </template>
 
-
 <script setup>
 import { reactive } from 'vue'
 
 const philosophy = reactive([
   {
-    title: "🌾 Why Talking Therapy No Longer Works the Way We Think It Does",
+    title: "Why Talking Therapy No Longer Works the Way We Think It Does",
     open: false,
     text: [
       "After years of sitting in the room — IFS, Gestalt, person-centred, somatic — I began to notice a quiet pattern. The longer we talk about our experience, the further we drift from it. Insight piles upon insight, but the body grows no lighter.",
@@ -94,7 +93,7 @@ const philosophy = reactive([
     ]
   },
   {
-    title: "🌿 The Real Work Is Attention",
+    title: "The Real Work Is Attention – A Somatic and Reflective Approach",
     open: false,
     text: [
       "Everything depends on the quality of attention we bring to our own life. Attention is the first movement of love — how we meet experience before we interpret it. When attention becomes coherent, the nervous system regulates, thought quiets, and emotion finds its natural pulse.",
@@ -102,7 +101,7 @@ const philosophy = reactive([
     ]
   },
   {
-    title: "🍂 From Parts Work to Wholeness Work",
+    title: "From IFS Parts Work to Whole-System Integration",
     open: false,
     text: [
       "I still draw on Internal Family Systems — but as a short, catalytic process, not a lifelong excavation. A few conversations can reveal the architecture of the inner world: the critic, the controller, the weary child, the rescuer.",
@@ -110,7 +109,7 @@ const philosophy = reactive([
     ]
   },
   {
-    title: "🌿 Embodied, Not Performed",
+    title: "Embodied Practice, Not Roleplay",
     open: false,
     text: [
       "Although my work draws from Internal Family Systems (IFS), I hold the process lightly. I’m not drawn to the theatrical or overly scripted versions of parts work often seen in demonstrations. In my experience, genuine transformation doesn’t come from acting out inner roles, but from learning to listen through them — to sense how each part lives in the body, in breath, in subtle shifts of tone or temperature.",
@@ -118,7 +117,7 @@ const philosophy = reactive([
     ]
   },
   {
-    title: "🌬️ Beyond the Orbit of Insight",
+    title: "Beyond Insight: Embodied Coherence in Therapy",
     open: false,
     text: [
       "Many long-term therapies become orbiting systems — self-study as self-maintenance. The next phase of inner work isn’t more dialogue; it’s deeper coherence. Less narrative, more embodiment.",
@@ -126,7 +125,7 @@ const philosophy = reactive([
     ]
   },
   {
-    title: "🌾 How We Might Work Together",
+    title: "Working Briefly and Intuitively with Attention",
     open: false,
     text: [
       "My work now is brief, integrative, and alive to what’s immediate — a meeting or two, perhaps a small arc of sessions, focused on helping you realign attention itself.",
@@ -134,14 +133,14 @@ const philosophy = reactive([
     ]
   },
   {
-    title: "🌼 Who This Work Is For",
+    title: "Who This Reflective Therapy Model Is For",
     open: false,
     text: [
       "This approach tends to resonate with clinicians, healers, and long-term seekers who feel therapy has taken them as far as it can; people fluent in self-awareness, yet still tired or subtly disembodied; those drawn toward simplicity, honesty, and direct experience."
     ]
   },
   {
-    title: "🌾 A Closing Thought",
+    title: "A Closing Thought – Returning to Ground",
     open: false,
     text: [
       "Therapy was the bridge that carried us from unconscious pattern to conscious participation. But bridges are meant to be crossed. Beyond the bridge lies the practice of attention itself — the living synthesis of body, feeling, and thought in real time.",
@@ -158,11 +157,6 @@ section {
 
 h2, h3 {
   font-family: Lora, Georgia, serif;
-}
-
-p {
-  font-family: Inter, system-ui, sans-serif;
-  color: #e4e6ea;
 }
 
 .fade-enter-active,

@@ -1,25 +1,26 @@
+from IPython.display import Markdown
+
+# Delivering the revised FAQ section (as requested: revised content, SEO improved, no major layout changes)
+revised_faq_template = """
+```vue
 <template>
   <section
       id="faq"
       ref="faqSection"
       class="relative px-6 py-24 max-w-5xl mx-auto text-slate-100 opacity-0 translate-y-6 transition-all duration-700 ease-out"
   >
-    <!-- Soft navy gradient background -->
     <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#24263e]/80 to-[#181a2f]"></div>
-
-    <!-- Gentle radial glow -->
     <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-[radial-gradient(circle_at_top_center,rgba(212,165,93,0.06),transparent_80%)] blur-3xl z-0"
         aria-hidden="true"
     ></div>
 
-    <!-- CONTENT -->
     <div class="relative z-10">
       <h2 class="text-3xl font-serif font-semibold mb-4 text-center text-amber-100">
         Frequently Asked Questions
       </h2>
       <p class="text-slate-300 text-center mb-12 max-w-2xl mx-auto">
-        Responses to common questions about Internal Family Systems sessions and the reflective report process.
+        Answers to common questions about Internal Family Systems (IFS) sessions, reflective reports, and how this therapeutic approach supports self-understanding.
       </p>
 
       <div class="space-y-6">
@@ -73,37 +74,37 @@ const faqs = reactive([
   {
     question: 'What is Internal Family Systems (IFS)?',
     answer:
-        'Internal Family Systems is a collaborative approach to understanding the many “parts” of your inner life — the protectors, the critics, the exiles, and the quieter places within you. Rather than analysing them, we learn to meet each one with curiosity and care, allowing the system to find its own balance.',
+        'IFS is a structured, evidence-based approach to therapy that helps you explore different parts of your inner world. These may include protectors, critics, or vulnerable parts. The goal is to build a compassionate relationship with them, allowing your system to find balance and integration.',
     open: false,
   },
   {
-    question: 'What happens in a 50-minute IFS session?',
+    question: 'What can I expect during a session?',
     answer:
-        'Each session begins with grounding and a brief check-in. From there, we follow your pace. Together we listen for what wants attention — not through performance or effort, but through noticing. The process is gentle, reflective, and guided by your sense of safety. Every part is welcome, and nothing is forced.',
+        'Each 50-minute session begins with grounding and orienting to your current internal state. We then follow what arises naturally, using a gentle, client-led process. There’s no pressure to perform or explain — we listen, track, and reflect in a way that supports deep self-contact.',
     open: false,
   },
   {
-    question: 'What is the Insight Report?',
+    question: 'What is a Reflective Summary Report?',
     answer:
-        'After your session, I prepare a reflective summary supported by a professional Thought Assistant. It highlights themes and patterns to support integration — a mirror for meaning, not a replacement for human presence. You receive a concise reflection that helps you stay connected to what emerged in the work.',
+        'After your session, I prepare a therapeutic summary supported by a secure, supervised AI writing assistant. This summary highlights key themes, emotional movements, and inner shifts. It’s not a clinical note or transcript — it’s a reflective aid designed to support integration.',
     open: false,
   },
   {
-    question: 'Is this confidential?',
+    question: 'Is this process confidential and secure?',
     answer:
-        'Yes. All sessions follow the same standards of clinical confidentiality you would expect in psychotherapy. The reflective summary is stored securely, reviewed only by me, and created with your explicit consent. Your material is never shared or used beyond your own therapeutic process.',
+        'Yes. Your sessions are entirely confidential, held to the same standards expected in psychotherapy. Reflective summaries are created with your consent, stored securely, and never shared beyond our work together. AI support tools do not retain client data.',
     open: false,
   },
   {
-    question: 'Do I need to have therapy experience to benefit from this work?',
+    question: 'Do I need therapy experience to benefit from this?',
     answer:
-        'No. Some people come with years of therapeutic experience; others are simply curious about self-understanding. This work meets you where you are. What matters most is your willingness to pay quiet attention to what arises.',
+        'No prior experience is required. This work suits both seasoned clients and those new to therapy. The main requirement is a willingness to pay quiet attention to what arises. You’ll be met with care and without judgment, wherever you are in your process.',
     open: false,
   },
 ])
 
 const toggle = (index) => {
-  faqs[index].open = !faqs[index].open
+  faqs.forEach((f, i) => f.open = i === index ? !f.open : false) // auto-collapse others
 }
 
 const faqSection = ref(null)
@@ -151,4 +152,5 @@ button {
   }
 }
 </style>
+
 

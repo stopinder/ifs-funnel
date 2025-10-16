@@ -10,24 +10,19 @@
       </h1>
 
       <p class="intro">
-        Each 50-minute session offers a calm, structured space to explore what’s unfolding within.
-        Drawing from Internal Family Systems and EMDR-informed practice, the work supports emotional
-        balance and lasting change.
+        Each 50-minute Internal Family Systems (IFS) session offers a calm, focused space to explore emotions,
+        trauma, and inner patterns — supporting insight, resilience, and psychological renewal.
       </p>
 
       <p class="subtext">
-        Thoughtfully prepared written reflections provide a bridge between sessions —
-        a grounded way to keep the insights alive.
+        Grounded in IFS and EMDR-informed practice, this approach blends clinical depth with reflective writing.
+        Your post-session report helps you stay connected to what mattered most.
       </p>
 
       <div class="cta">
-        <!-- Smooth scroll to Book CTA section -->
         <a href="#book-cta" class="btn btn-primary" aria-label="Scroll to booking section and book a therapy session">
           Book a Session
         </a>
-
-        <!-- Smooth scroll to approach section -->
-
       </div>
     </div>
 
@@ -37,7 +32,7 @@
 </template>
 
 <script setup>
-// no script needed here
+// No script needed
 </script>
 
 <style scoped>
@@ -62,6 +57,11 @@
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0 1.5rem;
+}
+
+.hero-section::before {
+  content: "Nature path representing introspective therapy journey";
+  display: none; /* For SEO accessibility fallback */
 }
 
 .overlay {
@@ -145,17 +145,6 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
 }
 
-.btn-secondary {
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  background: rgba(30, 33, 59, 0.4);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.btn-secondary:hover {
-  background: rgba(30, 33, 59, 0.6);
-}
-
 .hero-fade {
   position: absolute;
   bottom: 0;
@@ -188,3 +177,4 @@
   }
 }
 </style>
+
