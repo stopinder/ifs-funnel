@@ -1,12 +1,12 @@
 <template>
   <section
       id="about"
-      class="relative px-6 py-24 max-w-5xl mx-auto text-white overflow-visible"
+      class="relative px-6 py-24 max-w-5xl mx-auto text-white overflow-visible bg-[url('/horizon.jpg')] bg-cover bg-center bg-no-repeat"
       itemscope
       itemtype="https://schema.org/Person"
   >
-    <!-- Soft navy gradient background -->
-    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#20233e] to-[#181a2f]"></div>
+    <!-- Soft navy gradient background overlay -->
+    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b]/80 via-[#20233e]/80 to-[#181a2f]/80"></div>
 
     <!-- Optional soft radial glow behind portrait -->
     <div
@@ -94,9 +94,7 @@
 
             <p>
               I am a registered member of the
-              <span class="italic" itemprop="affiliation"
-              >British Association for Counselling and Psychotherapy (BACP)</span
-              >
+              <span class="italic" itemprop="affiliation">British Association for Counselling and Psychotherapy (BACP)</span>
               and remain committed to reflective, trauma-informed practice.
             </p>
 
@@ -146,3 +144,4 @@ const expanded = ref(false)
   transform: translateY(20px);
 }
 </style>
+
