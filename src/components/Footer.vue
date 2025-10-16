@@ -1,7 +1,8 @@
 <template>
   <footer
       id="footer"
-      class="relative px-6 py-6 md:py-12 text-slate-300 overflow-hidden border-t border-slate-700 bg-gradient-to-b from-[#1e213b] via-[#23253d]/90 to-[#181a2f]"
+      class="relative px-6 py-6 md:py-12 text-slate-300 overflow-hidden border-t border-slate-700 bg-cover bg-center"
+      style="background-image: url('/forest-floor.jpg');"
   >
     <!-- Subtle radial glow -->
     <div
@@ -11,7 +12,7 @@
 
     <!-- 3-column layout -->
     <div
-        class="relative z-10 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 items-center text-center md:text-left"
+        class="relative z-20 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 items-center text-center md:text-left"
     >
       <!-- Column 1: Credentials -->
       <div class="space-y-3 text-[11px] md:text-sm text-slate-400 leading-relaxed">
@@ -37,7 +38,7 @@
         <img
             ref="logoRef"
             :class="[
-            'w-24 h-24 md:w-40 md:h-40 object-contain mx-auto transition-opacity duration-1000',
+            'w-38 h38 md:w-52 md:h-52 object-contain mx-auto transition-opacity duration-1000',
             logoVisible ? 'opacity-100' : 'opacity-0'
           ]"
             src="/ChrysalisLogo.png"
@@ -51,7 +52,7 @@
         <img
             src="/profile.jpg"
             alt="Portrait of psychotherapist Robert Ormiston"
-            class="w-20 h-20 rounded-full object-cover border border-slate-700 shadow-md"
+            class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover ..."
             loading="lazy"
         />
       </div>
@@ -82,6 +83,12 @@
     >
       ↑
     </button>
+    <!-- Contrast-enhancing backdrop overlay -->
+    <div
+        class="absolute inset-0 backdrop-contrast-125 z-10 pointer-events-none"
+        aria-hidden="true"
+    ></div>
+
   </footer>
 </template>
 
@@ -128,6 +135,7 @@ footer {
   font-family: Inter, system-ui, sans-serif;
 }
 
+/* Top fade blending into previous section */
 footer::before {
   content: '';
   position: absolute;
@@ -138,5 +146,25 @@ footer::before {
   background: linear-gradient(to bottom, transparent, rgba(30, 33, 59, 0.9));
   z-index: 1;
 }
+
+/* Gradient overlay on top of background image */
+#footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, #1e213b, rgba(35, 37, 61, 0.9), #181a2f);
+  pointer-events: none;
+}
+#footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.07); /* soft mist for text contrast */
+  pointer-events: none;
+}
+
 </style>
+
 

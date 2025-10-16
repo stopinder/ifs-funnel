@@ -32,7 +32,8 @@
       <!-- CTA Button with Tooltip and Icon -->
       <div class="relative inline-block group">
         <a
-            href="mailto:you@example.com?subject=Integration%20Inquiry"
+            @click="handleMailtoClick"
+            href="mailto:chrysalisifs@robormiston.com?subject=Integration%20Inquiry&body=Hello%20Robert,%0D%0A%0D%0AI%27m%20interested%20in%20learning%20more%20about%20integrating%20your%20reflective%20framework%20into%20my%20practice.%0D%0A%0D%0AThank%20you,"
             class="inline-flex items-center gap-2 bg-midnight text-white font-medium px-6 py-3 rounded-full hover:bg-gray-800 transition shadow focus:outline-none focus:ring-2 focus:ring-gray-600/50"
         >
           <!-- Envelope Icon -->
@@ -55,17 +56,35 @@
 
         <!-- Tooltip -->
         <div
-            class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-700 text-sm text-white px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-700 text-sm text-white px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap"
         >
           Opens your email client
         </div>
       </div>
     </div>
+
+    <!-- Toast Notification -->
+    <div
+        v-if="showToast"
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-sm px-4 py-2 rounded shadow-lg z-50 transition-opacity duration-300"
+    >
+      Your email client should open. <br />
+      If not, please email: <strong>chrysalisifs@robormiston.com</strong>
+    </div>
   </section>
 </template>
 
 <script setup>
-// No script logic yet
+import { ref } from 'vue'
+
+const showToast = ref(false)
+
+const handleMailtoClick = () => {
+  showToast.value = true
+  setTimeout(() => {
+    showToast.value = false
+  }, 6000)
+}
 </script>
 
 <style scoped>
@@ -93,4 +112,4 @@ a {
   font-family: Inter, system-ui, sans-serif;
 }
 </style>
-npm run dev
+

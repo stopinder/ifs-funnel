@@ -10,7 +10,7 @@
       <AboutMe />
       <SectionDivider />
       <PhilosophyOfPractice />
-      <SectionDivider />
+
       <OfferSection />
       <SectionDivider />
       <FaqSection />

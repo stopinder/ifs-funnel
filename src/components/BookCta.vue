@@ -7,7 +7,7 @@
       style="background-image: url('/moon-pink.jpg');"
   >
     <h2 class="text-3xl font-bold">50-Minute IFS Session</h2>
-    <p class="text-lg">£95 per session</p>
+    <p class="text-lg">£85 per session</p>
 
     <a
         href="https://calendly.com/robormiston/new-meeting-3"
@@ -25,13 +25,14 @@
       Registered Member MBACP (BACP) • Confidential & Secure
     </p>
     <a
-        href="https://docs.google.com/document/d/REPLACE_WITH_YOUR_DOC_ID/preview"
+        href="https://docs.google.com/document/d/1jk1C-JASHqj1G2X6Wxr7plgi9IhsjEDnIU1G-MHpCi8/preview"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-block text-sm text-purple-300 hover:text-purple-200 underline/50"
     >
       See a sample Insight Report →
     </a>
+
   </section>
 </template>
 
