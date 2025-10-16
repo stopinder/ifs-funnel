@@ -51,16 +51,19 @@
         <a
             @click="handleMailtoClick"
             :href="mailtoHref"
-            class="inline-flex items-center gap-2 bg-[#8B5E2B] text-white font-medium px-6 py-3 rounded-full hover:bg-[#7a4e20] transition-transform transition-shadow shadow-sm hover:shadow-md active:translate-y-[1px] focus:outline-none focus:ring-4 focus:ring-[#8B5E2B]/25"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-[#5a32a8] via-[#6f47c0] to-[#b98f57] shadow-md hover:shadow-lg transition-transform duration-200 will-change-transform hover:scale-[1.02] active:translate-y-[1px] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#6f47c0]/18 ring-offset-2 ring-offset-transparent"
             aria-label="Enquire about integration via email"
         >
-          <!-- Envelope Icon (unchanged) -->
+          <!-- Envelope Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-.723 1.665l-7.5 6.75a2.25 2.25 0 01-3.054 0l-7.5-6.75A2.25 2.25 0 012.25 6.993V6.75" />
           </svg>
+
           Enquire About Integration
         </a>
+
+
 
 
 
