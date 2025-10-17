@@ -57,7 +57,7 @@
           <!-- optimized profile image: ensure the source files exist in /public -->
           <img
               src="/profile.jpg"
-              srcset="/profile-400.jpg 400w, /profile-800.jpg 800w, /profile-1200.jpg 1200w"
+              srcset="/profile.jpg 400w, /profile.jpg 800w, /profile.jpg 1200w"
               sizes="(max-width: 640px) 160px, (max-width: 1024px) 224px, 288px"
               alt="Portrait of psychotherapist Robert Ormiston"
               class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-2 border-amber-200/30 shadow-md"
