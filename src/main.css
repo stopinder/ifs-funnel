@@ -10,3 +10,25 @@ html {
 body {
   @apply text-white font-sans bg-black;
 }
+/* put this in your global CSS (not in scoped <style>) */
+:root{
+  --navH: 64px;
+  --bg-page: #f7fafc; /* even paler */
+  --surface: #ffffff;
+  --text: #0b1220;
+  --muted: #566370;
+  --accent: #b98340; /* slightly desaturated amber */
+  --glass-alpha: 0.96;
+  --border-subtle: rgba(11,18,32,0.04);
+}
+
+/* simpler hero background */
+.hero-section {
+  background: linear-gradient(180deg, var(--bg-page) 0%, #f1f6fa 48%, var(--bg-page) 100%);
+}
+
+/* lighten overlay for clarity */
+.overlay {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.9) 100%);
+  backdrop-filter: blur(0.6px);
+}

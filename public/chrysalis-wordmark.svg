@@ -1,0 +1,30 @@
+<svg
+        class="w-40 md:w-56 lg:w-72 h-auto flex-none"
+        viewBox="0 0 360 96"
+        role="img"
+        aria-labelledby="logoTitle logoDesc"
+        xmlns="http://www.w3.org/2000/svg"
+>
+    <title id="logoTitle">Chrysalis Therapy Services — Rob Ormiston</title>
+    <desc id="logoDesc">Symbol mark and wordmark: Chrysalis Therapy Services</desc>
+
+    <!-- Symbol (left) -->
+    <g transform="translate(48,48)" aria-hidden="true">
+        <path
+                d="M0,-28 C14,-28 26,-12 26,4 C26,24 14,28 0,28 C-14,28 -26,16 -26,4 C-26,-12 -14,-28 0,-28 Z"
+                fill="#0f766e"
+        />
+        <path d="M-6,-6 C-2,-12 6,-12 10,-6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+        <path d="M-8,6 C-2,0 6,0 12,6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- Wordmark (right) — bumped font sizes -->
+    <g transform="translate(96,28)">
+        <text x="0" y="12" font-family="Lora, Georgia, 'Times New Roman', serif" font-weight="600" font-size="28" fill="#0b1220">
+            Chrysalis
+        </text>
+        <text x="0" y="42" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="14" fill="#475569">
+            Therapy Services — Rob Ormiston
+        </text>
+    </g>
+</svg>

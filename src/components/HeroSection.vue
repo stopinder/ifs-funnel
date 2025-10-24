@@ -1,169 +1,143 @@
 <template>
-  <section id="hero" ref="sectionRef" class="hero-section" aria-label="Forest pathway leading to sunlight">
-    <!-- Background image container (single JPEG; no missing webp imports) -->
-    <div class="hero-bg" aria-hidden="true">
-      <!-- blurred css placeholder (no external thumb needed) -->
-      <div class="hero-placeholder"></div>
+  <section
+      id="hero"
+      class="relative min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-16 bg-gradient-to-b from-slate-50 via-slate-50 to-slate-100 text-slate-900"
+      aria-label="Hero: calm, clinical, modern"
+  >
+    <!-- Decorative SVG (inline, zero network cost) -->
+    <svg
+        class="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 1200 600"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+        focusable="false"
+    >
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
+          <stop offset="1" stop-color="#eef6f7" stop-opacity="1" />
+        </linearGradient>
+      </defs>
 
-      <!-- single image using the one file you have: /misty-path.jpg -->
-      <img
-          ref="heroImg"
-          class="hero-img"
-          src="/misty-path.jpg"
-          alt="Forest pathway leading to sunlight"
-          width="1800"
-          height="900"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          @load="onHeroLoad"
-      />
-    </div>
+      <!-- soft elliptical field for depth (cooler tone) -->
+      <g transform="translate(600,300)" opacity="0.12">
+        <ellipse rx="520" ry="200" fill="#e6f4f4" />
+      </g>
 
-    <!-- Background overlay -->
-    <div class="overlay" aria-hidden="true"></div>
+      <!-- subtle vertical ribbon -->
+      <g opacity="0.06">
+        <rect x="820" y="-80" width="420" height="760" rx="40" transform="rotate(-14 820 -80)" fill="url(#g1)" />
+      </g>
+    </svg>
 
-    <!-- Main content (unchanged) -->
-    <div class="hero-content">
-      <h1 class="headline">
-        Psychotherapy for Clarity, Integration, and Renewal
-      </h1>
+    <!-- Content card -->
+    <div
+        class="relative z-10 max-w-3xl w-full bg-white/96 backdrop-blur-sm border border-slate-100 rounded-2xl p-6 md:p-12 shadow-sm"
+        role="region"
+        aria-labelledby="hero-title"
+    >
+      <!-- INLINE WORDMARK SVG — larger, responsive -->
+      <div class="flex items-center gap-6">
+        <svg
+            class="w-56 md:w-80 lg:w-96 h-auto flex-none"
+            viewBox="0 0 360 96"
+            role="img"
+            aria-labelledby="logoTitle logoDesc"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="logoTitle">Chrysalis Therapy Services — Rob Ormiston</title>
+          <desc id="logoDesc">Symbol mark and wordmark: Chrysalis Therapy Services</desc>
 
-      <p class="intro">
-        Each 50-minute Internal Family Systems (IFS) session offers a calm, focused space to explore emotions,
-        trauma, and inner patterns — supporting insight, resilience, and psychological renewal.
+          <!-- Symbol (left) -->
+          <g transform="translate(48,48)" aria-hidden="true">
+            <path
+                d="M0,-28 C14,-28 26,-12 26,4 C26,24 14,28 0,28 C-14,28 -26,16 -26,4 C-26,-12 -14,-28 0,-28 Z"
+                fill="#0f766e"
+            />
+            <path d="M-6,-6 C-2,-12 6,-12 10,-6" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M-8,6 C-2,0 6,0 12,6" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+          </g>
+
+          <!-- Wordmark (right) — bumped font sizes -->
+          <g transform="translate(96,24)">
+            <text x="0" y="16" font-family="Lora, Georgia, 'Times New Roman', serif" font-weight="600" font-size="36" fill="#0b1220">
+              Chrysalis
+            </text>
+            <text x="0" y="46" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="16" fill="#475569">
+              Therapy Services — Rob Ormiston
+            </text>
+          </g>
+        </svg>
+
+        <h1 id="hero-title" class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-slate-900">
+          Psychotherapy for clarity, integration and renewal
+        </h1>
+      </div>
+
+      <!-- small teal accent bar -->
+      <div class="w-16 h-1 bg-teal-500 rounded mt-6 mb-6" aria-hidden="true"></div>
+
+      <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-4">
+        EMDR-informed Internal Family Systems (IFS) therapy for adults wanting calm, deeper self-understanding,
+        and practical change. Sessions are evidence-informed and compassionately direct.
       </p>
 
-      <p class="subtext">
-        Grounded in IFS and EMDR-informed practice, this approach blends clinical depth with reflective writing.
-        Your post-session report helps you stay connected to what mattered most.
+      <p class="text-sm md:text-base text-slate-600 italic leading-relaxed mb-6">
+        Post-session summaries help you stay connected to what mattered most — theory translated into practice.
       </p>
 
-      <div class="cta">
-        <a href="#book-cta" class="btn btn-primary" aria-label="Scroll to booking section and book a therapy session">
-          Book a Session
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+        <button
+            @click.prevent="scrollTo(bookTarget)"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-200 bg-teal-600 text-white hover:bg-teal-700 transition-transform active:translate-y-0.5"
+            aria-label="Book a therapy session"
+        >
+          Book a session
+        </button>
+
+        <a
+            :href="learnMoreHref"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-medium border border-slate-100 bg-transparent text-slate-800 hover:bg-slate-50"
+            aria-label="Learn more about therapy approach"
+        >
+          Learn more
         </a>
       </div>
     </div>
 
-    <!-- Soft fade into next section -->
-    <div class="hero-fade" aria-hidden="true"></div>
+    <!-- gentle fade into next section (inline style to avoid extra CSS file) -->
+    <div
+        class="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+        aria-hidden="true"
+        :style="{
+        background:
+          'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(247,250,252,0.95) 60%, rgba(247,250,252,1) 100%)'
+      }"
+    />
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const heroImg = ref(null)
-const sectionRef = ref(null)
+const props = defineProps({
+  bookTarget: { type: String, default: '#book-cta' },
+  learnMoreHref: { type: String, default: '#about' }
+})
 
-function onHeroLoad() {
-  const el = sectionRef.value
-  if (el) el.classList.add('hero-loaded')
+function scrollTo(selector) {
+  try {
+    const el = document.querySelector(selector)
+    if (el) {
+      el.setAttribute('tabindex', '-1') // make focusable for accessibility
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      el.focus({ preventScroll: true })
+    } else {
+      const fallback = document.getElementById(selector.replace('#', ''))
+      if (fallback) fallback.scrollIntoView()
+    }
+  } catch (e) {
+    // fallback: set hash to avoid breaking
+    window.location.hash = selector
+  }
 }
 </script>
 
-<style scoped>
-:root{
-  --navH:64px; --gold:#d4a55d; --goldH:#c49746; --navy:#1e213b;
-}
-
-/* HERO SECTION (keeps your original layout, but no webp imports) */
-.hero-section {
-  position: relative;
-  height: calc(100vh - var(--navH));
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #f8f7f4;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  margin: 0;
-  padding: 0 1.5rem;
-  overflow: hidden;
-}
-
-/* image container */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: #0b1220; /* fallback color while loading */
-}
-
-/* CSS-only blurred placeholder (uses a very subtle gradient so no extra file needed) */
-.hero-placeholder {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(17,24,39,0.55), rgba(11,14,24,0.6));
-  filter: blur(6px) saturate(.95);
-  transform: scale(1.02);
-  transition: opacity .45s ease, filter .45s ease;
-  opacity: 1;
-  z-index: 0;
-}
-
-/* actual image */
-.hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity .45s ease;
-  z-index: 1;
-  display: block;
-}
-
-/* when the real image loads, fade it in and hide the placeholder */
-.hero-section.hero-loaded .hero-img { opacity: 1; }
-.hero-section.hero-loaded .hero-placeholder { opacity: 0; filter: blur(0); }
-
-/* overlay keeps the look you had */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(30, 33, 59, 0.45) 0%, rgba(30, 33, 59, 0.75) 80%);
-  backdrop-filter: contrast(1.1) saturate(1.1);
-  z-index: 10;
-  pointer-events: none;
-}
-
-/* hero content (copied from your original) */
-.hero-content {
-  position: relative;
-  z-index: 20;
-  max-width: 680px;
-  padding: 2rem;
-  background: rgba(30, 33, 59, 0.3);
-  border-radius: 8px;
-  transform: translateY(-5vh);
-}
-.headline { font-family: Lora, Georgia, serif; font-size: clamp(2.4rem,4.5vw,3.6rem); line-height:1.25; font-weight:600; color:#fff; margin-bottom:1.2rem; }
-.headline::after { content:""; display:block; width:56px; height:2px; background:var(--gold); border-radius:2px; margin:0.8rem auto 1.5rem; }
-.intro { font-size:1.15rem; color:#f0f0f0; line-height:1.7; margin:0 auto 1.2rem; }
-.subtext { font-size:1rem; color:#e2e2e2; font-style:italic; line-height:1.6; margin-bottom:2rem; }
-.cta { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
-.btn{ text-decoration:none; padding:0.75rem 1.6rem; border-radius:6px; font-weight:600; transition:all .25s ease; }
-.btn-primary{ background:var(--gold); color:var(--navy); box-shadow:0 4px 10px rgba(0,0,0,0.3); }
-.btn-primary:hover{ background:var(--goldH); box-shadow:0 6px 10px rgba(0,0,0,0.35); }
-
-/* fade strip */
-.hero-fade{ position:absolute; bottom:0; left:0; right:0; height:140px; background: linear-gradient(to bottom, rgba(30,33,59,0) 0%, rgba(30,33,59,0.4) 40%, rgba(30,33,59,0.9) 100%); pointer-events:none; z-index:30; }
-
-/* responsive */
-@media (max-width:768px) {
-  .hero-section { height: calc(100vh - 56px); min-height:480px; }
-  .hero-content { padding:1.5rem; transform:translateY(-3vh); }
-  .headline { font-size:1.9rem; }
-  .intro, .subtext { font-size:1rem; }
-}
-
-/* prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-img, .hero-placeholder { transition: none !important; }
-}
-</style>

@@ -1,0 +1,9 @@
+<!-- /public/chrysalis-symbol.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -32 64 64" role="img" aria-labelledby="symTitle">
+    <title id="symTitle">Chrysalis symbol</title>
+
+    <path d="M0,-28 C12,-28 22,-12 22,4 C22,22 12,28 0,28 C-12,28 -22,12 -22,4 C-22,-12 -12,-28 0,-28 Z"
+          fill="#0f766e"/>
+    <path d="M-6,-6 C-2,-12 6,-12 10,-6" fill="none" stroke="#ffffff" stroke-width="1.75" stroke-linecap="round"/>
+    <path d="M-8,6 C-2,0 6,0 12,6" fill="none" stroke="#ffffff" stroke-width="1.75" stroke-linecap="round"/>
+</svg>
