@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preload" as="image" href="/misty-path.jpg">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFS Therapy UK · Chrysalis Therapy Services · Robert Ormiston MBACP</title>
+    <meta name="description" content="Brief, integrative Internal Family Systems therapy online with Robert Ormiston (MBACP). Includes reflective reports to support deeper integration and clarity." />
+    <meta name="author" content="Robert Ormiston" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Performance: preconnect to font hosts and preload the stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:wght@400;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
 
-
-
-    <!-- index.html -->
+    <!-- Critical image preload: keep one primary image (replace with .avif/.webp after conversion) -->
+    <!-- After you run the conversion script, change href to /profile.avif (or /profile.webp) -->
     <link rel="preload" as="image" href="/profile.jpg">
 
     <!-- Favicons -->
@@ -16,15 +25,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="theme-color" content="#1e213b" />
 
-    <!-- Essential Meta -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IFS Therapy UK · Chrysalis Therapy Services · Robert Ormiston MBACP</title>
-    <meta name="description" content="Brief, integrative Internal Family Systems therapy online with Robert Ormiston (MBACP). Includes reflective reports to support deeper integration and clarity." />
-    <meta name="author" content="Robert Ormiston" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Open Graph (Facebook / LinkedIn) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="IFS Therapy UK · Chrysalis Therapy Services" />
     <meta property="og:description" content="Integrative IFS therapy with Robert Ormiston (MBACP). Insightful sessions with optional reflective summaries. Online availability." />
     <meta property="og:image" content="/profile.jpg" />
@@ -37,7 +38,7 @@
     <meta name="twitter:description" content="Online Internal Family Systems therapy with reflective support. Safe, brief, and effective therapy sessions." />
     <meta name="twitter:image" content="/profile.jpg" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- Structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -71,11 +72,14 @@
         }
     </script>
 
-    <!-- Main App Entry (Vite or Webpack) -->
+    <!-- Main App Entry (Vite) -->
     <script type="module" src="/src/main.js"></script>
 </head>
 
 <body>
+<!-- Accessibility: skip link — add id="main" to your main wrapper (App.vue) -->
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-white focus:px-3 focus:py-2 focus:rounded-md focus:shadow">Skip to main content</a>
+
 <div id="app"></div>
 </body>
 </html>
