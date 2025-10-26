@@ -1,83 +1,93 @@
 <template>
   <section
       id="book-cta"
-      ref="cta"
-      class="relative text-center py-16 text-white space-y-6 opacity-0 transition-opacity duration-1000 ease-out bg-cover bg-center"
-      :class="{ 'opacity-100': visible }"
-      style="background-image: url('/moon-pink.jpg');"
+      class="relative px-6 py-20 md:py-24
+           bg-surface dark:bg-surface-dark
+           text-textsurface dark:text-textsurface-dark
+           border-t border-bordercol-light dark:border-bordercol-dark
+           transition-colors-bg duration-300 ease-subtle"
+      aria-labelledby="book-cta-heading"
   >
-    <h2 class="text-3xl font-bold">50-Minute IFS Session</h2>
-    <p class="text-lg">£85 per session</p>
+    <!-- optional soft aura / depth -->
+    <div
+        class="pointer-events-none absolute inset-0
+             bg-gradient-to-b from-transparent to-primary/5
+             dark:from-transparent dark:to-primary/10"
+        aria-hidden="true"
+    ></div>
 
-    <a
-        href="https://calendly.com/robormiston/new-meeting-3"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-      <button
-          class="bg-white text-black font-medium px-6 py-3 rounded-full mt-6 focus:outline-none focus:ring-2 focus:ring-gray-600/50"
-      >
-        Book Your Session
-      </button>
-    </a>
+    <div class="relative max-w-4xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <!-- Left block: headline + reassurance -->
+      <div class="text-center md:text-left max-w-xl mx-auto md:mx-0">
+        <h2
+            id="book-cta-heading"
+            class="text-3xl md:text-4xl font-semibold leading-snug
+                 text-textsurface dark:text-textsurface-dark"
+        >
+          Book a session
+        </h2>
 
-    <p class="text-xs text-slate-300">
-      Registered Member MBACP (BACP) • Confidential & Secure
-    </p>
-    <a
-        href="https://docs.google.com/document/d/1jk1C-JASHqj1G2X6Wxr7plgi9IhsjEDnIU1G-MHpCi8/preview"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block text-sm text-purple-300 hover:text-purple-200 underline/50"
-    >
-      See a sample Insight Report →
-    </a>
+        <p
+            class="mt-4 text-lg leading-relaxed font-normal
+                 text-textsurface dark:text-textsurface-dark"
+        >
+          50-minute confidential online session.
+          Calm, structured, evidence-based work with trauma, overwhelm, and relationship strain.
+        </p>
 
+        <p
+            class="mt-2 text-sm leading-relaxed text-textsurface/80 dark:text-textsurface-dark/80"
+        >
+          No obligation. You’re not “signing up for therapy.”
+          It’s a first conversation to see if this feels like a fit.
+        </p>
+      </div>
+
+      <!-- Right block: action & reassurance tag -->
+      <div class="flex flex-col items-center md:items-end gap-3 md:gap-4 min-w-[220px]">
+        <!-- Primary CTA button -->
+        <button
+            @click.prevent="scrollToScheduler()"
+            class="inline-flex items-center justify-center
+                 w-full md:w-auto
+                 px-6 py-3 rounded-lg font-semibold
+                 bg-primary text-white hover:bg-primary-hover
+                 shadow-glow
+                 transition-colors-bg duration-200 ease-subtle
+                 focus:outline-none focus:ring-4 focus:ring-primary/40"
+        >
+          Choose a time
+        </button>
+
+        <!-- micro-trust line -->
+        <div
+            class="text-xs text-textsurface/80 dark:text-textsurface-dark/80 text-center md:text-right leading-snug"
+        >
+          Secure & confidential
+          <span class="inline-block align-middle ml-1 w-2 h-2 rounded-full bg-primary shadow-glow"></span>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
+<script setup>
+function scrollToScheduler() {
+  // This matches your hero scroll pattern:
+  // update this selector to whatever anchors your actual booking widget / Calendly / form
+  const target = document.querySelector('#book-cta-form, #book-form, [data-booking]')
+  if (target) {
+    target.setAttribute('tabindex', '-1')
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    target.focus({ preventScroll: true })
+  } else {
+    // fallback: just ensure the hash updates so routing/highlighting still works
+    window.location.hash = '#book-cta'
+  }
+}
+</script>
+
 <style scoped>
-#book-cta::before,
-#book-cta::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 4rem;
-  pointer-events: none;
-  z-index: 1;
-}
-
-#book-cta::before {
-  top: 0;
-  background: linear-gradient(to bottom, #0f172a, transparent); /* from-midnight to transparent */
-}
-
-#book-cta::after {
-  bottom: 0;
-  background: linear-gradient(to top, #0f172a, transparent); /* from-midnight to transparent */
-}
+/* no local visual styling: colors, layout, focus rings all come from Tailwind tokens */
 </style>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const cta = ref(null)
-const visible = ref(false)
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          visible.value = true
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.25 }
-  )
-
-  if (cta.value) observer.observe(cta.value)
-
-  onUnmounted(() => observer.disconnect())
-})
-</script>

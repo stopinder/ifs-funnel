@@ -1,35 +1,41 @@
 <template>
-  <div id="app">
+  <div
+      id="app"
+      class="bg-surface text-textsurface dark:bg-surface-dark dark:text-textsurface-dark
+           transition-colors-bg duration-300 ease-subtle min-h-screen"
+  >
     <!-- Navigation -->
     <NavBar />
 
     <!-- Main Content Wrapper -->
     <main>
       <HeroSection />
-      <SectionDivider />
+
       <AboutMe />
-      <SectionDivider />
+
       <PhilosophyOfPractice />
 
       <OfferSection />
-      <SectionDivider />
+
       <FaqSection />
 
       <!-- Divider before CTA -->
-      <SectionDivider />
+
 
       <!-- Book CTA (target for smooth scroll) -->
       <BookCta />
 
-      <SectionDivider />
+
       <Testimonials />
-      <SectionDivider />
+
       <ForTherapists />
-      <SectionDivider />
+
     </main>
 
     <!-- Footer -->
     <Footer />
+
+
   </div>
 </template>
 
@@ -40,7 +46,6 @@ import BookCta from './components/BookCta.vue'
 import SectionDivider from './components/SectionDivider.vue'
 import AboutMe from './components/AboutMe.vue'
 import PhilosophyOfPractice from './components/PhilosophyOfPractice.vue'
-
 import OfferSection from './components/OfferSection.vue'
 import FaqSection from './components/FaqSection.vue'
 import Testimonials from './components/Testimonials.vue'
@@ -49,26 +54,12 @@ import Footer from './components/Footer.vue'
 </script>
 
 <style>
-/* Clean, clinical global background and base text color.
-   This replaces the previous dark/navy background that made the navbar look sickly gray. */
-body,
-main,
-#app {
-  background-color: #f7fafc; /* pale, clinical off-white */
-  color: #0b1220; /* strong dark text for contrast */
+/* Remove the old manual background/text styling.
+   Tailwind utilities now control colors, typography smoothing, and min-height. */
+html, body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Ensure main takes full height so hero sizing behaves consistently */
-main {
-  min-height: 100vh;
-}
-
-/* Optional small utility: keeps footer separated visually if needed */
-footer {
-  background: transparent;
 }
 </style>

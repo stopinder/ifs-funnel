@@ -2,31 +2,63 @@
   <section
       id="testimonials"
       ref="testimonialSection"
-      class="relative px-6 py-24 max-w-6xl mx-auto text-slate-100 opacity-0 translate-y-6 transition-all duration-700 ease-out"
+      class="relative px-6 py-24 max-w-6xl mx-auto
+           bg-surface text-textsurface
+           transition-colors-bg duration-300 ease-subtle
+           opacity-0 translate-y-4
+           motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
       role="region"
-      aria-label="Client testimonials carousel"
+      aria-label="Client reflections carousel"
   >
-    <!-- Background -->
-    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#23253d]/90 to-[#181a2f]"></div>
+    <!-- subtle teal radial haze behind panel -->
     <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[60%] bg-[radial-gradient(circle_at_top_center,rgba(212,165,93,0.06),transparent_80%)] blur-3xl z-0"
+        class="absolute top-12 left-1/2 -translate-x-1/2 w-[80%] max-w-xl h-64
+             bg-[radial-gradient(circle_at_top,rgba(13,148,136,0.08),transparent_70%)]
+             blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
-    <div class="relative z-10">
-      <h2 class="text-3xl font-serif font-semibold mb-4 text-center text-amber-100">Client Reflections</h2>
-      <p class="text-slate-300 text-center mb-8 max-w-2xl mx-auto">Some reflections from those who have taken part in this work.</p>
+    <!-- panel container -->
+    <div
+        class="relative z-10 bg-white/90 rounded-2xl shadow-soft border border-bordercol-light
+             max-w-4xl mx-auto px-6 md:px-10 py-12 md:py-16"
+    >
+      <!-- Heading / intro -->
+      <header class="text-center mb-10">
+        <h2
+            class="text-3xl md:text-4xl font-serif font-semibold text-textsurface leading-snug"
+        >
+          Client Reflections <span class="block text-sm font-sans font-normal text-textsurface/60 mt-2">(shared with permission)</span>
+        </h2>
 
-      <!-- Controls -->
-      <div class="flex items-center justify-between mb-4">
+        <div
+            class="mt-4 mx-auto h-1 w-16 bg-primary/50 rounded"
+            aria-hidden="true"
+        ></div>
+
+        <p
+            class="text-base md:text-lg leading-relaxed text-textsurface/80 max-w-2xl mx-auto mt-6"
+        >
+          A few words from clients who have taken part in this reflective work.
+          These are their words and their language.
+        </p>
+      </header>
+
+      <!-- Controls row -->
+      <div class="flex items-center justify-between mb-6">
         <!-- Prev -->
         <button
             @click="scrollPrev"
             :disabled="currentIndex === 0"
-            class="group inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800/60 border border-amber-100/10 text-sm text-slate-100 disabled:opacity-50"
+            class="group inline-flex items-center justify-center gap-2 px-3 py-1 rounded-md
+                 bg-surface border border-bordercol-light text-xs font-medium text-textsurface
+                 hover:bg-primary/10 hover:border-primary hover:text-primary
+                 disabled:opacity-40 disabled:cursor-not-allowed
+                 transition-colors-bg duration-200 ease-subtle"
             aria-label="Previous testimonials"
         >
-          ◀
+          <span aria-hidden="true">◀</span>
+          <span class="sr-only">Previous</span>
         </button>
 
         <!-- Pagination dots -->
@@ -36,8 +68,10 @@
               :key="i"
               @click="goTo(i - 1)"
               :aria-pressed="currentIndex === i - 1"
-              class="w-2 h-2 rounded-full focus:outline-none"
-              :class="currentIndex === i - 1 ? 'bg-amber-300' : 'bg-slate-600/60'"
+              class="w-2 h-2 rounded-full focus:outline-none transition-colors-bg duration-200 ease-subtle"
+              :class="currentIndex === i - 1
+              ? 'bg-primary'
+              : 'bg-bordercol-light'"
               :aria-label="`Go to testimonial page ${i}`"
           ></button>
         </div>
@@ -46,14 +80,19 @@
         <button
             @click="scrollNext"
             :disabled="currentIndex >= pageCount - 1"
-            class="group inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800/60 border border-amber-100/10 text-sm text-slate-100 disabled:opacity-50"
+            class="group inline-flex items-center justify-center gap-2 px-3 py-1 rounded-md
+                 bg-surface border border-bordercol-light text-xs font-medium text-textsurface
+                 hover:bg-primary/10 hover:border-primary hover:text-primary
+                 disabled:opacity-40 disabled:cursor-not-allowed
+                 transition-colors-bg duration-200 ease-subtle"
             aria-label="Next testimonials"
         >
-          ▶
+          <span aria-hidden="true">▶</span>
+          <span class="sr-only">Next</span>
         </button>
       </div>
 
-      <!-- Scroll container (native swipe on mobile) -->
+      <!-- Scroll container -->
       <div
           ref="track"
           class="relative overflow-x-auto scroll-smooth snap-x snap-mandatory -mx-3 px-3 no-scrollbar"
@@ -62,6 +101,7 @@
           @keydown.right.prevent="scrollNext"
           role="group"
           aria-roledescription="carousel"
+          aria-live="polite"
       >
         <div class="flex gap-6" style="will-change: transform;">
           <article
@@ -70,12 +110,24 @@
               class="snap-start flex-none w-full sm:w-1/2 lg:w-1/3"
           >
             <div
-                class="h-full bg-slate-800/40 border border-amber-100/10 rounded-2xl p-8 shadow-md backdrop-blur-sm hover:bg-slate-800/60 transition-transform hover:-translate-y-1 flex flex-col justify-between min-h-[200px]"
+                class="h-full bg-white/70 rounded-xl border border-bordercol-light shadow-soft
+                     hover:bg-white/90 hover:shadow-soft hover:-translate-y-[2px]
+                     transition-transform transition-colors-bg duration-200 ease-subtle
+                     flex flex-col justify-between min-h-[200px] p-6"
             >
-              <blockquote class="text-slate-200 italic mb-6 leading-relaxed">“{{ t.quote }}”</blockquote>
+              <blockquote
+                  class="italic mb-6 leading-relaxed text-textsurface"
+              >
+                “{{ t.quote }}”
+              </blockquote>
+
               <footer class="mt-4">
-                <p class="text-slate-300 font-medium">— {{ t.name }}</p>
-                <p class="text-slate-500 text-sm">{{ t.location }}</p>
+                <p class="text-textsurface font-medium">
+                  — {{ t.name }}
+                </p>
+                <p class="text-textsurface/70 text-sm">
+                  {{ t.location }}
+                </p>
               </footer>
             </div>
           </article>
@@ -104,37 +156,34 @@ const track = ref(null)
 const currentIndex = ref(0)
 const pageCount = ref(1)
 
-// compute page count based on slidesPerView at current width
+// figure out how many slides fit on screen → how many pages exist
 function computePageCount() {
   if (!track.value) return
-  const containerWidth = track.value.clientWidth
-  // Determine slides per view by CSS breakpoints:
   const w = window.innerWidth
-  const spv = w >= 1024 ? 3 : w >= 640 ? 2 : 1
-  // pages = ceil(totalSlides / spv)
+  const spv = w >= 1024 ? 3 : w >= 640 ? 2 : 1 // slides per view
   pageCount.value = Math.ceil(testimonials.length / spv)
-  // sync index bounds
-  if (currentIndex.value > pageCount.value - 1) currentIndex.value = pageCount.value - 1
+
+  // ensure currentIndex is in range
+  if (currentIndex.value > pageCount.value - 1) {
+    currentIndex.value = pageCount.value - 1
+  }
 }
 
-// helper to get current page index from scrollLeft
+// recompute current page from scroll position
 function updateIndexFromScroll() {
   if (!track.value) return
   const w = window.innerWidth
   const spv = w >= 1024 ? 3 : w >= 640 ? 2 : 1
-  // slide width equals container visible width / spv
   const slideWidth = track.value.clientWidth / spv
   const scrollLeft = track.value.scrollLeft
   const page = Math.round(scrollLeft / (slideWidth * spv))
   currentIndex.value = Math.max(0, Math.min(pageCount.value - 1, page))
 }
 
-// scroll helpers: scroll by one page (spv slides)
+// scroll helpers
 function scrollNext() {
   if (!track.value) return
-  const w = window.innerWidth
-  const spv = w >= 1024 ? 3 : w >= 640 ? 2 : 1
-  const scrollAmount = track.value.clientWidth // one page width
+  const scrollAmount = track.value.clientWidth
   track.value.scrollBy({ left: scrollAmount, behavior: 'smooth' })
 }
 
@@ -151,25 +200,9 @@ function goTo(pageIndex) {
   currentIndex.value = pageIndex
 }
 
-let resizeObserver = null
-function hookEvents() {
-  if (!track.value) return
-  // update index when user scrolls
-  track.value.addEventListener('scroll', onScroll, { passive: true })
-  // Watch resize to recalc pages
-  window.addEventListener('resize', onResize)
-  // optional - keyboard handled via tabindex and @keydown in template
-}
-
-function unhookEvents() {
-  if (!track.value) return
-  track.value.removeEventListener('scroll', onScroll)
-  window.removeEventListener('resize', onResize)
-}
-
+// listeners
 let scrollRaf = null
 function onScroll() {
-  // throttle with requestAnimationFrame
   if (scrollRaf) cancelAnimationFrame(scrollRaf)
   scrollRaf = requestAnimationFrame(() => {
     updateIndexFromScroll()
@@ -181,24 +214,49 @@ function onResize() {
   updateIndexFromScroll()
 }
 
+function hookEvents() {
+  if (!track.value) return
+  track.value.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onResize)
+}
+
+function unhookEvents() {
+  if (!track.value) return
+  track.value.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onResize)
+}
+
 onMounted(async () => {
   const el = testimonialSection.value
-  // reveal animation
-  const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && el) {
-            el.classList.remove('opacity-0', 'translate-y-6')
-            el.classList.add('opacity-100', 'translate-y-0')
-            observer.unobserve(el)
-          }
-        })
-      },
-      { threshold: 0.18 }
-  )
-  if (el) observer.observe(el)
 
-  // Wait DOM to settle
+  // reduced motion users: don't animate in
+  const prefersReduced =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (prefersReduced) {
+    if (el) {
+      el.classList.remove('opacity-0', 'translate-y-4')
+      el.classList.add('opacity-100', 'translate-y-0')
+    }
+  } else {
+    // intersection observer reveal
+    const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && el) {
+              el.classList.remove('opacity-0', 'translate-y-4')
+              el.classList.add('opacity-100', 'translate-y-0')
+              observer.unobserve(el)
+            }
+          })
+        },
+        { threshold: 0.18 }
+    )
+    if (el) observer.observe(el)
+  }
+
+  // Wait for DOM so widths are stable
   await nextTick()
   computePageCount()
   hookEvents()
@@ -220,7 +278,18 @@ onBeforeUnmount(() => {
   display: none;             /* Chrome, Safari, Opera */
 }
 
-/* keep your other styles */
+/* snapping for horizontal slides */
 .snap-start { scroll-snap-align: start; }
 .scroll-smooth { scroll-behavior: smooth; }
+
+/* typography alignment with brand */
+h2 {
+  font-family: Lora, Georgia, serif;
+}
+blockquote,
+p,
+button,
+span {
+  font-family: Inter, system-ui, sans-serif;
+}
 </style>

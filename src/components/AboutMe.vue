@@ -1,127 +1,152 @@
 <template>
   <section
       id="about"
-      class="relative px-6 py-24 max-w-5xl mx-auto text-white overflow-visible bg-[url('/horizon.jpg')] bg-cover bg-center bg-no-repeat"
+      class="relative px-6 py-20 max-w-5xl mx-auto
+           bg-surface text-textsurface
+           transition-colors-bg duration-300 ease-subtle"
       itemscope
       itemtype="https://schema.org/Person"
+      aria-labelledby="about-heading"
   >
-    <!-- Soft navy gradient background overlay -->
-    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b]/80 via-[#20233e]/80 to-[#181a2f]/80"></div>
-
-    <!-- Optional soft radial glow behind portrait -->
+    <!-- subtle radial teal glow -->
     <div
-        class="absolute top-32 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(212,165,93,0.15),transparent_70%)] blur-3xl z-0"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+             w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
     <!-- MAIN CONTENT -->
-    <div
-        class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-12 text-center md:text-left"
-    >
+    <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-10">
       <!-- PORTRAIT -->
       <div class="flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto">
-        <img
-            src="/profile.jpg"
-            alt="Portrait of psychotherapist Robert Ormiston"
-            class="w-44 h-44 rounded-full object-cover border-4 border-amber-200/60 shadow-lg shadow-amber-900/30 mx-auto md:mx-0"
-            itemprop="image"
-        />
+        <div
+            class="bg-surface border border-bordercol-light
+                 rounded-lg p-1 shadow-soft"
+        >
+          <picture>
+            <img
+                :src="profileJpg"
+                alt="Portrait of psychotherapist Robert Ormiston"
+                class="w-44 h-44 rounded-full object-cover border-2 border-primary/40"
+                itemprop="image"
+                width="176"
+                height="176"
+                loading="lazy"
+                decoding="async"
+                @error="handleImgError"
+                ref="imgEl"
+            />
+          </picture>
+        </div>
       </div>
 
       <!-- TEXT BLOCK -->
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-serif font-semibold mb-6 text-amber-100" itemprop="name">
+        <h2
+            id="about-heading"
+            class="text-3xl md:text-4xl font-serif font-semibold mb-4 text-textsurface"
+            itemprop="name"
+        >
           About Robert Ormiston
         </h2>
 
-        <p class="text-slate-100 mb-6 leading-relaxed" itemprop="description">
-          I’m a psychotherapist with over 25 years of experience in mental health — including
-          clinical leadership roles within the NHS. Across these decades, my focus has remained
-          steady: helping people understand their inner world, meet their pain with compassion,
-          and rediscover the quiet strengths that sustain them.
+        <!-- accent bar -->
+        <div class="w-14 h-1 bg-primary/50 rounded mb-6" aria-hidden="true"></div>
+
+        <p class="text-lg mb-6 leading-relaxed text-textsurface" itemprop="description">
+          I’m a psychotherapist with over 25 years’ experience in mental health, including clinical leadership
+          within the NHS. I work to help people understand their inner world, meet painful parts with compassion,
+          and recover a steadier sense of self and purpose.
         </p>
 
-        <p class="text-slate-200 mb-8 leading-relaxed">
-          Informed by
-          <span class="italic" itemprop="knowsAbout">Internal Family Systems (IFS)</span> and
-          <span class="italic" itemprop="knowsAbout">EMDR</span>, my work rests on a simple premise:
-          healing grows where safety and awareness meet. I bring a reflective, symbolic, and
-          integrative approach — one that holds both the science of trauma and the poetry of
-          meaning — and I aim to offer a grounded space where clarity, coherence, and genuine
-          connection can emerge in their own time.
+        <p class="text-base mb-6 leading-relaxed text-textsurface">
+          My practice is informed by
+          <span class="italic">Internal Family Systems (IFS)</span> and
+          <span class="italic">EMDR</span>. I combine trauma-informed methods with reflective writing and clear,
+          practical summaries so clients leave sessions with clarity and an easy next-step.
         </p>
 
         <!-- Toggle Button -->
-        <button
-            @click="expanded = !expanded"
-            class="text-sm bg-amber-100 text-slate-900 font-semibold rounded-full px-5 py-2 hover:bg-amber-200 transition focus:outline-none focus:ring-4 focus:ring-amber-400/40"
-            :aria-expanded="expanded.toString()"
-            aria-controls="fullBio"
-        >
-          {{ expanded ? 'Hide Full Bio' : 'Read More About My Background' }}
-        </button>
+        <div class="mt-2">
+          <button
+              @click="expanded = !expanded"
+              class="inline-flex items-center gap-2 text-sm font-semibold rounded-full
+                   px-4 py-2 bg-primary/10 hover:bg-primary/20
+                   text-textsurface
+                   border border-bordercol-light
+                   shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
+                   transition-colors-bg duration-200 ease-subtle"
+              :aria-expanded="expanded.toString()"
+              aria-controls="fullBio"
+          >
+            <span>{{ expanded ? 'Hide Full Bio' : 'Read More About My Background' }}</span>
+            <svg
+                v-if="!expanded"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+              <path
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 5v14M5 12h14"
+              />
+            </svg>
+            <svg
+                v-else
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+              <path
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 12h14"
+              />
+            </svg>
+          </button>
+        </div>
 
         <!-- Full Bio -->
         <transition name="slide-fade">
           <div
               v-if="expanded"
               id="fullBio"
-              class="mt-8 space-y-4 text-slate-200 leading-relaxed"
+              class="mt-8 space-y-4 text-textsurface leading-relaxed"
           >
             <p>
-              My early clinical career unfolded during a period of profound transformation in
-              psychiatric care across the UK. I worked on commissioning teams for several landmark
-              projects that reshaped how mental-health services were delivered — from the first
-              Psychiatric Intensive Care Unit at Hackney Hospital to new community mental-health
-              hospitals in East Sussex and at St Bartholomew’s Hospital, London.
+              My early career unfolded during major shifts in UK psychiatric care. I was involved in commissioning
+              projects including the psychiatric intensive care unit at Hackney Hospital and early developments at
+              St Bartholomew’s. These roles shaped my practical approach to systems, safety, and service design.
             </p>
 
             <p>
-              These experiences deepened my conviction that meaningful change begins in
-              relationship — whether within large healthcare systems or within the psyche itself.
-              Alongside clinical work, I participated in international forums on eating disorders
-              and contributed to policy development, strengthening my belief that genuine
-              innovation in mental health arises through cooperation — between professions,
-              between ideas, and between human beings.
+              I’ve worked on national panels about eating disorders, collaborated on nursing protocol development,
+              and maintained a strong interest in how clinical theory translates into day-to-day practice.
             </p>
 
             <p>
-              During the pandemic, my focus evolved toward bridging psychotherapy and technology.
-              I trained as a prompt engineer and full-stack developer, designing therapeutic tools
-              and systems that help clinicians reflect, integrate, and protect the human presence at
-              the heart of care.
+              More recently I’ve focused on integrating psychotherapy with digital tools — building practical
+              systems that help clinicians reflect and clients to stay connected to what matters between sessions.
             </p>
 
             <p>
-              I am a registered member of the
-              <span class="italic" itemprop="affiliation">British Association for Counselling and Psychotherapy (BACP)</span>
-              and remain committed to reflective, trauma-informed practice.
-            </p>
-
-            <hr class="my-8 border-amber-100/20" />
-
-            <p class="text-slate-300 leading-relaxed mt-6">
-              Over time, my focus has shifted from traditional talk therapy toward something quieter
-              and more integrative. Healing rarely comes from more words — it comes from how we pay
-              attention. This reflection has shaped how I now work with clients and therapists
-              alike.
-            </p>
-
-            <p class="mt-4">
-              <a
-                  href="#philosophy"
-                  class="text-amber-200 hover:text-amber-100 underline/50 text-sm"
-              >
-                Read more about my philosophy of practice ↓
-              </a>
+              I remain a registered member of the British Association for Counselling and Psychotherapy (BACP)
+              and continue ongoing training in EMDR-informed IFS approaches.
             </p>
           </div>
         </transition>
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="mt-16 text-center relative z-10">
+    <!-- CTA below profile -->
+    <div class="mt-12 text-center">
       <BookCta />
     </div>
   </section>
@@ -129,19 +154,38 @@
 
 <script setup>
 import { ref } from 'vue'
+import BookCta from './BookCta.vue'
+
+const profileJpg = '/images/profile.jpg'
+const imgEl = ref(null)
 const expanded = ref(false)
+
+function handleImgError(e) {
+  const failed = (e && e.target && e.target.src) || profileJpg
+  console.warn('Profile image failed to load:', failed)
+  if (e && e.target) {
+    e.target.src =
+        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="176" height="176"><rect width="100%" height="100%" fill=\"%23F8F4EA\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%23999\" font-family=\"Arial\" font-size=\"14\">Profile</text></svg>'
+  }
+}
 </script>
 
 <style scoped>
-/* Slide-fade animation */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 0.6s ease;
+  transition: all 0.5s cubic-bezier(.2,.9,.2,1);
 }
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(12px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide-fade-enter-active,
+  .slide-fade-leave-active {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 </style>
-

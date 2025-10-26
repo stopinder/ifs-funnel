@@ -1,67 +1,128 @@
-from IPython.display import Markdown
-
-# Delivering the revised FAQ section (as requested: revised content, SEO improved, no major layout changes)
-revised_faq_template = """
-```vue
 <template>
   <section
       id="faq"
       ref="faqSection"
-      class="relative px-6 py-24 max-w-5xl mx-auto text-slate-100 opacity-0 translate-y-6 transition-all duration-700 ease-out"
+      class="relative px-6 py-24 max-w-5xl mx-auto
+           bg-surface text-textsurface
+           transition-colors-bg duration-300 ease-subtle
+           opacity-0 translate-y-4
+           motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+      itemscope
+      itemtype="https://schema.org/FAQPage"
+      aria-labelledby="faq-heading"
   >
-    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#24263e]/80 to-[#181a2f]"></div>
+    <!-- subtle radial teal haze behind panel -->
     <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-[radial-gradient(circle_at_top_center,rgba(212,165,93,0.06),transparent_80%)] blur-3xl z-0"
+        class="absolute top-12 left-1/2 -translate-x-1/2 w-[80%] max-w-xl h-64
+             bg-[radial-gradient(circle_at_top,rgba(13,148,136,0.08),transparent_70%)]
+             blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
-    <div class="relative z-10">
-      <h2 class="text-3xl font-serif font-semibold mb-4 text-center text-amber-100">
-        Frequently Asked Questions
-      </h2>
-      <p class="text-slate-300 text-center mb-12 max-w-2xl mx-auto">
-        Answers to common questions about Internal Family Systems (IFS) sessions, reflective reports, and how this therapeutic approach supports self-understanding.
-      </p>
+    <!-- panel container -->
+    <div
+        class="relative z-10 bg-white/90 rounded-2xl shadow-soft border border-bordercol-light
+             max-w-3xl mx-auto px-6 md:px-10 py-12 md:py-16"
+    >
+      <!-- Heading + intro -->
+      <header class="text-center mb-10">
+        <h2
+            id="faq-heading"
+            class="text-3xl md:text-4xl font-serif font-semibold text-textsurface leading-snug"
+        >
+          Frequently Asked Questions
+        </h2>
 
-      <div class="space-y-6">
         <div
+            class="mt-4 mx-auto h-1 w-16 bg-primary/50 rounded"
+            aria-hidden="true"
+        ></div>
+
+        <p
+            class="text-base md:text-lg leading-relaxed text-textsurface/80 max-w-2xl mx-auto mt-6"
+        >
+          What sessions are like, how reflective summaries work, and how your privacy is protected.
+        </p>
+      </header>
+
+      <!-- FAQ list -->
+      <div class="divide-y divide-bordercol-light">
+        <article
             v-for="(faq, index) in faqs"
             :key="index"
-            class="bg-slate-800/40 border border-amber-100/10 rounded-2xl p-6 sm:p-8 shadow-md backdrop-blur-sm hover:bg-slate-800/60 transition-colors"
+            class="py-6 first:pt-0 last:pb-0"
+            itemprop="mainEntity"
+            itemscope
+            itemtype="https://schema.org/Question"
         >
+          <!-- Question row -->
           <button
               role="button"
               @click="toggle(index)"
               @keyup.enter="toggle(index)"
               tabindex="0"
-              class="w-full flex justify-between items-center text-left focus:outline-none"
+              class="w-full flex justify-between items-start text-left group focus:outline-none"
               :aria-expanded="faq.open.toString()"
               :aria-controls="'answer-' + index"
           >
-            <span class="text-lg font-semibold text-slate-100 font-serif">
-              {{ faq.question }}
-            </span>
+            <div class="pr-6">
+              <h3
+                  class="text-lg md:text-xl font-semibold font-serif text-textsurface leading-snug flex items-baseline gap-2"
+                  itemprop="name"
+              >
+                <span
+                    class="text-sm font-mono font-medium text-primary/80 tracking-tight"
+                >
+                  Q{{ index + 1 }}.
+                </span>
+                <span
+                    class="group-hover:text-primary transition-colors-bg duration-200 ease-subtle"
+                >
+                  {{ faq.question }}
+                </span>
+              </h3>
+            </div>
+
             <svg
-                :class="['w-5 h-5 transition-transform text-amber-300', faq.open ? 'rotate-180' : 'rotate-0']"
+                class="mt-1 h-5 w-5 text-textsurface/60 group-hover:text-primary transition-transform duration-300 ease-subtle"
+                :class="{ 'rotate-180': faq.open }"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
+          <!-- Answer -->
           <transition name="slide-fade">
             <div
                 v-if="faq.open"
                 :id="'answer-' + index"
-                class="mt-4 text-slate-300 leading-relaxed font-inter"
+                class="mt-4 text-textsurface text-base md:text-lg leading-relaxed"
+                itemprop="acceptedAnswer"
+                itemscope
+                itemtype="https://schema.org/Answer"
             >
-              <p>{{ faq.answer }}</p>
+              <p itemprop="text" class="space-y-4">
+                <span
+                    v-for="(paragraph, i) in faq.answer"
+                    :key="i"
+                    class="block mb-4 last:mb-0"
+                >
+                  {{ paragraph }}
+                </span>
+              </p>
             </div>
           </transition>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -70,52 +131,85 @@ revised_faq_template = """
 <script setup>
 import { reactive, ref, onMounted } from 'vue'
 
+/**
+ * FAQ content and clinical messaging
+ * - Each answer is now an array of paragraphs for readability, SEO and consent clarity.
+ * - Language is framed around privacy, agency, clarity.
+ */
 const faqs = reactive([
   {
     question: 'What is Internal Family Systems (IFS)?',
-    answer:
-        'IFS is a structured, evidence-based approach to therapy that helps you explore different parts of your inner world. These may include protectors, critics, or vulnerable parts. The goal is to build a compassionate relationship with them, allowing your system to find balance and integration.',
+    answer: [
+      'Internal Family Systems (IFS) is a therapeutic approach that views the mind as having different parts — for example, the inner critic, the protector, the overwhelmed part, the deeply tired part. None of these parts are “bad”; each one is trying in its own way to keep you safe.',
+      'In this work, we learn how to meet those parts with clarity and compassion rather than battling or suppressing them. The aim is integration, steadiness, and relief — not perfection.',
+    ],
     open: false,
   },
   {
     question: 'What can I expect during a session?',
-    answer:
-        'Each 50-minute session begins with grounding and orienting to your current internal state. We then follow what arises naturally, using a gentle, client-led process. There’s no pressure to perform or explain — we listen, track, and reflect in a way that supports deep self-contact.',
+    answer: [
+      'Sessions are 50 minutes and calm in tone. We begin by noticing what feels most alive or most demanding in you that day — not forcing an agenda.',
+      'Rather than analysing you, we stay close to your direct experience. You will not be pushed to “perform” emotions or reveal anything you don’t want to. You set the pace.',
+    ],
     open: false,
   },
   {
-    question: 'What is a Reflective Summary Report?',
-    answer:
-        'After your session, I prepare a therapeutic summary supported by a secure, supervised AI writing assistant. This summary highlights key themes, emotional movements, and inner shifts. It’s not a clinical note or transcript — it’s a reflective aid designed to support integration.',
+    question: 'What is a reflective summary, and why do you offer it?',
+    answer: [
+      'After some sessions, I can create a short written reflective summary for you. Clients often find this helps them integrate, remember key insights, and stay with what actually matters between sessions.',
+      'This is optional. You decide if you want it.',
+      'To draft it, I use a privacy-protected clinical writing assistant under my supervision. Your material is not used to train public AI models, and these notes are not shared outside our work.',
+    ],
     open: false,
   },
   {
     question: 'Is this process confidential and secure?',
-    answer:
-        'Yes. Your sessions are entirely confidential, held to the same standards expected in psychotherapy. Reflective summaries are created with your consent, stored securely, and never shared beyond our work together. AI support tools do not retain client data.',
+    answer: [
+      'Yes. Sessions are held to normal psychotherapy standards of confidentiality.',
+      'Reflective summaries are only created with your consent. They are kept securely. They are not clinical risk notes and not legal records; they are for you.',
+      'Any digital tools involved do not keep your identifiable session data for reuse.',
+    ],
     open: false,
   },
   {
-    question: 'Do I need therapy experience to benefit from this?',
-    answer:
-        'No prior experience is required. This work suits both seasoned clients and those new to therapy. The main requirement is a willingness to pay quiet attention to what arises. You’ll be met with care and without judgment, wherever you are in your process.',
+    question: 'Do I need previous therapy experience to work with you?',
+    answer: [
+      'No. Some clients have been in therapy for years and feel like they have “done all the work,” but still feel dysregulated or depleted. Others are coming for the first time.',
+      'What matters most is willingness to slow down and pay real attention to what is happening inside you, without judgement.',
+    ],
     open: false,
   },
 ])
 
-const toggle = (index) => {
-  faqs.forEach((f, i) => f.open = i === index ? !f.open : false) // auto-collapse others
-}
-
 const faqSection = ref(null)
+
+const toggle = (index) => {
+  faqs.forEach((f, i) => {
+    f.open = i === index ? !f.open : false
+  })
+}
 
 onMounted(() => {
   const el = faqSection.value
+  if (!el) return
+
+  // Respect reduced motion: if user prefers reduced motion,
+  // show immediately and skip animate-in.
+  const prefersReduced =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (prefersReduced) {
+    el.classList.remove('opacity-0', 'translate-y-4')
+    el.classList.add('opacity-100', 'translate-y-0')
+    return
+  }
+
   const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            el.classList.remove('opacity-0', 'translate-y-6')
+            el.classList.remove('opacity-0', 'translate-y-4')
             el.classList.add('opacity-100', 'translate-y-0')
             observer.unobserve(el)
           }
@@ -123,11 +217,13 @@ onMounted(() => {
       },
       { threshold: 0.2 }
   )
-  if (el) observer.observe(el)
+
+  observer.observe(el)
 })
 </script>
 
 <style scoped>
+/* Accordion animation for answers */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: all 0.5s ease;
@@ -138,17 +234,25 @@ onMounted(() => {
   opacity: 0;
   overflow: hidden;
 }
-h2 {
+
+/* Serif heading aesthetic for continuity with Philosophy section */
+h2,
+h3 {
   font-family: Lora, Georgia, serif;
 }
+
+/* Body text is Inter, consistent with clinical clarity */
 p,
-button {
+button,
+span {
   font-family: Inter, system-ui, sans-serif;
 }
+
+/* If user prefers reduced motion, transitions above are skipped in script */
 @media (prefers-reduced-motion: reduce) {
   .slide-fade-enter-active,
   .slide-fade-leave-active {
-    transition: none;
+    transition: none !important;
   }
 }
 </style>

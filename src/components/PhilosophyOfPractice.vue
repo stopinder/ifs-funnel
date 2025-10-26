@@ -1,81 +1,132 @@
 <template>
   <section
       id="philosophy"
-      class="relative px-6 py-24 max-w-4xl mx-auto text-slate-300 leading-relaxed text-base md:text-lg"
+      class="relative px-6 py-24 max-w-4xl mx-auto
+           bg-surface text-textsurface
+           transition-colors-bg duration-300 ease-subtle"
   >
-    <!-- Background -->
-    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#1e213b] via-[#20233e] to-[#181a2f]"></div>
+    <!-- soft radial teal haze behind panel -->
     <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[60%] bg-[radial-gradient(circle_at_top_center,rgba(212,165,93,0.08),transparent_70%)] blur-3xl z-0"
+        class="absolute top-16 left-1/2 -translate-x-1/2 w-[80%] max-w-xl h-64
+             bg-[radial-gradient(circle_at_top,rgba(13,148,136,0.08),transparent_70%)]
+             blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
-    <div class="relative z-10 space-y-8">
+    <!-- content panel -->
+    <div
+        class="relative z-10 bg-white/90 rounded-2xl shadow-soft border border-bordercol-light
+             max-w-3xl mx-auto px-6 md:px-10 py-12 md:py-16"
+    >
       <!-- Section Heading -->
-      <h2 class="text-3xl font-serif font-semibold text-center mb-10 text-slate-100">
-        Philosophy of Practice
-      </h2>
+      <header class="text-center mb-10">
+        <h2
+            class="text-3xl md:text-4xl font-serif font-semibold text-textsurface leading-snug"
+        >
+          Philosophy of Practice
+        </h2>
+
+        <div
+            class="mt-4 mx-auto h-1 w-16 bg-primary/50 rounded"
+            aria-hidden="true"
+        ></div>
+      </header>
 
       <!-- Introductory Paragraphs -->
-      <p>
-        Over the years, my work has evolved. What began as talking therapy has become something quieter —
-        an inquiry into attention itself. The following reflection captures the essence of that shift.
-      </p>
+      <div class="space-y-6 text-base md:text-lg leading-relaxed text-textsurface">
+        <p>
+          Over the years, my work has evolved. What began as talking therapy has
+          become something quieter — an inquiry into attention itself. The
+          following reflection captures the essence of that shift.
+        </p>
 
-      <p>
-        My approach weaves psychological precision with embodied presence. I work briefly and integratively,
-        helping people reconnect with the steady attention that underlies real change.
-        Talking alone can open awareness; presence makes it real.
-      </p>
+        <p>
+          My approach weaves psychological precision with embodied presence. I
+          work briefly and integratively, helping people reconnect with the
+          steady attention that underlies real change. Talking alone can open
+          awareness; presence makes it real.
+        </p>
+      </div>
 
       <!-- Accordion Blocks -->
-      <article
-          v-for="(block, index) in philosophy"
-          :key="block.title"
-          :id="`philosophy-${index + 1}`"
-          class="border-b border-slate-700 pb-4"
-      >
-        <!-- Accordion Header -->
-        <button
-            @click="block.open = !block.open"
-            class="w-full text-left py-4 flex justify-between items-center group focus:outline-none"
-            :aria-expanded="block.open"
+      <div class="mt-12 divide-y divide-bordercol-light">
+        <article
+            v-for="(block, index) in philosophy"
+            :key="block.title"
+            :id="`philosophy-${index + 1}`"
+            class="py-6 first:pt-0 last:pb-0"
         >
-          <h3 class="text-lg md:text-xl font-semibold text-slate-100 group-hover:text-slate-300 transition-colors">
-            {{ String(index + 1).padStart(2, '0') }} · {{ block.title }}
-          </h3>
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-slate-400 group-hover:text-slate-300 transform transition-transform duration-300"
-              :class="{ 'rotate-180': block.open }"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <!-- Accordion Header -->
+          <button
+              @click="block.open = !block.open"
+              class="w-full text-left flex justify-between items-start group focus:outline-none"
+              :aria-expanded="block.open"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+            <div class="pr-6">
+              <h3
+                  class="text-lg md:text-xl font-semibold font-serif text-textsurface
+                       group-hover:text-primary transition-colors-bg duration-200 ease-subtle
+                       flex items-baseline gap-2"
+              >
+                <span
+                    class="text-sm font-mono font-medium text-primary/80 tracking-tight"
+                >
+                  {{ String(index + 1).padStart(2, '0') }} ·
+                </span>
 
-        <!-- Accordion Content -->
-        <transition name="fade">
-          <div v-if="block.open" class="space-y-4">
-            <p v-for="p in block.text" :key="p">{{ p }}</p>
-          </div>
-        </transition>
-      </article>
+                <span class="leading-snug">
+                  {{ block.title }}
+                </span>
+              </h3>
+            </div>
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="mt-1 h-5 w-5 text-textsurface/60 group-hover:text-primary transition-transform duration-300 ease-subtle"
+                :class="{ 'rotate-180': block.open }"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          <!-- Accordion Content -->
+          <transition name="fade">
+            <div
+                v-if="block.open"
+                class="mt-4 space-y-4 text-textsurface text-base md:text-lg leading-relaxed"
+            >
+              <p v-for="p in block.text" :key="p">
+                {{ p }}
+              </p>
+            </div>
+          </transition>
+        </article>
+      </div>
 
       <!-- Signature -->
-      <p class="mt-12 text-slate-400 text-sm italic text-center">
-        — Robert Ormiston · Integrative Psychotherapist · IFS Practitioner<br />
-        <a
-            href="https://www.bacp.co.uk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-amber-300 hover:text-amber-200 underline/50"
-        >
-          Registered Member MBACP
-        </a>
-      </p>
+      <footer class="mt-12 text-center">
+        <p class="text-sm italic text-textsurface/70 leading-relaxed">
+          — Robert Ormiston · Integrative Psychotherapist · IFS Practitioner
+        </p>
+        <p class="text-sm text-textsurface/70 leading-relaxed">
+          <a
+              href="https://www.bacp.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:text-primary-hover underline/50 transition-colors-bg duration-200 ease-subtle"
+          >
+            Registered Member MBACP · British Association for Counselling and Psychotherapy
+          </a>
+        </p>
+      </footer>
     </div>
   </section>
 </template>
@@ -144,7 +195,7 @@ const philosophy = reactive([
     open: false,
     text: [
       "Therapy was the bridge that carried us from unconscious pattern to conscious participation. But bridges are meant to be crossed. Beyond the bridge lies the practice of attention itself — the living synthesis of body, feeling, and thought in real time.",
-      "You don’t have to keep orbiting your story. You can return to gravity, to ground, to breath. Healing begins when words fall quiet and attention begins."
+      "You don’t have to keep orbiting your story. You can return to gravity, to ground, to breath. Healing begins when words fall quiet and attention begins again."
     ]
   }
 ])
