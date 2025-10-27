@@ -1,18 +1,25 @@
 <template>
   <section
       id="hero"
-      class="relative min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-20 bg-gradient-to-b from-slate-100 to-slate-200 text-slate-900"
+      class="relative min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-24
+             bg-gradient-to-b from-slate-50 to-stone-100 text-slate-900"
       aria-label="Hero: calm, clinical, modern"
   >
     <div
-        class="relative z-10 max-w-2xl w-full bg-white border border-slate-200 rounded-2xl p-6 md:p-12 shadow-md"
+        class="relative z-10 max-w-2xl w-full
+               rounded-2xl
+               bg-gradient-to-br from-white/90 to-slate-50/90
+               backdrop-blur-sm
+               border border-white/60
+               shadow-lg
+               p-6 md:p-12"
         role="region"
         aria-labelledby="hero-title"
         aria-describedby="hero-intro"
     >
       <!-- Top bar: brand left / socials right -->
       <div
-          class="mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4"
+          class="mb-4 flex flex-col md:flex-row md:items-start md:justify-between gap-4"
       >
         <!-- Clinic ID row (left) -->
         <div class="flex items-center justify-center md:justify-start gap-3">
@@ -28,11 +35,21 @@
           </span>
         </div>
 
-        <!-- Socials (right) -->
-        <div class="flex justify-center md:justify-end">
+        <!-- Socials (right) with subtle label -->
+        <div class="flex flex-col items-center md:items-end">
+          <span
+              class="text-[10px] uppercase tracking-wide text-slate-400 font-medium mb-1"
+          >
+            Profile
+          </span>
           <FooterSocials />
         </div>
       </div>
+
+      <!-- subtle divider to separate header band from body -->
+      <div
+          class="border-t border-slate-200/60 pt-4 md:pt-6"
+      ></div>
 
       <!-- Headline -->
       <h1
@@ -41,7 +58,7 @@
       >
         Psychotherapy for
         <span class="text-teal-700">clarity</span>,
-        integration and renewal
+        integration, and steady change
       </h1>
 
       <!-- Accent line -->
@@ -56,17 +73,20 @@
           aria-label="Clinical credibility markers"
       >
         <li
-            class="px-2 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-medium text-slate-700 leading-none"
+            class="px-2 py-1 rounded-md border border-slate-300 bg-white
+                   text-[11px] font-medium text-slate-700 leading-none tracking-wide"
         >
           MBACP Registered
         </li>
         <li
-            class="px-2 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-medium text-slate-700 leading-none"
+            class="px-2 py-1 rounded-md border border-slate-300 bg-white
+                   text-[11px] font-medium text-slate-700 leading-none tracking-wide"
         >
-          15+ yrs clinical practice
+          15+ yrs clinical practice (NHS &amp; private)
         </li>
         <li
-            class="px-2 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-medium text-slate-700 leading-none"
+            class="px-2 py-1 rounded-md border border-slate-300 bg-white
+                   text-[11px] font-medium text-slate-700 leading-none tracking-wide"
         >
           IFS &amp; EMDR-informed
         </li>
@@ -75,10 +95,11 @@
       <!-- Body copy -->
       <p
           id="hero-intro"
-          class="text-base md:text-lg text-slate-800 leading-relaxed mb-6 text-center md:text-left"
+          class="text-base md:text-lg text-slate-800 leading-loose md:leading-relaxed mb-6 text-center md:text-left"
       >
         For adults who want steadiness, deeper self-understanding, and change
-        that actually holds in real life.
+        that actually holds in real life — not another cycle of coping and
+        crashing.
       </p>
 
       <!-- CTA row -->
@@ -87,7 +108,7 @@
       >
         <button
             @click.prevent="scrollTo(bookTarget)"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold
+            class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold
                    bg-teal-600 text-white hover:bg-teal-700
                    focus:outline-none focus:ring-4 focus:ring-teal-200"
         >
@@ -96,8 +117,8 @@
 
         <a
             :href="learnMoreHref"
-            class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-slate-200
-                   bg-white text-slate-800 hover:bg-slate-50
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl border border-slate-300
+                   bg-white text-slate-600 hover:bg-slate-50
                    focus:outline-none focus:ring-4 focus:ring-slate-200"
         >
           Learn more
@@ -106,9 +127,9 @@
 
       <!-- Micro trust line -->
       <p
-          class="mt-4 text-xs text-slate-500 text-center md:text-left leading-relaxed"
+          class="mt-4 text-xs text-slate-600 text-center md:text-left leading-relaxed"
       >
-        Online, confidential, UK-based.
+        Online. Confidential. UK-based.
       </p>
 
       <!-- Compliance / reassurance row -->
