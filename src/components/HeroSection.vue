@@ -10,11 +10,11 @@
         aria-labelledby="hero-title"
         aria-describedby="hero-intro"
     >
-      <!-- Header row: brand + socials -->
+      <!-- Top bar: brand left / socials right -->
       <div
-          class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6 text-center md:text-left"
+          class="mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4"
       >
-        <!-- Clinic ID block -->
+        <!-- Clinic ID row (left) -->
         <div class="flex items-center justify-center md:justify-start gap-3">
           <img
               src="/images/ChrysalisLogo.svg"
@@ -28,7 +28,7 @@
           </span>
         </div>
 
-        <!-- Socials block -->
+        <!-- Socials (right) -->
         <div class="flex justify-center md:justify-end">
           <FooterSocials />
         </div>
@@ -37,9 +37,11 @@
       <!-- Headline -->
       <h1
           id="hero-title"
-          class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug text-slate-900 text-center md:text-left"
+          class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight md:leading-snug text-slate-900 text-center md:text-left"
       >
-        Psychotherapy for clarity, integration and renewal
+        Psychotherapy for
+        <span class="text-teal-700">clarity</span>,
+        integration and renewal
       </h1>
 
       <!-- Accent line -->
@@ -48,21 +50,35 @@
           aria-hidden="true"
       ></div>
 
-      <!-- Credibility line -->
-      <div
-          class="text-sm text-slate-600 leading-snug mb-4 text-center md:text-left"
+      <!-- Credibility badges -->
+      <ul
+          class="flex flex-wrap justify-center md:justify-start gap-2 mb-4"
+          aria-label="Clinical credibility markers"
       >
-        Registered Member (MBACP), 15+ years clinical practice, EMDR-informed
-        Internal Family Systems therapy
-      </div>
+        <li
+            class="px-2 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-medium text-slate-700 leading-none"
+        >
+          MBACP Registered
+        </li>
+        <li
+            class="px-2 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-medium text-slate-700 leading-none"
+        >
+          15+ yrs clinical practice
+        </li>
+        <li
+            class="px-2 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-medium text-slate-700 leading-none"
+        >
+          IFS &amp; EMDR-informed
+        </li>
+      </ul>
 
       <!-- Body copy -->
       <p
           id="hero-intro"
-          class="text-base md:text-lg text-slate-700 leading-relaxed mb-6 text-center md:text-left"
+          class="text-base md:text-lg text-slate-800 leading-relaxed mb-6 text-center md:text-left"
       >
-        Therapy for adults wanting calm, deeper self-understanding, and practical
-        change.
+        For adults who want steadiness, deeper self-understanding, and change
+        that actually holds in real life.
       </p>
 
       <!-- CTA row -->
@@ -72,8 +88,8 @@
         <button
             @click.prevent="scrollTo(bookTarget)"
             class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold
-                 bg-teal-600 text-white hover:bg-teal-700
-                 focus:outline-none focus:ring-4 focus:ring-teal-200"
+                   bg-teal-600 text-white hover:bg-teal-700
+                   focus:outline-none focus:ring-4 focus:ring-teal-200"
         >
           Book a session
         </button>
@@ -81,12 +97,19 @@
         <a
             :href="learnMoreHref"
             class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-slate-200
-                 bg-transparent text-slate-800 hover:bg-slate-50
-                 focus:outline-none focus:ring-4 focus:ring-slate-200"
+                   bg-white text-slate-800 hover:bg-slate-50
+                   focus:outline-none focus:ring-4 focus:ring-slate-200"
         >
           Learn more
         </a>
       </div>
+
+      <!-- Micro trust line -->
+      <p
+          class="mt-4 text-xs text-slate-500 text-center md:text-left leading-relaxed"
+      >
+        Online, confidential, UK-based.
+      </p>
 
       <!-- Compliance / reassurance row -->
       <div
@@ -109,7 +132,7 @@
 </template>
 
 <script setup>
-import FooterSocials from './FooterSocials.vue'
+import FooterSocials from '@/components/FooterSocials.vue'
 
 const props = defineProps({
   bookTarget: { type: String, default: '#book-cta' },
@@ -130,11 +153,6 @@ function scrollTo(selector) {
   } catch (e) {
     window.location.hash = selector
   }
-}
-
-function handleClick(source) {
-  // passthrough for social click analytics if you ever wire it
-  // console.debug('social click', source)
 }
 </script>
 
