@@ -10,18 +10,28 @@
         aria-labelledby="hero-title"
         aria-describedby="hero-intro"
     >
-      <!-- Clinic ID row -->
-      <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
-        <img
-            src="/images/ChrysalisLogo.svg"
-            alt="Chrysalis Psychotherapy"
-            class="w-16 h-16 object-contain opacity-90"
-            loading="eager"
-            decoding="async"
-        />
-        <span class="text-sm font-medium text-slate-600">
-          Chrysalis Psychotherapy
-        </span>
+      <!-- Header row: brand + socials -->
+      <div
+          class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6 text-center md:text-left"
+      >
+        <!-- Clinic ID block -->
+        <div class="flex items-center justify-center md:justify-start gap-3">
+          <img
+              src="/images/ChrysalisLogo.svg"
+              alt="Chrysalis Psychotherapy"
+              class="w-16 h-16 object-contain opacity-90"
+              loading="eager"
+              decoding="async"
+          />
+          <span class="text-sm font-medium text-slate-600">
+            Chrysalis Psychotherapy
+          </span>
+        </div>
+
+        <!-- Socials block -->
+        <div class="flex justify-center md:justify-end">
+          <FooterSocials />
+        </div>
       </div>
 
       <!-- Headline -->
@@ -99,6 +109,8 @@
 </template>
 
 <script setup>
+import FooterSocials from './FooterSocials.vue'
+
 const props = defineProps({
   bookTarget: { type: String, default: '#book-cta' },
   learnMoreHref: { type: String, default: '#about' }
@@ -119,6 +131,11 @@ function scrollTo(selector) {
     window.location.hash = selector
   }
 }
+
+function handleClick(source) {
+  // passthrough for social click analytics if you ever wire it
+  // console.debug('social click', source)
+}
 </script>
 
 <style scoped>
@@ -128,4 +145,3 @@ button:focus {
   box-shadow: 0 0 0 4px rgba(16,185,129,0.2);
 }
 </style>
-
