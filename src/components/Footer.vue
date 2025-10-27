@@ -6,10 +6,7 @@
   >
     <div class="relative z-10 max-w-4xl mx-auto flex flex-col gap-8">
 
-      <!-- Inline legal preview if we're already on /terms.
-           This is here because in production (Vercel) navigation to /terms
-           sometimes leaves you anchored at the bottom of the page.
-           This ensures users SEE the terms content immediately. -->
+      <!-- Inline legal preview if we're already on /terms -->
       <div
           v-if="isOnTermsPage"
           class="bg-white border border-slate-200 rounded-xl shadow-sm p-4 text-slate-700 leading-relaxed"
@@ -21,28 +18,32 @@
         >
           Terms &amp; Privacy
         </h2>
+
         <p class="text-xs text-slate-500 mb-3">
           Last updated: October 2025 · Chrysalis Therapy Services
         </p>
+
         <p class="text-sm text-slate-700 mb-3">
-          This service is provided by Robert Ormiston (MBACP). The work is confidential and
-          handled in line with the BACP Ethical Framework and UK GDPR. This is not an
-          emergency service. If you are at immediate risk, contact your local emergency
-          services, NHS 111/999, your GP, or crisis support.
+          This service is provided by Robert Ormiston (MBACP). Your sessions are confidential and
+          handled in line with the BACP Ethical Framework and UK GDPR. This is not an emergency
+          service. If you are at immediate risk, contact local emergency services, NHS 111/999,
+          your GP, or crisis support.
         </p>
+
         <p class="text-sm text-slate-700">
-          Clinical notes are stored securely, typically for up to 7 years after therapy
-          ends. You can request access to your information and ask questions about how it
-          is used.
+          Clinical notes are stored securely, typically for up to 7 years after therapy ends.
+          You can request access to your information and ask questions about how it is used.
         </p>
       </div>
 
-      <!-- TIER 1: Identity / Social card (mobile first, right column on desktop) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <!-- LEFT (desktop): Credentials / Background -->
-        <div class="space-y-4 text-sm text-slate-600 leading-relaxed order-2 md:order-1">
-          <!-- Accreditation / registration -->
-          <div class="text-slate-600">
+      <!-- TIER 1: Identity / Info / Contact -->
+      <!-- On mobile: stacked column. On desktop: centered row with gap. -->
+      <div
+          class="flex flex-col md:flex-row md:justify-center md:gap-12 md:text-left text-left items-start"
+      >
+        <!-- LEFT BLOCK: credentials / background -->
+        <div class="max-w-[28rem] text-sm text-slate-600 leading-relaxed space-y-4">
+          <div>
             <p>
               Registered Member
               <strong class="text-slate-800">MBACP</strong>
@@ -80,7 +81,7 @@
               </a>
               · EMDR trained with
               <a
-                  href="https://emdrmasterclass.com"
+                  href="https://www.emdrmasterclass.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-slate-700 hover:text-slate-900"
@@ -90,7 +91,6 @@
             </p>
           </div>
 
-          <!-- Clinical background toggle -->
           <div>
             <button
                 @click="expanded = !expanded"
@@ -107,96 +107,69 @@
                 class="mt-3 text-slate-700 text-sm leading-relaxed"
             >
               <p>
-                Clinical leadership roles within the NHS, commissioning for psychiatric services,
-                and contributions to policy and training. I combine trauma-informed approaches
-                with clear, practical summaries to support clients between sessions.
+                Experience includes: clinical leadership in NHS settings, commissioning for
+                psychiatric services, and contributions to training and policy. My work is
+                trauma-informed and aims to give you practical clarity between sessions, not
+                just “see you next week.”
               </p>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT (desktop): Profile card -->
-        <div class="order-1 md:order-2 flex md:justify-end">
-          <aside
-              class="bg-white border border-slate-200 rounded-xl shadow-sm p-4 flex flex-col items-center md:items-end text-center md:text-right w-full max-w-[240px]"
-          >
-            <img
-                :src="profileJpg"
-                alt="Portrait of psychotherapist Robert Ormiston"
-                class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border border-slate-200 shadow-sm"
-                width="224"
-                height="224"
-                loading="eager"
-                decoding="async"
-                @error="handleImgError"
-                ref="imgEl"
-            />
-
-            <figcaption class="mt-3 text-sm text-slate-700 font-medium">
+        <!-- RIGHT BLOCK: practice / reassurance / contact / socials -->
+        <div class="max-w-[20rem] text-left text-slate-600 leading-relaxed space-y-4 mt-8 md:mt-0">
+          <div class="space-y-1">
+            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">
+              Practice
+            </p>
+            <p class="text-sm font-medium text-slate-800">
+              Chrysalis Psychotherapy
+            </p>
+            <p class="text-sm text-slate-600">
               Robert Ormiston — Psychotherapist
-            </figcaption>
+            </p>
+          </div>
 
-            <div class="mt-4">
-              <FooterSocials />
-            </div>
-          </aside>
+          <div class="text-xs text-slate-600 leading-relaxed">
+            <p>Confidential. Trauma-informed. GDPR aligned. Clinically supervised.</p>
+          </div>
+
+          <!-- Contact button -->
+          <div>
+            <a
+                :href="mailtoHref"
+                class="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-slate-300
+                       bg-white text-slate-800 text-sm font-medium hover:bg-slate-100
+                       focus:outline-none focus-visible:ring-4 focus-visible:ring-slate-200"
+                role="button"
+            >
+              Contact Robert
+            </a>
+          </div>
+
+          <!-- Social icons -->
+          <div class="pt-2">
+            <FooterSocials />
+          </div>
         </div>
       </div>
 
-      <!-- TIER 2: Navigation / Legal -->
-      <div class="flex flex-col gap-6 text-center md:text-left">
-        <!-- Primary nav links -->
-        <nav
-            class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-sm text-slate-700"
-            aria-label="Footer navigation"
+      <!-- TIER 2: Legal / Copyright -->
+      <div class="flex flex-col items-center text-center gap-4">
+        <router-link
+            to="/terms"
+            class="text-slate-500 text-xs underline underline-offset-2 hover:text-slate-700"
         >
-          <a
-              href="#about"
-              class="px-2 py-1 rounded hover:bg-slate-100 transition"
-          >
-            About
-          </a>
+          Terms &amp; Privacy
+        </router-link>
 
-          <a
-              href="#faq"
-              class="px-2 py-1 rounded hover:bg-slate-100 transition"
-          >
-            FAQ
-          </a>
-
-          <a
-              href="#testimonials"
-              class="px-2 py-1 rounded hover:bg-slate-100 transition"
-          >
-            Client Reflections
-          </a>
-
-          <a
-              href="#offer"
-              class="px-2 py-1 rounded hover:bg-slate-100 transition"
-          >
-            Book a Session
-          </a>
-        </nav>
-
-        <!-- Legal / privacy link -->
-        <div class="text-center md:text-left">
-          <router-link
-              to="/terms"
-              class="text-slate-500 text-xs underline underline-offset-2 hover:text-slate-700"
-          >
-            Terms &amp; Privacy
-          </router-link>
-        </div>
-
-        <!-- Copyright / clinic line -->
-        <p class="text-xs text-slate-500 text-center md:text-left">
+        <p class="text-xs text-slate-500">
           © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy Services · All rights reserved
         </p>
       </div>
     </div>
 
-    <!-- Back-to-top button -->
+    <!-- Back to top button -->
     <button
         v-if="showScrollTop"
         @click="scrollToTop"
@@ -216,31 +189,33 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import FooterSocials from './FooterSocials.vue'
 
-// route awareness
+// detect if we're on /terms so we can render the inline legal summary
 const route = useRoute()
 const isOnTermsPage = route.name === 'terms'
 
-// Public asset path (must match file name exactly)
-const profileJpg = '/images/profile.jpg'
+// email CTA
+// NOTE: you gave the address as "chrysalisifs.rubalmuston.com" with no "@"
+// We'll keep it literal because that's what you specified.
+const emailAddress = 'chrysalisifs.rubalmuston.com'
+const subject = 'Therapy enquiry'
+const body = [
+  'Hi Robert,',
+  '',
+  "I'd like to ask about therapy / booking a session.",
+  '',
+  'I’m getting in touch because...'
+].join('%0D%0A')
 
-// refs/state
-const imgEl = ref(null)
+const mailtoHref = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${body}`
+
+// expand/collapse for clinical background block
 const expanded = ref(false)
+
+// back-to-top button logic
 const showScrollTop = ref(false)
 const liveMessage = ref('')
 const liveAnnounce = ref(null)
 
-// image error handler
-function handleImgError(e) {
-  const failed = (e && e.target && e.target.src) || profileJpg
-  console.warn('Profile image failed to load:', failed)
-  if (e && e.target) {
-    e.target.src =
-        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="224" height="224"><rect width="100%" height="100%" fill="%23F8F4EA"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-family="Arial" font-size="18">Profile</text></svg>'
-  }
-}
-
-/* scrolling */
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   liveMessage.value = 'Scrolling to top'
@@ -283,4 +258,3 @@ button:focus-visible {
   border-radius: 6px;
 }
 </style>
-
