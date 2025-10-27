@@ -34,12 +34,12 @@
             Approach
           </button>
 
-          <router-link
-              to="/ifs-therapy"
+          <button
+              @click="goIfs()"
               class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
           >
             IFS Therapy
-          </router-link>
+          </button>
 
           <button
               @click="goHomeAndScroll('book-cta')"
@@ -110,13 +110,12 @@
             Approach
           </button>
 
-          <router-link
-              to="/ifs-therapy"
-              @click.native="closeMobile()"
+          <button
+              @click="goIfs(); closeMobile()"
               class="px-3 py-2 rounded text-textsurface hover:bg-surface border border-transparent hover:border-bordercol-light text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
             IFS Therapy
-          </router-link>
+          </button>
 
           <button
               @click="goHomeAndScroll('book-cta'); closeMobile()"
@@ -144,7 +143,6 @@ function closeMobile() {
 
 function smoothScrollToId(id) {
   if (!id) {
-    // just scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' })
     return
   }
@@ -156,16 +154,27 @@ function smoothScrollToId(id) {
 }
 
 function goHomeAndScroll(targetId) {
-  // already on home
   if (route.path === '/') {
     smoothScrollToId(targetId)
     return
   }
-
-  // navigate home, then scroll
   router.push('/').then(() => {
     requestAnimationFrame(() => {
       smoothScrollToId(targetId)
+    })
+  })
+}
+
+function goIfs() {
+  // already on /ifs-therapy
+  if (route.path === '/ifs-therapy') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    return
+  }
+  // navigate to /ifs-therapy
+  router.push('/ifs-therapy').then(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     })
   })
 }
@@ -176,3 +185,4 @@ function goHomeAndScroll(targetId) {
   transition: opacity 0.15s ease;
 }
 </style>
+
