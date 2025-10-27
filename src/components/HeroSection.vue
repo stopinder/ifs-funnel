@@ -15,7 +15,7 @@
         <img
             src="/images/ChrysalisLogo.svg"
             alt="Chrysalis Psychotherapy"
-            class="w-10 h-10 object-contain opacity-90"
+            class="w-16 h-16 object-contain opacity-90"
             loading="eager"
             decoding="async"
         />

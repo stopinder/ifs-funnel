@@ -16,10 +16,27 @@
 
         <!-- Desktop nav -->
         <nav class="hidden md:flex items-center gap-4" aria-label="Primary navigation">
-          <a href="#about" class="text-sm text-slate-700 hover:text-slate-900">About</a>
-          <a href="#offers" class="text-sm text-slate-700 hover:text-slate-900">Therapy</a>
-          <a href="#book-cta" class="text-sm font-semibold px-3 py-1 rounded-lg bg-amber-100 text-slate-900 hover:bg-amber-200">Book</a>
+          <a href="#about" class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle">About</a>
+
+          <a href="#offers" class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle">Approach</a>
+
+          <a href="/ifs-therapy" class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle">
+            IFS Therapy
+          </a>
+
+          <a
+              href="#book-cta"
+              class="text-sm font-semibold
+           px-3 py-1 rounded-lg
+           bg-primary text-white hover:bg-primary-hover
+           shadow-glow
+           focus:outline-none focus:ring-4 focus:ring-primary/40
+           transition-colors-bg duration-200 ease-subtle"
+          >
+            Book
+          </a>
         </nav>
+
 
         <!-- Mobile hamburger -->
         <div class="md:hidden flex items-center justify-center">
@@ -46,8 +63,21 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <nav class="flex flex-col gap-3 text-center" aria-label="Mobile primary">
           <a @click="mobileOpen = false" href="#about" class="px-3 py-2 rounded text-slate-800 hover:bg-slate-50">About</a>
-          <a @click="mobileOpen = false" href="#offers" class="px-3 py-2 rounded text-slate-800 hover:bg-slate-50">Therapy</a>
+          <a @click="mobileOpen = false" href="#offers" class="px-3 py-2 rounded text-slate-800 hover:bg-slate-50">Approach</a>
           <a @click="mobileOpen = false" href="#book-cta" class="px-3 py-2 rounded bg-amber-100 text-slate-900 font-semibold hover:bg-amber-200">Book</a>
+          <a
+              @click="closeMobile()"
+              href="/ifs-therapy"
+              class="px-3 py-2 rounded
+         text-textsurface
+         hover:bg-surface
+         border border-transparent hover:border-bordercol-light
+         text-sm font-medium
+         transition-colors-bg duration-200 ease-subtle"
+          >
+            IFS Therapy
+          </a>
+
         </nav>
       </div>
     </div>
@@ -57,6 +87,10 @@
 <script setup>
 import { ref } from 'vue'
 const mobileOpen = ref(false)
+function closeMobile() {
+  mobileOpen.value = false
+}
+
 </script>
 
 <style scoped>
