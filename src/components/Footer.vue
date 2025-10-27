@@ -6,13 +6,41 @@
   >
     <div class="relative z-10 max-w-4xl mx-auto flex flex-col gap-8">
 
-      <!-- TIER 1: Identity / Social card (mobile first, right column on desktop) -->
+      <!-- Inline legal preview if we're already on /terms.
+           This is here because in production (Vercel) navigation to /terms
+           sometimes leaves you anchored at the bottom of the page.
+           This ensures users SEE the terms content immediately. -->
       <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start"
+          v-if="isOnTermsPage"
+          class="bg-white border border-slate-200 rounded-xl shadow-sm p-4 text-slate-700 leading-relaxed"
+          aria-labelledby="footer-terms-heading"
       >
+        <h2
+            id="footer-terms-heading"
+            class="text-base font-semibold text-slate-900 mb-2"
+        >
+          Terms &amp; Privacy
+        </h2>
+        <p class="text-xs text-slate-500 mb-3">
+          Last updated: October 2025 · Chrysalis Therapy Services
+        </p>
+        <p class="text-sm text-slate-700 mb-3">
+          This service is provided by Robert Ormiston (MBACP). The work is confidential and
+          handled in line with the BACP Ethical Framework and UK GDPR. This is not an
+          emergency service. If you are at immediate risk, contact your local emergency
+          services, NHS 111/999, your GP, or crisis support.
+        </p>
+        <p class="text-sm text-slate-700">
+          Clinical notes are stored securely, typically for up to 7 years after therapy
+          ends. You can request access to your information and ask questions about how it
+          is used.
+        </p>
+      </div>
+
+      <!-- TIER 1: Identity / Social card (mobile first, right column on desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <!-- LEFT (desktop): Credentials / Background -->
         <div class="space-y-4 text-sm text-slate-600 leading-relaxed order-2 md:order-1">
-
           <!-- Accreditation / registration -->
           <div class="text-slate-600">
             <p>
@@ -88,9 +116,7 @@
         </div>
 
         <!-- RIGHT (desktop): Profile card -->
-        <div
-            class="order-1 md:order-2 flex md:justify-end"
-        >
+        <div class="order-1 md:order-2 flex md:justify-end">
           <aside
               class="bg-white border border-slate-200 rounded-xl shadow-sm p-4 flex flex-col items-center md:items-end text-center md:text-right w-full max-w-[240px]"
           >
@@ -155,14 +181,12 @@
 
         <!-- Legal / privacy link -->
         <div class="text-center md:text-left">
-          <a
-              href="/terms.html"
-              target="_blank"
-              rel="noopener noreferrer"
+          <router-link
+              to="/terms"
               class="text-slate-500 text-xs underline underline-offset-2 hover:text-slate-700"
           >
             Terms &amp; Privacy
-          </a>
+          </router-link>
         </div>
 
         <!-- Copyright / clinic line -->
@@ -189,7 +213,12 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
 import FooterSocials from './FooterSocials.vue'
+
+// route awareness
+const route = useRoute()
+const isOnTermsPage = route.name === 'terms'
 
 // Public asset path (must match file name exactly)
 const profileJpg = '/images/profile.jpg'
@@ -201,10 +230,9 @@ const showScrollTop = ref(false)
 const liveMessage = ref('')
 const liveAnnounce = ref(null)
 
-// image error handler: fallback to inline SVG placeholder & log for debugging
+// image error handler
 function handleImgError(e) {
   const failed = (e && e.target && e.target.src) || profileJpg
-  // eslint-disable-next-line no-console
   console.warn('Profile image failed to load:', failed)
   if (e && e.target) {
     e.target.src =
@@ -235,12 +263,10 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* base font */
 footer {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
@@ -250,7 +276,6 @@ footer {
   }
 }
 
-/* accessible focus style */
 a:focus-visible,
 button:focus-visible {
   outline: none;
@@ -258,3 +283,4 @@ button:focus-visible {
   border-radius: 6px;
 }
 </style>
+
