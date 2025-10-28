@@ -69,24 +69,22 @@
           id="hero-title"
           class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight md:leading-snug text-slate-900 text-center md:text-left"
       >
-        Psychotherapy for
+        I help you calm what's overwhelming
         <span class="text-teal-700 relative">
-          clarity
-          <!-- rose underline accent -->
-          <span
-              class="absolute left-0 right-0 -bottom-1 h-[3px] rounded-full
-                     bg-gradient-to-r from-amber-400/80 to-transparent pointer-events-none"
-              aria-hidden="true"
-          ></span>
-        </span>,
-        integration, and steady change
+    and make space to live
+    <span
+        class="absolute left-0 right-0 -bottom-1 h-[3px] rounded-full
+               bg-gradient-to-r from-amber-400/80 to-transparent pointer-events-none"
+        aria-hidden="true"
+    ></span>
+  </span>
       </h1>
 
       <!-- Sub-head / emotional attunement line -->
       <p
           class="text-sm md:text-base text-slate-700 leading-relaxed mt-3 text-center md:text-left"
       >
-        For when you’ve tried managing it all and it’s still too much.
+        For adults who are done holding it all together in silence.
       </p>
 
       <!-- Accent line under headline block -->
@@ -94,6 +92,7 @@
           class="w-16 h-1 bg-teal-600 rounded mt-4 mb-4 mx-auto md:mx-0"
           aria-hidden="true"
       ></div>
+
 
       <!-- Credibility badges -->
       <ul
