@@ -173,7 +173,11 @@
     <button
         v-if="showScrollTop"
         @click="scrollToTop"
-        class="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-800 text-sm font-medium hover:bg-slate-50 shadow-lg transition-opacity duration-300"
+        class="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full
+       bg-amber-500 border border-amber-500 text-white text-sm font-medium
+       hover:bg-amber-600 hover:border-amber-600 shadow-lg transition-opacity duration-300
+       focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+
         aria-label="Back to Top"
     >
       ↑
@@ -194,8 +198,7 @@ const route = useRoute()
 const isOnTermsPage = route.name === 'terms'
 
 // email CTA
-// NOTE: you gave the address as "chrysalisifs.rubalmuston.com" with no "@"
-// We'll keep it literal because that's what you specified.
+// NOTE: using the address you provided
 const emailAddress = 'chrysalisifs.rubalmuston.com'
 const subject = 'Therapy enquiry'
 const body = [
@@ -254,7 +257,7 @@ footer {
 a:focus-visible,
 button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(34,197,94,0.08);
+  box-shadow: 0 0 0 4px rgba(244,114,182,0.28); /* rose glow on keyboard focus */
   border-radius: 6px;
 }
 </style>
