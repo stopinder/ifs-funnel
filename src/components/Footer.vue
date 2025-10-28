@@ -174,14 +174,14 @@
         v-if="showScrollTop"
         @click="scrollToTop"
         class="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full
-       bg-amber-500 border border-amber-500 text-white text-sm font-medium
-       hover:bg-amber-600 hover:border-amber-600 shadow-lg transition-opacity duration-300
-       focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
-
+         bg-amber-500 border border-amber-500 text-white text-sm font-medium
+         hover:bg-amber-600 hover:border-amber-600 shadow-lg transition-opacity duration-300
+         focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
         aria-label="Back to Top"
     >
       ↑
     </button>
+
 
     <!-- live region for a11y -->
     <span class="sr-only" aria-live="polite" ref="liveAnnounce">{{ liveMessage }}</span>
@@ -257,7 +257,8 @@ footer {
 a:focus-visible,
 button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(244,114,182,0.28); /* rose glow on keyboard focus */
+  box-shadow: 0 0 0 4px rgba(251,191,36,0.28); /* amber glow on keyboard focus */
   border-radius: 6px;
 }
+
 </style>
