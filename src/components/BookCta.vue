@@ -17,6 +17,7 @@
     ></div>
 
     <div class="relative max-w-4xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+
       <!-- Left block: headline + reassurance -->
       <div class="text-center md:text-left max-w-xl mx-auto md:mx-0">
         <h2
@@ -45,26 +46,27 @@
 
       <!-- Right block: action & reassurance tag -->
       <div class="flex flex-col items-center md:items-end gap-3 md:gap-4 min-w-[220px]">
-        <!-- Primary CTA button -->
-        <button
-            @click.prevent="scrollToScheduler()"
+
+        <!-- Primary CTA button — replaced with Amber Email Button -->
+        <a
+            :href="mailtoHref"
             class="inline-flex items-center justify-center
                  w-full md:w-auto
-                 px-6 py-3 rounded-lg font-semibold
-                 bg-primary text-white hover:bg-primary-hover
-                 shadow-glow
-                 transition-colors-bg duration-200 ease-subtle
-                 focus:outline-none focus:ring-4 focus:ring-primary/40"
+                 px-6 py-3 rounded-md text-base font-medium
+                 bg-amber-500 text-white shadow-md
+                 hover:bg-amber-600
+                 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300
+                 transition-all duration-200"
         >
-          Choose a time
-        </button>
+          Email me
+        </a>
 
         <!-- micro-trust line -->
         <div
             class="text-xs text-textsurface/80 dark:text-textsurface-dark/80 text-center md:text-right leading-snug"
         >
           Secure & confidential
-          <span class="inline-block align-middle ml-1 w-2 h-2 rounded-full bg-primary shadow-glow"></span>
+          <span class="inline-block align-middle ml-1 w-2 h-2 rounded-full bg-amber-500 shadow-glow"></span>
         </div>
       </div>
     </div>
@@ -72,22 +74,21 @@
 </template>
 
 <script setup>
-function scrollToScheduler() {
-  // This matches your hero scroll pattern:
-  // update this selector to whatever anchors your actual booking widget / Calendly / form
-  const target = document.querySelector('#book-cta-form, #book-form, [data-booking]')
-  if (target) {
-    target.setAttribute('tabindex', '-1')
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    target.focus({ preventScroll: true })
-  } else {
-    // fallback: just ensure the hash updates so routing/highlighting still works
-    window.location.hash = '#book-cta'
-  }
-}
+const emailAddress = "emdrifs@robormiston.com";
+const subject = "Therapy enquiry";
+const bodyLines = [
+  "Hi Robert,",
+  "",
+  "I'd like to ask about therapy / booking a session.",
+  "",
+  "I'm getting in touch because..."
+];
+const body = bodyLines.join("\n");
+
+const mailtoHref =
+    `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 </script>
 
 <style scoped>
-/* no local visual styling: colors, layout, focus rings all come from Tailwind tokens */
+/* CTA styling comes from Tailwind tokens */
 </style>
-

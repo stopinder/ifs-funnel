@@ -29,46 +29,45 @@
       </h2>
 
       <div
-          class="mt-4 mx-auto h-1 w-16 bg-primary/50 rounded"
+          class="mt-4 mx-auto h-1 w-16 bg-teal-500/60 rounded"
           aria-hidden="true"
       ></div>
 
       <p
           class="text-base md:text-lg leading-relaxed text-textsurface/80 max-w-2xl mx-auto mt-6"
       >
-        This reflective framework can be integrated into your own therapeutic or
-        supervisory practice. It offers a way to create therapist-guided
-        session summaries and process notes that support clients between
-        sessions — without drifting into clinical jargon or generic
-        auto-generated language.
+        This reflective framework can be woven into your own therapeutic or
+        supervisory practice. It supports therapist-guided session summaries and
+        process notes that help clients between sessions, without drifting into
+        clinical jargon or generic auto-generated language.
       </p>
 
       <p
           class="italic text-textsurface/70 max-w-2xl mx-auto mt-4 leading-relaxed"
       >
-        This work is designed for clinicians who value precision, ethics and
-        depth — where technology serves reflection, and reflection serves care.
+        It’s intended for clinicians who value precision, ethics, and depth —
+        where technology serves reflection, and reflection serves care.
       </p>
 
       <p
           class="text-sm text-textsurface/60 max-w-xl mx-auto mt-6 leading-relaxed"
       >
-        I offer 1:1 consultation for therapists and supervisors looking to
-        introduce reflective summaries safely and meaningfully into their own
-        practice.
+        I offer 1:1 consultation for therapists and supervisors who want to
+        introduce reflective summaries safely, meaningfully, and in line with
+        their existing way of working.
       </p>
 
       <!-- CTA Button -->
       <div class="mt-10">
         <a
-            @click.prevent="handleMailtoClick"
             :href="mailtoHref"
+            @click="handleMailtoClick"
             class="inline-flex items-center justify-center gap-2
                  px-6 py-3 rounded-lg font-semibold text-white
-                 bg-primary hover:bg-primary-hover
+                 bg-teal-600 hover:bg-teal-700
                  shadow-glow
                  transition-colors-bg duration-200 ease-subtle
-                 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+                 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-300"
             aria-label="Email to enquire about reflective integration support for therapists"
         >
           <!-- Envelope Icon -->
@@ -100,19 +99,33 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const therapistSection = ref(null)
 
-// replace this with your real email
-const mailtoHref = 'mailto:hello@example.com?subject=Reflective%20integration%20enquiry'
+// therapist-facing mailto
+const emailAddress = 'emdrifs@robormiston.com'
+const subject = 'Reflective integration / supervision enquiry'
+const bodyLines = [
+  'Hi Robert,',
+  '',
+  "I'm getting in touch about reflective integration / supervision.",
+  '',
+  'A brief outline of my current practice and what I am looking for:',
+  '',
+]
+const body = bodyLines.join('\n')
+
+const mailtoHref =
+    `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
 function handleMailtoClick() {
-  // optional hook for analytics or logging later
-  // e.g. console.log('Therapist enquiry click')
+  // optional hook for analytics
 }
 
-// fade / slide in on scroll, respecting reduced motion
+// ❗ FIXED — plain JS, no types
+let observer = null
+
 onMounted(() => {
   const el = therapistSection.value
   if (!el) return
@@ -127,13 +140,13 @@ onMounted(() => {
     return
   }
 
-  const observer = new IntersectionObserver(
+  observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting && el) {
             el.classList.remove('opacity-0', 'translate-y-4')
             el.classList.add('opacity-100', 'translate-y-0')
-            observer.unobserve(el)
+            observer && observer.unobserve(el)
           }
         })
       },
@@ -142,7 +155,15 @@ onMounted(() => {
 
   observer.observe(el)
 })
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+    observer = null
+  }
+})
 </script>
+
 
 <style scoped>
 /* Typography alignment with rest of site */
@@ -157,4 +178,3 @@ button {
   font-family: Inter, system-ui, sans-serif;
 }
 </style>
-

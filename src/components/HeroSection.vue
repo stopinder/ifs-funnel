@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const mailtoHref =
-    "mailto:chrysalisifs@robormiston.com?subject=Therapy%20enquiry";
+    "mailto:emdrifs@robormiston.com?subject=Therapy%20enquiry";
 
 function scrollTo(selector: string) {
   const el = document.querySelector(selector);
