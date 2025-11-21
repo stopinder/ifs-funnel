@@ -5,7 +5,6 @@
       role="contentinfo"
   >
     <div class="relative z-10 max-w-4xl mx-auto flex flex-col gap-8">
-
       <!-- Inline legal preview if we're already on /terms -->
       <div
           v-if="isOnTermsPage"
@@ -24,25 +23,28 @@
         </p>
 
         <p class="text-sm text-slate-700 mb-3">
-          This service is provided by Robert Ormiston (MBACP). Your sessions are confidential and
-          handled in line with the BACP Ethical Framework and UK GDPR. This is not an emergency
-          service. If you are at immediate risk, contact local emergency services, NHS 111/999,
-          your GP, or crisis support.
+          This service is provided by Robert Ormiston (MBACP). Your sessions are
+          confidential and handled in line with the BACP Ethical Framework and
+          UK GDPR. This is not an emergency service. If you are at immediate
+          risk, contact local emergency services, NHS 111/999, your GP, or
+          crisis support.
         </p>
 
         <p class="text-sm text-slate-700">
-          Clinical notes are stored securely, typically for up to 7 years after therapy ends.
-          You can request access to your information and ask questions about how it is used.
+          Clinical notes are stored securely, typically for up to 7 years after
+          therapy ends. You can request access to your information and ask
+          questions about how it is used.
         </p>
       </div>
 
       <!-- TIER 1: Identity / Info / Contact -->
-      <!-- On mobile: stacked column. On desktop: centered row with gap. -->
       <div
           class="flex flex-col md:flex-row md:justify-center md:gap-12 md:text-left text-left items-start"
       >
         <!-- LEFT BLOCK: credentials / background -->
-        <div class="max-w-[28rem] text-sm text-slate-600 leading-relaxed space-y-4">
+        <div
+            class="max-w-[28rem] text-sm text-slate-600 leading-relaxed space-y-4"
+        >
           <div>
             <p>
               Registered Member
@@ -69,6 +71,12 @@
                   class="text-slate-700 hover:text-slate-900"
               >
                 University of Chichester
+              </a>
+              <a
+                  :href="mailtoHref"
+                  class="ml-1 text-slate-700 hover:text-slate-900 underline underline-offset-2"
+              >
+                Email me
               </a>
               · Trained at
               <a
@@ -98,7 +106,7 @@
                 :aria-expanded="expanded.toString()"
                 aria-controls="footerExtra"
             >
-              {{ expanded ? 'Hide details' : 'More about clinical background' }}
+              {{ expanded ? "Hide details" : "More about clinical background" }}
             </button>
 
             <div
@@ -107,19 +115,24 @@
                 class="mt-3 text-slate-700 text-sm leading-relaxed"
             >
               <p>
-                Experience includes: clinical leadership in NHS settings, commissioning for
-                psychiatric services, and contributions to training and policy. My work is
-                trauma-informed and aims to give you practical clarity between sessions, not
-                just “see you next week.”
+                Experience includes: clinical leadership in NHS settings,
+                commissioning for psychiatric services, and contributions to
+                training and policy. My work is trauma-informed and aims to give
+                you practical clarity between sessions, not just “see you next
+                week.”
               </p>
             </div>
           </div>
         </div>
 
         <!-- RIGHT BLOCK: practice / reassurance / contact / socials -->
-        <div class="max-w-[20rem] text-left text-slate-600 leading-relaxed space-y-4 mt-8 md:mt-0">
+        <div
+            class="max-w-[20rem] text-left text-slate-600 leading-relaxed space-y-4 mt-8 md:mt-0"
+        >
           <div class="space-y-1">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">
+            <p
+                class="text-[11px] uppercase tracking-wide text-slate-500 font-medium"
+            >
               Practice
             </p>
             <p class="text-sm font-medium text-slate-800">
@@ -136,18 +149,12 @@
 
           <!-- Contact button -->
           <div>
-            <script setup lang="ts">
-              const mailtoHref =
-                  "mailto:emdrifs@robormiston.com?subject=Therapy%20enquiry&body=Hi%20Robert%2C%0A%0AI%27d%20like%20to%20ask%20about%20therapy.";
-            </script>
-
-            <template>
-              <a :href="mailtoHref">
-                Email me
-              </a>
-            </template>
-
-
+            <a
+                :href="mailtoHref"
+                class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-amber-500 text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            >
+              Email me
+            </a>
           </div>
 
           <!-- Social icons -->
@@ -167,7 +174,8 @@
         </router-link>
 
         <p class="text-xs text-slate-500">
-          © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy Services · All rights reserved
+          © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy
+          Services · All rights reserved
         </p>
       </div>
     </div>
@@ -185,67 +193,71 @@
       ↑
     </button>
 
-
     <!-- live region for a11y -->
-    <span class="sr-only" aria-live="polite" ref="liveAnnounce">{{ liveMessage }}</span>
+    <span class="sr-only" aria-live="polite" ref="liveAnnounce">
+      {{ liveMessage }}
+    </span>
   </footer>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useRoute, RouterLink } from 'vue-router'
-import FooterSocials from './FooterSocials.vue'
+import { ref, onMounted, onUnmounted } from "vue";
+import { useRoute, RouterLink } from "vue-router";
+import FooterSocials from "./FooterSocials.vue";
 
 // detect if we're on /terms so we can render the inline legal summary
-const route = useRoute()
-const isOnTermsPage = route.name === 'terms'
+const route = useRoute();
+const isOnTermsPage = route.name === "terms";
 
 // email CTA
-// NOTE: using the address you provided
-const emailAddress = 'chrysalisifs.rubalmuston.com'
-const subject = 'Therapy enquiry'
-const body = [
-  'Hi Robert,',
-  '',
+const emailAddress = "emdrifs@robormiston.com";
+const subject = "Therapy enquiry";
+const bodyLines = [
+  "Hi Robert,",
+  "",
   "I'd like to ask about therapy / booking a session.",
-  '',
-  'I’m getting in touch because...'
-].join('%0D%0A')
-
-const mailtoHref = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${body}`
+  "",
+  "I’m getting in touch because..."
+];
+const body = bodyLines.join("\n");
+const mailtoHref = `mailto:${emailAddress}?subject=${encodeURIComponent(
+    subject
+)}&body=${encodeURIComponent(body)}`;
 
 // expand/collapse for clinical background block
-const expanded = ref(false)
+const expanded = ref(false);
 
 // back-to-top button logic
-const showScrollTop = ref(false)
-const liveMessage = ref('')
-const liveAnnounce = ref(null)
+const showScrollTop = ref(false);
+const liveMessage = ref("");
+const liveAnnounce = ref(null);
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-  liveMessage.value = 'Scrolling to top'
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  liveMessage.value = "Scrolling to top";
   setTimeout(() => {
-    liveMessage.value = ''
-  }, 1400)
+    liveMessage.value = "";
+  }, 1400);
 }
+
 function onScroll() {
-  showScrollTop.value = window.scrollY > 300
+  showScrollTop.value = window.scrollY > 300;
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll()
-})
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+  window.removeEventListener("scroll", onScroll);
+});
 </script>
 
 <style scoped>
 footer {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -260,9 +272,7 @@ footer {
 a:focus-visible,
 button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(251,191,36,0.28); /* amber glow on keyboard focus */
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.28);
   border-radius: 6px;
 }
-
-
 </style>

@@ -173,12 +173,15 @@ function scrollTo(selector: string) {
             class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-center md:text-left"
         >
           <a
-              href="mailto:emdrifs@robormiston.com
-    ?subject=Therapy%20enquiry
-    &body=Hi%20Robert%2C%0A%0AI%27d%20like%20to%20ask%20about%20therapy."
+              :href="mailtoHref"
+              class="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium
+         bg-amber-500 text-white shadow-md hover:bg-amber-600
+         focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300
+         transition-all duration-200"
           >
             Email me
           </a>
+
 
 
 
