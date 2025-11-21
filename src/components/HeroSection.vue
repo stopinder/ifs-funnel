@@ -44,7 +44,7 @@ function scrollTo(selector: string) {
         </div>
 
         <div class="text-xl font-semibold text-slate-900 leading-snug tracking-tight">
-          Chrysalis Psychotherapy
+          Chrysalis Psychotherapy Services
         </div>
 
         <div>
@@ -52,36 +52,37 @@ function scrollTo(selector: string) {
           <div class="mt-1 flex items-center gap-3 text-sm text-slate-700 leading-snug">
             <span>Psychotherapy for adults feeling overwhelmed, stuck, or burnt out.</span>
 
-            <!-- two open circles with a gentle connecting curve -->
+            <!-- two intersecting circles with solid amber center dot -->
             <svg
-                class="h-16 w-16 md:h-20 md:w-20"
+                class="h-12 w-12 md:h-14 md:w-14 transition-transform duration-300 ease-out hover:scale-[1.03]"
                 viewBox="0 0 120 120"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
+                style="transform: rotate(1deg);"
             >
               <defs>
                 <!-- left circle gradient -->
                 <linearGradient id="leftCircleGrad" x1="20" y1="30" x2="80" y2="90">
-                  <stop offset="0%" stop-color="#0f766e" />   <!-- teal-700 -->
-                  <stop offset="100%" stop-color="#14b8a6" /> <!-- teal-500 -->
+                  <stop offset="0%" stop-color="#0f766e" />
+                  <stop offset="100%" stop-color="#14b8a6" />
                 </linearGradient>
 
                 <!-- right circle gradient -->
                 <linearGradient id="rightCircleGrad" x1="100" y1="30" x2="40" y2="90">
-                  <stop offset="0%" stop-color="#115e59" />   <!-- teal-800 -->
-                  <stop offset="100%" stop-color="#0d9488" /> <!-- teal-600 -->
+                  <stop offset="0%" stop-color="#115e59" />
+                  <stop offset="100%" stop-color="#0d9488" />
                 </linearGradient>
 
-                <!-- overlap "shared space" fill -->
-                <radialGradient id="overlapFill" cx="50%" cy="50%" r="60%">
-                  <stop offset="0%" stop-color="#a7f3d0" />   <!-- emerald-200 -->
-                  <stop offset="70%" stop-color="#6ee7b7" />  <!-- emerald-300 -->
-                  <stop offset="100%" stop-color="#22c55e" /> <!-- emerald-500 -->
+                <!-- subtle asymmetric amber glow -->
+                <radialGradient id="amberGlow" cx="58%" cy="52%" r="55%">
+                  <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18" />
+                  <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.05" />
+                  <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
                 </radialGradient>
               </defs>
 
-              <!-- left circle (slightly smaller) -->
+              <!-- left circle -->
               <circle
                   cx="44"
                   cy="60"
@@ -90,7 +91,7 @@ function scrollTo(selector: string) {
                   stroke-width="3"
               />
 
-              <!-- right circle (slightly larger, mild asymmetry) -->
+              <!-- right circle -->
               <circle
                   cx="76"
                   cy="60"
@@ -99,18 +100,24 @@ function scrollTo(selector: string) {
                   stroke-width="3"
               />
 
-              <!-- symbolic overlap: grounded shared space in the middle -->
+              <!-- asymmetric ambient glow -->
               <circle
                   cx="60"
                   cy="60"
-                  r="11"
-                  fill="url(#overlapFill)"
-                  fill-opacity="0.9"
+                  r="22"
+                  fill="url(#amberGlow)"
+              />
+
+              <!-- center dot -->
+              <circle
+                  cx="60"
+                  cy="60"
+                  r="12"
+                  fill="#f59e0b"
                   stroke="white"
-                  stroke-width="1.4"
+                  stroke-width="2.2"
               />
             </svg>
-
 
 
 
@@ -122,6 +129,7 @@ function scrollTo(selector: string) {
 
           <div class="w-10 h-[2px] bg-teal-700 rounded mt-3 md:mt-4 mx-auto md:mx-0"></div>
         </div>
+
 
         <!-- Headline -->
         <h1

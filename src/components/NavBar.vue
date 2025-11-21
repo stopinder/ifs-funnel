@@ -15,7 +15,7 @@
               loading="eager"
               decoding="async"
           />
-          <span class="text-base font-semibold text-slate-900">Chrysalis Therapy</span>
+          <span class="text-base font-semibold text-slate-900">Robert Ormiston MBACP</span>
         </button>
 
         <!-- Desktop nav -->
