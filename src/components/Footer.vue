@@ -136,13 +136,17 @@
 
           <!-- Contact button -->
           <div>
-            <a
-                href="mailto:emdrifs@robormiston.com
-    ?subject=Therapy%20enquiry
-    &body=Hi%20Robert%2C%0A%0AI%27d%20like%20to%20ask%20about%20therapy."
-            >
-              Email me
-            </a>
+            <script setup lang="ts">
+              const mailtoHref =
+                  "mailto:emdrifs@robormiston.com?subject=Therapy%20enquiry&body=Hi%20Robert%2C%0A%0AI%27d%20like%20to%20ask%20about%20therapy.";
+            </script>
+
+            <template>
+              <a :href="mailtoHref">
+                Email me
+              </a>
+            </template>
+
 
           </div>
 
