@@ -137,14 +137,13 @@
           <!-- Contact button -->
           <div>
             <a
-                :href="mailtoHref"
-                class="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-slate-300
-                       bg-white text-slate-800 text-sm font-medium hover:bg-slate-100
-                       focus:outline-none focus-visible:ring-4 focus-visible:ring-slate-200"
-                role="button"
+                href="mailto:emdrifs@robormiston.com
+    ?subject=Therapy%20enquiry
+    &body=Hi%20Robert%2C%0A%0AI%27d%20like%20to%20ask%20about%20therapy."
             >
-              Contact Robert
+              Email me
             </a>
+
           </div>
 
           <!-- Social icons -->
