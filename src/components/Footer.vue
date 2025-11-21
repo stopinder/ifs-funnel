@@ -173,10 +173,24 @@
           Terms &amp; Privacy
         </router-link>
 
-        <p class="text-xs text-slate-500">
-          © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy
-          Services · All rights reserved
+        <p class="text-xs text-slate-500 flex items-center gap-2">
+          <!-- compressed footer symbol -->
+          <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+          >
+            <circle cx="9" cy="12" r="6" stroke="#0f766e" stroke-width="1.8" />
+            <circle cx="15" cy="12" r="6" stroke="#0f766e" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="3" fill="#f59e0b" />
+          </svg>
+
+
+          © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy Services · All rights reserved
         </p>
+
       </div>
     </div>
 
