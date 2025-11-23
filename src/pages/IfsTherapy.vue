@@ -190,16 +190,17 @@
           </p>
 
           <a
-              href="#book-cta"
+              href="mailto:emdrifs@robormiston.com"
               class="inline-flex items-center justify-center
-                   px-6 py-3 rounded-lg font-semibold
-                   bg-primary text-white hover:bg-primary-hover
-                   shadow-glow
-                   transition-colors-bg duration-200 ease-subtle
-                   focus:outline-none focus:ring-4 focus:ring-primary/40"
+         px-6 py-3 rounded-lg font-semibold
+         bg-amber-600 text-white hover:bg-amber-700
+         shadow-glow
+         transition-colors-bg duration-200 ease-subtle
+         focus:outline-none focus:ring-4 focus:ring-amber-600/40"
           >
             Book a first conversation
           </a>
+
 
           <p class="text-xs text-textsurface/60 leading-relaxed">
             Confidential. Steady. No pressure.

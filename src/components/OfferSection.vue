@@ -6,15 +6,16 @@
   >
     <h2
         id="offers-heading"
-        class="text-2xl md:text-3xl font-serif font-semibold text-slate-900 mb-3"
+        class="text-2xl md:text-3xl font-serif font-semibold text-slate-900 mb-3 text-center"
     >
-      What I offer
+      Psychotherapy and clinical consultation
     </h2>
 
-    <p class="text-slate-700 mb-8 max-w-prose">
-      Short-term and open-ended IFS psychotherapy, EMDR-informed trauma work, and focused clinical
-      consultation for therapists. Practical, evidence-informed, and warm — focused on the change you want.
+    <p class="text-slate-700 mb-8 max-w-prose mx-auto text-center">
+      IFS psychotherapy, EMDR-informed trauma work, and clinical consultation for therapists — grounded,
+      evidence-informed, and focused on real change.
     </p>
+
 
     <div class="grid gap-4 sm:grid-cols-2">
       <!-- Card: Individual therapy -->
@@ -49,32 +50,14 @@
               Individual therapy
             </h3>
 
-            <p class="text-sm text-slate-600 mb-4">
+            <p class="text-sm text-slate-600 mb-2">
               50-minute sessions tailored to trauma work, parts-focused integration, and relational repair.
               Practical next steps and reflective summaries included.
             </p>
 
-            <div class="flex items-center gap-3">
-              <!-- Primary amber mailto CTA -->
-              <a
-                  :href="therapyMailtoHref"
-                  class="inline-flex items-center justify-center px-4 py-2 rounded-md
-                       bg-amber-500 text-white text-sm font-semibold shadow-md
-                       hover:bg-amber-600
-                       focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
-                  aria-label="Email to enquire about individual therapy"
-              >
-                Email me
-              </a>
-
-              <!-- Secondary mailto link -->
-              <a
-                  :href="therapyMailtoHref"
-                  class="text-sm text-slate-700 hover:underline"
-              >
-                Ask a question
-              </a>
-            </div>
+            <p class="text-xs text-slate-500">
+              For fees and availability, please get in touch.
+            </p>
           </div>
         </div>
       </article>
@@ -110,35 +93,31 @@
               Clinical supervision
             </h3>
 
-            <p class="text-sm text-slate-600 mb-4">
+            <p class="text-sm text-slate-600 mb-2">
               IFS-informed supervision, EMDR integration support, and case formulation for clinicians seeking
               depth and clarity.
             </p>
 
-            <div class="flex items-center gap-3">
-              <!-- Primary teal mailto CTA -->
-              <a
-                  :href="supervisionMailtoHref"
-                  class="inline-flex items-center justify-center px-4 py-2 rounded-md
-                       bg-teal-600 text-white text-sm font-semibold shadow-md
-                       hover:bg-teal-700
-                       focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-300"
-                  aria-label="Email to enquire about clinical supervision"
-              >
-                Email me
-              </a>
-
-              <!-- Secondary mailto link -->
-              <a
-                  :href="supervisionMailtoHref"
-                  class="text-sm text-slate-700 hover:underline"
-              >
-                Discuss supervision
-              </a>
-            </div>
+            <p class="text-xs text-slate-500">
+              For supervision arrangements and availability, please get in touch.
+            </p>
           </div>
         </div>
       </article>
+    </div>
+
+    <!-- Single global CTA -->
+    <div class="mt-8 flex justify-center">
+      <a
+          :href="contactMailtoHref"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-md
+                 bg-amber-500 text-white text-sm md:text-base font-semibold shadow-md
+                 hover:bg-amber-600
+                 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+          aria-label="Contact me about therapy or supervision"
+      >
+        Contact me
+      </a>
     </div>
 
     <div class="mt-8 pt-6 border-t border-slate-100 text-sm text-slate-600">
@@ -150,33 +129,19 @@
 <script setup>
 const baseEmail = "emdrifs@robormiston.com";
 
-// Therapy mailto
-const therapySubject = "Therapy enquiry";
-const therapyBodyLines = [
+const contactSubject = "Therapy or supervision enquiry";
+const contactBodyLines = [
   "Hi Robert,",
   "",
-  "I'm getting in touch about individual therapy.",
+  "I'm getting in touch about therapy and/or clinical supervision.",
   "",
   "A bit about what I'm looking for:",
   "",
 ];
-const therapyBody = therapyBodyLines.join("\n");
-const therapyMailtoHref =
-    `mailto:${baseEmail}?subject=${encodeURIComponent(therapySubject)}&body=${encodeURIComponent(therapyBody)}`;
+const contactBody = contactBodyLines.join("\n");
 
-// Supervision mailto
-const supervisionSubject = "Supervision enquiry";
-const supervisionBodyLines = [
-  "Hi Robert,",
-  "",
-  "I'm getting in touch about clinical supervision.",
-  "",
-  "A bit about my current practice and what I’m looking for:",
-  "",
-];
-const supervisionBody = supervisionBodyLines.join("\n");
-const supervisionMailtoHref =
-    `mailto:${baseEmail}?subject=${encodeURIComponent(supervisionSubject)}&body=${encodeURIComponent(supervisionBody)}`;
+const contactMailtoHref =
+    `mailto:${baseEmail}?subject=${encodeURIComponent(contactSubject)}&body=${encodeURIComponent(contactBody)}`;
 </script>
 
 <style scoped>
@@ -189,7 +154,7 @@ svg {
 a:focus-visible,
 button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.28); /* amber glow, still neutral enough */
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.28); /* amber glow */
   border-radius: 8px;
 }
 </style>

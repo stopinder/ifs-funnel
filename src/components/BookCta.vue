@@ -23,18 +23,21 @@
         <h2
             id="book-cta-heading"
             class="text-3xl md:text-4xl font-semibold leading-snug
-                 text-textsurface dark:text-textsurface-dark"
+         text-textsurface dark:text-textsurface-dark
+         text-center"
         >
           Book a session
         </h2>
 
         <p
             class="mt-4 text-lg leading-relaxed font-normal
-                 text-textsurface dark:text-textsurface-dark"
+         text-textsurface dark:text-textsurface-dark
+         text-center max-w-prose mx-auto"
         >
           50-minute confidential online session.
-          Calm, structured, evidence-based work with trauma, overwhelm, and relationship strain.
+          Calm, structured, evidence-based support for trauma, overwhelm, and relationship strain.
         </p>
+
 
         <p
             class="mt-2 text-sm leading-relaxed text-textsurface/80 dark:text-textsurface-dark/80"

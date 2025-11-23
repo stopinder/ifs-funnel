@@ -187,7 +187,7 @@ function scrollTo(selector: string) {
          focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300
          transition-all duration-200"
           >
-            Email me
+            Contact me
           </a>
 
 
