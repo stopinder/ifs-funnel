@@ -72,12 +72,14 @@
               >
                 University of Chichester
               </a>
+
               <a
-                  :href="mailtoHref"
+                  href="mailto:emdrifs@robormiston.com"
                   class="ml-1 text-slate-700 hover:text-slate-900 underline underline-offset-2"
               >
-                Email me
+                emdrifs@robormiston.com
               </a>
+
               · Trained at
               <a
                   href="https://www.syzygy.org.uk"
@@ -97,6 +99,7 @@
                 EMDR Masterclass
               </a>
             </p>
+
           </div>
 
           <div>
@@ -150,11 +153,12 @@
           <!-- Contact button -->
           <div>
             <a
-                :href="mailtoHref"
+                href="mailto:emdrifs@robormiston.com"
                 class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-amber-500 text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
             >
-              Email me
+              emdrifs@robormiston.com
             </a>
+
           </div>
 
           <!-- Social icons -->

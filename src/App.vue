@@ -5,8 +5,10 @@
   >
     <NavBar />
 
-    <!-- This is where the current route will render -->
-    <router-view />
+    <main id="main">
+      <!-- This is where the current route will render -->
+      <router-view />
+    </main>
 
     <Footer />
   </div>
@@ -26,4 +28,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
-
