@@ -147,14 +147,13 @@
 
     <!-- CTA below profile -->
     <div class="mt-12 text-center">
-      <BookCta />
+      <!-- intentionally left empty -->
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import BookCta from './BookCta.vue'
 
 const profileJpg = '/images/profile.jpg'
 const imgEl = ref(null)
@@ -165,7 +164,7 @@ function handleImgError(e) {
   console.warn('Profile image failed to load:', failed)
   if (e && e.target) {
     e.target.src =
-        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="176" height="176"><rect width="100%" height="100%" fill=\"%23F8F4EA\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%23999\" font-family=\"Arial\" font-size=\"14\">Profile</text></svg>'
+        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="176" height="176"><rect width="100%" height="100%" fill="%23F8F4EA"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-family="Arial" font-size="14">Profile</text></svg>'
   }
 }
 </script>
@@ -189,3 +188,4 @@ function handleImgError(e) {
   }
 }
 </style>
+
