@@ -110,12 +110,13 @@
               class="snap-start flex-none w-full sm:w-1/2 lg:w-1/3"
           >
             <div
-                class="h-full bg-white/70 rounded-xl border border-bordercol-light shadow-soft
-                     hover:bg-white/90 hover:shadow-soft hover:-translate-y-[2px]
-                     transition-transform transition-colors-bg duration-200 ease-subtle
-                     flex flex-col justify-between min-h-[200px] p-6"
+                class="bg-white/70 rounded-xl border border-bordercol-light shadow-soft
+       hover:bg-white/90 hover:shadow-soft hover:-translate-y-[2px]
+       transition-transform transition-colors-bg duration-200 ease-subtle
+       p-6 flex flex-col gap-4"
             >
-              <blockquote
+
+            <blockquote
                   class="italic mb-6 leading-relaxed text-textsurface"
               >
                 “{{ t.quote }}”
