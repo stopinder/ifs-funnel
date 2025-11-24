@@ -12,8 +12,6 @@
               src="/images/ChrysalisLogo.svg"
               alt="Chrysalis logo"
               class="w-14 h-auto md:w-16 object-contain"
-
-
               loading="eager"
               decoding="async"
           />
@@ -44,15 +42,10 @@
           </button>
 
           <button
-              @click="goHomeAndScroll('book-cta')"
-              class="text-sm font-semibold
-                   px-3 py-1 rounded-lg
-                   bg-primary text-white hover:bg-primary-hover
-                   shadow-glow
-                   focus:outline-none focus:ring-4 focus:ring-primary/40
-                   transition-colors-bg duration-200 ease-subtle"
+              @click="goEmdr()"
+              class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
           >
-            Book
+            EMDR
           </button>
         </nav>
 
@@ -120,10 +113,10 @@
           </button>
 
           <button
-              @click="goHomeAndScroll('book-cta'); closeMobile()"
-              class="px-3 py-2 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover shadow-glow text-sm transition-colors-bg duration-200 ease-subtle focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+              @click="goEmdr(); closeMobile()"
+              class="px-3 py-2 rounded text-textsurface hover:bg-surface border border-transparent hover:border-bordercol-light text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
-            Book
+            EMDR
           </button>
         </nav>
       </div>
@@ -168,13 +161,23 @@ function goHomeAndScroll(targetId) {
 }
 
 function goIfs() {
-  // already on /ifs-therapy
   if (route.path === '/ifs-therapy') {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     return
   }
-  // navigate to /ifs-therapy
   router.push('/ifs-therapy').then(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  })
+}
+
+function goEmdr() {
+  if (route.path === '/emdr-therapy') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    return
+  }
+  router.push('/emdr-therapy').then(() => {
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
@@ -187,4 +190,3 @@ function goIfs() {
   transition: opacity 0.15s ease;
 }
 </style>
-

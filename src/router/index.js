@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomePage from '@/pages/HomePage.vue'
 import IfsTherapy from '@/pages/IfsTherapy.vue'
+import EmdrTherapy from '@/pages/EmdrTherapy.vue'
 import TermsAndPrivacy from '@/pages/TermsAndPrivacy.vue'
 
 // --- try to stop the browser from restoring scroll position on nav (especially Safari / iOS / some Vercel flows)
@@ -19,8 +20,7 @@ const routes = [
             description:
                 'Brief, integrative psychotherapy online — Internal Family Systems (IFS) and EMDR-informed work, with optional reflective summaries.',
             canonical: 'https://www.robormiston.com/',
-            ogTitle:
-                'IFS & EMDR-Informed Psychotherapy · Robert Ormiston MBACP',
+            ogTitle: 'IFS & EMDR-Informed Psychotherapy · Robert Ormiston MBACP',
             ogDescription:
                 'Calm, focused psychotherapy for clinicians, carers, and long-term seekers.',
             ogImage: 'https://www.robormiston.com/images/social-card.jpg',
@@ -32,8 +32,7 @@ const routes = [
         name: 'ifs-therapy',
         component: IfsTherapy,
         meta: {
-            title:
-                'Internal Family Systems (IFS) Therapy Online · Robert Ormiston',
+            title: 'Internal Family Systems (IFS) Therapy Online · Robert Ormiston',
             description:
                 'Internal Family Systems (IFS) therapy, EMDR-informed and regulation-aware. Steady, trauma-conscious work focusing on attention, integration, and relief — not endless excavation.',
             canonical: 'https://www.robormiston.com/ifs-therapy',
@@ -42,6 +41,22 @@ const routes = [
                 'Calm, parts-informed psychotherapy. Optional reflective summaries between sessions to help integration continue in your own time.',
             ogImage: 'https://www.robormiston.com/images/social-card.jpg',
             ogUrl: 'https://www.robormiston.com/ifs-therapy'
+        }
+    },
+    {
+        path: '/emdr-therapy',
+        name: 'emdr-therapy',
+        component: EmdrTherapy,
+        meta: {
+            title: 'EMDR-Informed Trauma Therapy Online · Robert Ormiston',
+            description:
+                'EMDR-informed trauma therapy online, integrated with IFS and regulation-aware work. Careful, paced processing of overwhelming experiences, with attention to safety and day-to-day functioning.',
+            canonical: 'https://www.robormiston.com/emdr-therapy',
+            ogTitle: 'EMDR-Informed Trauma Therapy · Robert Ormiston',
+            ogDescription:
+                'Calm, structured EMDR-informed work focusing on stabilisation, trauma processing, and integration – not endless excavation.',
+            ogImage: 'https://www.robormiston.com/images/social-card.jpg',
+            ogUrl: 'https://www.robormiston.com/emdr-therapy'
         }
     },
     {
@@ -82,7 +97,7 @@ router.beforeEach((_to, _from, next) => {
         window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'instant' in window ? 'instant' : 'auto'
+            behavior: 'auto'
         })
     })
 })
@@ -90,13 +105,13 @@ router.beforeEach((_to, _from, next) => {
 // afterEach hook updates <title>, <meta>, canonical, and OG tags
 router.afterEach((to) => {
     // <title>
-    if (to.meta?.title) {
+    if (to.meta && to.meta.title) {
         document.title = to.meta.title
     }
 
     // description
     const descTag = document.querySelector('meta[name="description"]')
-    if (descTag && to.meta?.description) {
+    if (descTag && to.meta && to.meta.description) {
         descTag.setAttribute('content', to.meta.description)
     }
 
@@ -107,23 +122,32 @@ router.afterEach((to) => {
         canonicalTag.setAttribute('rel', 'canonical')
         document.head.appendChild(canonicalTag)
     }
-    if (to.meta?.canonical) {
+    if (to.meta && to.meta.canonical) {
         canonicalTag.setAttribute('href', to.meta.canonical)
     }
 
     // Open Graph tags
-    setOrCreateMetaProperty('og:title', to.meta?.ogTitle)
-    setOrCreateMetaProperty('og:description', to.meta?.ogDescription)
-    setOrCreateMetaProperty('og:image', to.meta?.ogImage)
-    setOrCreateMetaProperty('og:url', to.meta?.ogUrl)
+    setOrCreateMetaProperty(
+        'og:title',
+        to.meta && (to.meta.ogTitle || to.meta.title)
+    )
+    setOrCreateMetaProperty(
+        'og:description',
+        to.meta && (to.meta.ogDescription || to.meta.description)
+    )
+    setOrCreateMetaProperty('og:image', to.meta && to.meta.ogImage)
+    setOrCreateMetaProperty('og:url', to.meta && to.meta.ogUrl)
 
     // Twitter Card
-    setOrCreateMetaName('twitter:title', to.meta?.ogTitle || to.meta?.title)
+    setOrCreateMetaName(
+        'twitter:title',
+        to.meta && (to.meta.ogTitle || to.meta.title)
+    )
     setOrCreateMetaName(
         'twitter:description',
-        to.meta?.ogDescription || to.meta?.description
+        to.meta && (to.meta.ogDescription || to.meta.description)
     )
-    setOrCreateMetaName('twitter:image', to.meta?.ogImage)
+    setOrCreateMetaName('twitter:image', to.meta && to.meta.ogImage)
 })
 
 // helper to manage <meta property="og:...">
