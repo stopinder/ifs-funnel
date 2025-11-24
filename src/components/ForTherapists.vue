@@ -58,17 +58,16 @@
       </p>
 
       <!-- CTA Button -->
-      <div class="mt-10">
+      <div class="mt-8">
         <a
-            :href="mailtoHref"
-            @click="handleMailtoClick"
+            href="mailto:emdrifs@robormiston.com?subject=Reflective%20integration%20support"
             class="inline-flex items-center justify-center gap-2
-                 px-6 py-3 rounded-lg font-semibold text-white
-                 bg-teal-600 hover:bg-teal-700
-                 shadow-glow
-                 transition-colors-bg duration-200 ease-subtle
-                 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-300"
-            aria-label="Email to enquire about reflective integration support for therapists"
+           px-6 py-3 rounded-lg font-semibold text-white
+           bg-teal-600 hover:bg-teal-700
+           shadow-glow
+           transition-colors-bg duration-200 ease-subtle
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-300"
+            aria-label="Contact Robert about reflective integration support for therapists"
         >
           <!-- Envelope Icon -->
           <svg
@@ -87,13 +86,14 @@
             />
           </svg>
 
-          <span>Discuss reflective integration</span>
+          <span>Contact me</span>
         </a>
 
-        <p class="text-xs text-textsurface/60 mt-4 leading-relaxed">
+        <p class="text-xs text-textsurface/60 mt-3 leading-relaxed">
           Confidential, collegial, and clinically grounded.
         </p>
       </div>
+
     </div>
   </section>
 </template>

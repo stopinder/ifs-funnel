@@ -5,13 +5,15 @@
         <!-- Brand -->
         <button
             @click="goHomeAndScroll(null)"
-            class="flex items-center gap-2"
+            class="flex items-center gap-8"
             aria-label="Chrysalis Therapy home"
         >
           <img
               src="/images/ChrysalisLogo.svg"
               alt="Chrysalis logo"
-              class="w-10 h-auto md:w-12 object-contain"
+              class="w-14 h-auto md:w-16 object-contain"
+
+
               loading="eager"
               decoding="async"
           />
@@ -19,7 +21,7 @@
         </button>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-4" aria-label="Primary navigation">
+        <nav class="hidden md:flex items-center gap-10" aria-label="Primary navigation">
           <button
               @click="goHomeAndScroll('about')"
               class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
