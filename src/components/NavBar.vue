@@ -20,7 +20,7 @@
         </button>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-10" aria-label="Primary navigation">
+        <nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
           <button
               @click="goHomeAndScroll('about')"
               class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
@@ -51,7 +51,8 @@
         </nav>
 
         <!-- Mobile hamburger -->
-        <div class="md:hidden flex items-center justify-center">
+        <div class="flex items-center justify-start h-16 gap-8">
+
           <button
               @click="mobileOpen = !mobileOpen"
               :aria-expanded="mobileOpen.toString()"
