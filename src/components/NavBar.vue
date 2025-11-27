@@ -44,14 +44,14 @@
           </button>
 
           <button
-              @click="goHomeAndScroll('offers')"
-              class="text-sm font-medium
-                     text-[#4a4743]
-                     hover:text-[#c39e8a]
-                     transition-colors-bg duration-200 ease-subtle"
+              @click="goHomeAndScroll('philosophy')"
+              class="text-sm font-medium text-[#4a4743]
+           hover:text-[#c39e8a]
+           transition-colors-bg duration-200 ease-subtle"
           >
             Approach
           </button>
+
 
           <button
               @click="goIfs()"
@@ -129,14 +129,15 @@
           </button>
 
           <button
-              @click="goHomeAndScroll('offers'); closeMobile()"
+              @click="goHomeAndScroll('philosophy'); closeMobile()"
               class="px-3 py-2 rounded text-[#4a4743]
-                     hover:bg-[#eadace]
-                     border border-transparent hover:border-[#e4d9d1]
-                     text-sm font-medium transition-colors-bg duration-200 ease-subtle"
+           hover:bg-[#eadace]
+           border border-transparent hover:border-[#e4d9d1]
+           text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
             Approach
           </button>
+
 
           <button
               @click="goIfs(); closeMobile()"
