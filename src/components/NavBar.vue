@@ -1,6 +1,7 @@
 <template>
-  <header class="sticky top-0 z-50 bg-white border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
+  <header class="sticky top-0 z-50 bg-[#f7f3ee] border-b border-slate-100">
+
+  <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
       <div class="flex items-center justify-between md:justify-between h-16">
         <!-- Brand -->
         <button

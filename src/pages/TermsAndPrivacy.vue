@@ -221,7 +221,7 @@
       <p class="mt-3">
         <strong>Email:</strong>
         <a
-            href="mailto:chrysalisifs.robormiston.com"
+            href="mailto:emdrifs.robormiston.com"
             class="underline hover:text-teal-700 break-all"
         >
           chrysalisifs.robormiston.com
