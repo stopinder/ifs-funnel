@@ -19,7 +19,8 @@ function scrollTo(selector: string) {
   <!-- HERO – VERSION A (NON-CLINICAL, GROUNDED) -->
   <section
       id="hero"
-      class="relative min-h-[calc(100vh-64px)] flex items-center px-6 py-16 bg-[#f7f3ee] text-slate-900"
+      class="relative min-h-[calc(100vh-64px)] flex items-center px-6 py-16 bg-[#f3e8dd] text-[#4a4743]"
+
       aria-label="Hero section"
   >
 
@@ -45,7 +46,8 @@ function scrollTo(selector: string) {
       <!-- Headline -->
       <h1
           id="hero-title"
-          class="mt-6 text-3xl md:text-4xl font-semibold leading-snug text-slate-900"
+          class="mt-6 text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight md:leading-snug text-[#3c3a36] text-center md:text-left"
+
       >
         For adults who feel overwhelmed, worn down, or carrying too much on the inside.
       </h1>

@@ -2,8 +2,9 @@
   <section
       id="about"
       class="relative px-6 py-20 max-w-5xl mx-auto
-           bg-surface text-textsurface
-           transition-colors-bg duration-300 ease-subtle"
+         bg-[#f3e8dd] text-[#4a4743]
+         transition-colors-bg duration-300 ease-subtle"
+
       itemscope
       itemtype="https://schema.org/Person"
       aria-labelledby="about-heading"
@@ -11,7 +12,8 @@
     <!-- subtle radial teal glow -->
     <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-             w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+         w-96 h-96 bg-[#e8d3c4] rounded-full blur-3xl opacity-40 pointer-events-none"
+
         aria-hidden="true"
     ></div>
 
@@ -20,14 +22,17 @@
       <!-- PORTRAIT -->
       <div class="flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto">
         <div
-            class="bg-surface border border-bordercol-light
-                 rounded-lg p-1 shadow-soft"
+            class="bg-[#f9f3ee] border border-[#e4d9d1]
+         rounded-lg p-1 shadow-soft"
+        >
+
         >
           <picture>
             <img
                 :src="profileJpg"
                 alt="Portrait of psychotherapist Robert Ormiston"
-                class="w-44 h-44 rounded-full object-cover border-2 border-primary/40"
+                class="w-44 h-44 rounded-full object-cover border-2 border-[#c39e8a]"
+
                 itemprop="image"
                 width="176"
                 height="176"
@@ -44,23 +49,27 @@
       <div class="max-w-2xl">
         <h2
             id="about-heading"
-            class="text-3xl md:text-4xl font-serif font-semibold mb-4 text-textsurface"
+            class="text-3xl md:text-4xl font-serif font-semibold mb-4 text-[#3c3a36]"
+
             itemprop="name"
         >
           About Robert Ormiston
         </h2>
 
         <!-- accent bar -->
-        <div class="w-14 h-1 bg-primary/50 rounded mb-6" aria-hidden="true"></div>
+        <div class="w-14 h-1 bg-[#c39e8a] rounded mb-6" aria-hidden="true"></div>
 
-        <p class="text-lg mb-6 leading-relaxed text-textsurface" itemprop="description">
-          I’m a psychotherapist with over 25 years’ experience in mental health, including clinical leadership
+
+        <p class="text-lg mb-6 leading-relaxed text-[#4a4743]" itemprop="description">
+
+        I’m a psychotherapist with over 25 years’ experience in mental health, including clinical leadership
           within the NHS. I work to help people understand their inner world, meet painful parts with compassion,
           and recover a steadier sense of self and purpose.
         </p>
 
-        <p class="text-base mb-6 leading-relaxed text-textsurface">
-          My practice is informed by
+        <p class="text-base mb-6 leading-relaxed text-[#4a4743]">
+
+        My practice is informed by
           <span class="italic">Internal Family Systems (IFS)</span> and
           <span class="italic">EMDR</span>. I combine trauma-informed methods with reflective writing and clear,
           practical summaries so clients leave sessions with clarity and an easy next-step.
@@ -71,11 +80,12 @@
           <button
               @click="expanded = !expanded"
               class="inline-flex items-center gap-2 text-sm font-semibold rounded-full
-                   px-4 py-2 bg-primary/10 hover:bg-primary/20
-                   text-textsurface
-                   border border-bordercol-light
-                   shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
-                   transition-colors-bg duration-200 ease-subtle"
+       px-4 py-2 bg-[#f9f3ee] hover:bg-[#eadace]
+       text-[#3c3a36]
+       border border-[#e4d9d1]
+       shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c39e8a]/40
+       transition-colors-bg duration-200 ease-subtle"
+
               :aria-expanded="expanded.toString()"
               aria-controls="fullBio"
           >
@@ -118,9 +128,10 @@
           <div
               v-if="expanded"
               id="fullBio"
-              class="mt-8 space-y-4 text-textsurface leading-relaxed"
+              class="mt-8 space-y-4 text-[#4a4743] leading-relaxed"
           >
-            <p>
+
+          <p>
               My early career unfolded during major shifts in UK psychiatric care. I was involved in commissioning
               projects including the psychiatric intensive care unit at Hackney Hospital and early developments at
               St Bartholomew’s. These roles shaped my practical approach to systems, safety, and service design.
