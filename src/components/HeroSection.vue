@@ -11,23 +11,22 @@ function scrollTo(selector: string) {
 </script>
 
 <template>
-  <!-- HERO – VERSION A: CLEAN CLINICAL -->
-  <!-- HERO – VERSION B: WARM DEPTH & RELATIONAL -->
-  <!-- HERO – VERSION C: MIDNIGHT PREMIUM CLINICAL -->
-  <!-- HERO – VERSION B: WARM DEPTH & RELATIONAL -->
-  <!-- HERO – VERSION A: CLEAN CLINICAL -->
-  <!-- HERO – VERSION A (NON-CLINICAL, GROUNDED) -->
+  <!-- HERO – WARM, SUBTLE DEPTH VARIANT -->
   <section
       id="hero"
-      class="relative min-h-[calc(100vh-64px)] flex items-center px-6 py-16 bg-[#f3e8dd] text-[#4a4743]"
-
+      class="relative min-h-[calc(100vh-64px)] flex items-center px-6 py-16 bg-[#f4ebe1] text-[#4a4743]"
       aria-label="Hero section"
   >
-
-    <!-- Soft warm glow (no darkness, no rain) -->
+    <!-- Subtle layered background (no dark mode, no stars) -->
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <!-- Gentle vertical gradient to avoid flatness -->
       <div
-          class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0)_70%)] opacity-80"
+          class="absolute inset-0 bg-gradient-to-b from-[#f9f3ee] via-[#f4ebe1] to-[#ecd7c5]"
+      ></div>
+
+      <!-- Very soft warm haze, off-centre, for a bit of dimension -->
+      <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0)_45%),radial-gradient(circle_at_90%_100%,rgba(210,174,145,0.25)_0%,rgba(210,174,145,0)_55%)] opacity-80"
       ></div>
     </div>
 
@@ -47,7 +46,6 @@ function scrollTo(selector: string) {
       <h1
           id="hero-title"
           class="mt-6 text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight md:leading-snug text-[#3c3a36] text-center md:text-left"
-
       >
         For adults who feel overwhelmed, worn down, or carrying too much on the inside.
       </h1>
@@ -93,7 +91,6 @@ function scrollTo(selector: string) {
         </button>
       </div>
 
-
       <!-- Trust line -->
       <p class="mt-6 text-xs text-slate-600 leading-relaxed">
         Online sessions for adults. MBACP Registered. 15+ years’ experience.
@@ -101,12 +98,5 @@ function scrollTo(selector: string) {
 
     </div>
   </section>
-
-
-
-
-
-
-
-
 </template>
+
