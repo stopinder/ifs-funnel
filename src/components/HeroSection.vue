@@ -64,25 +64,35 @@ function scrollTo(selector: string) {
 
       <!-- CTA -->
       <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+        <!-- Primary CTA -->
         <a
             :href="mailtoHref"
             class="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium
-               bg-amber-500 text-white shadow-sm hover:bg-amber-600
-               focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300
-               transition-all duration-200"
+             bg-[#3c3a36] text-[#f9f3ee]
+             shadow-[0_10px_30px_rgba(44,35,28,0.18)]
+             hover:bg-[#6d5f52]
+             focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c39e8a]/45
+             transition-all duration-200"
         >
           Contact me
         </a>
 
+        <!-- Secondary CTA -->
         <button
             @click.prevent="scrollTo('#philosophy')"
-            class="inline-flex items-center justify-center px-5 py-2.5 rounded-md border border-slate-300
-               bg-white text-slate-800 hover:bg-slate-50
-               shadow-sm focus:outline-none focus:ring-4 focus:ring-slate-200 text-sm"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-md
+             border border-[#e4d9d1]
+             bg-[#f9f3ee]/90
+             text-sm font-medium text-[#4a4743]
+             hover:bg-[#f3e8dd]
+             shadow-sm
+             focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c39e8a]/35
+             transition-all duration-200"
         >
           How I work
         </button>
       </div>
+
 
       <!-- Trust line -->
       <p class="mt-6 text-xs text-slate-600 leading-relaxed">

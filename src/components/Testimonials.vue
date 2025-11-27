@@ -2,42 +2,45 @@
   <section
       id="testimonials"
       ref="testimonialSection"
-      class="relative px-6 py-24 max-w-6xl mx-auto
-           bg-surface text-textsurface
-           transition-colors-bg duration-300 ease-subtle
-           opacity-0 translate-y-4
-           motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+      class="relative px-6 py-24
+             bg-[#f3e8dd] text-[#4a4743]
+             transition-colors-bg duration-300 ease-subtle
+             opacity-0 translate-y-4
+             motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
       role="region"
       aria-label="Client reflections carousel"
   >
-    <!-- subtle teal radial haze behind panel -->
+    <!-- subtle warm radial haze behind panel -->
     <div
         class="absolute top-12 left-1/2 -translate-x-1/2 w-[80%] max-w-xl h-64
-             bg-[radial-gradient(circle_at_top,rgba(13,148,136,0.08),transparent_70%)]
-             blur-3xl pointer-events-none"
+               bg-[radial-gradient(circle_at_top,rgba(195,158,138,0.18),transparent_70%)]
+               blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
     <!-- panel container -->
     <div
-        class="relative z-10 bg-white/90 rounded-2xl shadow-soft border border-bordercol-light
-             max-w-4xl mx-auto px-6 md:px-10 py-12 md:py-16"
+        class="relative z-10 bg-[#f9f3ee] rounded-2xl shadow-soft border border-[#e4d9d1]
+               max-w-4xl mx-auto px-6 md:px-10 py-12 md:py-16"
     >
       <!-- Heading / intro -->
       <header class="text-center mb-10">
         <h2
-            class="text-3xl md:text-4xl font-serif font-semibold text-textsurface leading-snug"
+            class="text-3xl md:text-4xl font-serif font-semibold text-[#3c3a36] leading-snug"
         >
-          Client Reflections <span class="block text-sm font-sans font-normal text-textsurface/60 mt-2">(shared with permission)</span>
+          Client Reflections
+          <span class="block text-sm font-sans font-normal text-[#6e6a66] mt-2">
+            (shared with permission)
+          </span>
         </h2>
 
         <div
-            class="mt-4 mx-auto h-1 w-16 bg-primary/50 rounded"
+            class="mt-4 mx-auto h-1 w-16 bg-[#c39e8a] rounded"
             aria-hidden="true"
         ></div>
 
         <p
-            class="text-base md:text-lg leading-relaxed text-textsurface/80 max-w-2xl mx-auto mt-6"
+            class="text-base md:text-lg leading-relaxed text-[#4a4743] max-w-2xl mx-auto mt-6"
         >
           A few words from clients who have taken part in this reflective work.
           These are their words and their language.
@@ -51,10 +54,10 @@
             @click="scrollPrev"
             :disabled="currentIndex === 0"
             class="group inline-flex items-center justify-center gap-2 px-3 py-1 rounded-md
-                 bg-surface border border-bordercol-light text-xs font-medium text-textsurface
-                 hover:bg-primary/10 hover:border-primary hover:text-primary
-                 disabled:opacity-40 disabled:cursor-not-allowed
-                 transition-colors-bg duration-200 ease-subtle"
+                   bg-[#f9f3ee] border border-[#e4d9d1] text-xs font-medium text-[#3c3a36]
+                   hover:bg-[#eadace] hover:border-[#c39e8a]
+                   disabled:opacity-40 disabled:cursor-not-allowed
+                   transition-colors-bg duration-200 ease-subtle"
             aria-label="Previous testimonials"
         >
           <span aria-hidden="true">◀</span>
@@ -70,8 +73,8 @@
               :aria-pressed="currentIndex === i - 1"
               class="w-2 h-2 rounded-full focus:outline-none transition-colors-bg duration-200 ease-subtle"
               :class="currentIndex === i - 1
-              ? 'bg-primary'
-              : 'bg-bordercol-light'"
+                ? 'bg-[#c39e8a]'
+                : 'bg-[#e4d9d1]'"
               :aria-label="`Go to testimonial page ${i}`"
           ></button>
         </div>
@@ -81,10 +84,10 @@
             @click="scrollNext"
             :disabled="currentIndex >= pageCount - 1"
             class="group inline-flex items-center justify-center gap-2 px-3 py-1 rounded-md
-                 bg-surface border border-bordercol-light text-xs font-medium text-textsurface
-                 hover:bg-primary/10 hover:border-primary hover:text-primary
-                 disabled:opacity-40 disabled:cursor-not-allowed
-                 transition-colors-bg duration-200 ease-subtle"
+                   bg-[#f9f3ee] border border-[#e4d9d1] text-xs font-medium text-[#3c3a36]
+                   hover:bg-[#eadace] hover:border-[#c39e8a]
+                   disabled:opacity-40 disabled:cursor-not-allowed
+                   transition-colors-bg duration-200 ease-subtle"
             aria-label="Next testimonials"
         >
           <span aria-hidden="true">▶</span>
@@ -110,23 +113,22 @@
               class="snap-start flex-none w-full sm:w-1/2 lg:w-1/3"
           >
             <div
-                class="bg-white/70 rounded-xl border border-bordercol-light shadow-soft
-       hover:bg-white/90 hover:shadow-soft hover:-translate-y-[2px]
-       transition-transform transition-colors-bg duration-200 ease-subtle
-       p-6 flex flex-col gap-4"
+                class="bg-white/70 rounded-xl border border-[#e4d9d1] shadow-soft
+                       hover:bg-white/90 hover:shadow-soft hover:-translate-y-[2px]
+                       transition-transform transition-colors-bg duration-200 ease-subtle
+                       p-6 flex flex-col gap-4"
             >
-
-            <blockquote
-                  class="italic mb-6 leading-relaxed text-textsurface"
+              <blockquote
+                  class="italic mb-6 leading-relaxed text-[#4a4743]"
               >
                 “{{ t.quote }}”
               </blockquote>
 
               <footer class="mt-4">
-                <p class="text-textsurface font-medium">
+                <p class="text-[#3c3a36] font-medium">
                   — {{ t.name }}
                 </p>
-                <p class="text-textsurface/70 text-sm">
+                <p class="text-[#6e6a66] text-sm">
                   {{ t.location }}
                 </p>
               </footer>

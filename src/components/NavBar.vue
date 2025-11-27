@@ -1,64 +1,89 @@
 <template>
-  <header class="sticky top-0 z-50 bg-[#f7f3ee] border-b border-slate-100">
-
-  <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
-      <div class="flex items-center justify-between md:justify-between h-16">
+  <header
+      class="sticky top-0 z-50
+             border-b border-[#e4d9d1]/80
+             bg-[#f3e8dd]/70
+             backdrop-blur-xl
+             shadow-[0_10px_30px_rgba(44,35,28,0.12)]"
+  >
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
+      <!-- On mobile: logo left, burger right.
+           On desktop: logo + nav grouped together (no huge gulf). -->
+      <div class="flex items-center h-16 gap-4 md:gap-8 justify-between md:justify-start">
         <!-- Brand -->
         <button
             @click="goHomeAndScroll(null)"
-            class="flex items-center gap-8"
+            class="flex items-center gap-4 md:gap-5"
             aria-label="Chrysalis Therapy home"
         >
           <img
               src="/images/ChrysalisLogo.svg"
               alt="Chrysalis logo"
-              class="w-14 h-auto md:w-16 object-contain"
+              class="w-12 h-auto md:w-14 object-contain"
               loading="eager"
               decoding="async"
           />
-          <span class="text-base font-semibold text-slate-900">Robert Ormiston MBACP</span>
+          <span class="text-sm md:text-base font-semibold text-[#3c3a36]">
+            Robert Ormiston MBACP
+          </span>
         </button>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
+        <nav
+            class="hidden md:flex items-center gap-6 md:ml-8"
+            aria-label="Primary navigation"
+        >
           <button
               @click="goHomeAndScroll('about')"
-              class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
+              class="text-sm font-medium
+                     text-[#4a4743]
+                     hover:text-[#c39e8a]
+                     transition-colors-bg duration-200 ease-subtle"
           >
             About
           </button>
 
           <button
               @click="goHomeAndScroll('offers')"
-              class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
+              class="text-sm font-medium
+                     text-[#4a4743]
+                     hover:text-[#c39e8a]
+                     transition-colors-bg duration-200 ease-subtle"
           >
             Approach
           </button>
 
           <button
               @click="goIfs()"
-              class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
+              class="text-sm font-medium
+                     text-[#4a4743]
+                     hover:text-[#c39e8a]
+                     transition-colors-bg duration-200 ease-subtle"
           >
             IFS Therapy
           </button>
 
           <button
               @click="goEmdr()"
-              class="text-sm font-medium text-textsurface hover:text-primary transition-colors-bg duration-200 ease-subtle"
+              class="text-sm font-medium
+                     text-[#4a4743]
+                     hover:text-[#c39e8a]
+                     transition-colors-bg duration-200 ease-subtle"
           >
             EMDR
           </button>
         </nav>
 
         <!-- Mobile hamburger -->
-        <div class="flex items-center justify-start h-16 gap-8">
-
+        <div class="flex items-center md:hidden">
           <button
               @click="mobileOpen = !mobileOpen"
               :aria-expanded="mobileOpen.toString()"
               aria-controls="mobile-menu"
               aria-label="Toggle navigation menu"
-              class="p-2 rounded-md text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              class="p-2 rounded-md text-[#3c3a36]
+                     hover:bg-[#eadace]
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c39e8a]/40"
           >
             <svg
                 v-if="!mobileOpen"
@@ -89,34 +114,46 @@
     <div
         v-if="mobileOpen"
         id="mobile-menu"
-        class="md:hidden bg-white border-t border-slate-100 shadow-sm"
+        class="md:hidden bg-[#f9f3ee]/95 border-t border-[#e4d9d1] shadow-sm backdrop-blur-md"
     >
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <nav class="flex flex-col gap-3 text-center" aria-label="Mobile primary">
           <button
               @click="goHomeAndScroll('about'); closeMobile()"
-              class="px-3 py-2 rounded text-textsurface hover:bg-surface border border-transparent hover:border-bordercol-light text-sm font-medium transition-colors-bg duration-200 ease-subtle"
+              class="px-3 py-2 rounded text-[#4a4743]
+                     hover:bg-[#eadace]
+                     border border-transparent hover:border-[#e4d9d1]
+                     text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
             About
           </button>
 
           <button
               @click="goHomeAndScroll('offers'); closeMobile()"
-              class="px-3 py-2 rounded text-textsurface hover:bg-surface border border-transparent hover:border-bordercol-light text-sm font-medium transition-colors-bg duration-200 ease-subtle"
+              class="px-3 py-2 rounded text-[#4a4743]
+                     hover:bg-[#eadace]
+                     border border-transparent hover:border-[#e4d9d1]
+                     text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
             Approach
           </button>
 
           <button
               @click="goIfs(); closeMobile()"
-              class="px-3 py-2 rounded text-textsurface hover:bg-surface border border-transparent hover:border-bordercol-light text-sm font-medium transition-colors-bg duration-200 ease-subtle"
+              class="px-3 py-2 rounded text-[#4a4743]
+                     hover:bg-[#eadace]
+                     border border-transparent hover:border-[#e4d9d1]
+                     text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
             IFS Therapy
           </button>
 
           <button
               @click="goEmdr(); closeMobile()"
-              class="px-3 py-2 rounded text-textsurface hover:bg-surface border border-transparent hover:border-bordercol-light text-sm font-medium transition-colors-bg duration-200 ease-subtle"
+              class="px-3 py-2 rounded text-[#4a4743]
+                     hover:bg-[#eadace]
+                     border border-transparent hover:border-[#e4d9d1]
+                     text-sm font-medium transition-colors-bg duration-200 ease-subtle"
           >
             EMDR
           </button>
@@ -192,3 +229,4 @@ function goEmdr() {
   transition: opacity 0.15s ease;
 }
 </style>
+

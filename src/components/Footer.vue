@@ -1,28 +1,28 @@
 <template>
   <footer
       id="footer"
-      class="relative px-6 py-8 md:py-12 text-slate-800 bg-slate-50 border-t border-slate-200"
+      class="relative px-6 py-8 md:py-12 text-[#4a4743] bg-[#f3e8dd] border-t border-[#e4d9d1]"
       role="contentinfo"
   >
     <div class="relative z-10 max-w-4xl mx-auto flex flex-col gap-8">
       <!-- Inline legal preview if we're already on /terms -->
       <div
           v-if="isOnTermsPage"
-          class="bg-white border border-slate-200 rounded-xl shadow-sm p-4 text-slate-700 leading-relaxed"
+          class="bg-[#f9f3ee] border border-[#e4d9d1] rounded-xl shadow-sm p-4 text-[#4a4743] leading-relaxed"
           aria-labelledby="footer-terms-heading"
       >
         <h2
             id="footer-terms-heading"
-            class="text-base font-semibold text-slate-900 mb-2"
+            class="text-base font-semibold text-[#3c3a36] mb-2"
         >
           Terms &amp; Privacy
         </h2>
 
-        <p class="text-xs text-slate-500 mb-3">
+        <p class="text-xs text-[#6e6a66] mb-3">
           Last updated: October 2025 · Chrysalis Therapy Services
         </p>
 
-        <p class="text-sm text-slate-700 mb-3">
+        <p class="text-sm text-[#4a4743] mb-3">
           This service is provided by Robert Ormiston (MBACP). Your sessions are
           confidential and handled in line with the BACP Ethical Framework and
           UK GDPR. This is not an emergency service. If you are at immediate
@@ -30,7 +30,7 @@
           crisis support.
         </p>
 
-        <p class="text-sm text-slate-700">
+        <p class="text-sm text-[#4a4743]">
           Clinical notes are stored securely, typically for up to 7 years after
           therapy ends. You can request access to your information and ask
           questions about how it is used.
@@ -43,19 +43,19 @@
       >
         <!-- LEFT BLOCK: credentials / background -->
         <div
-            class="max-w-[28rem] text-sm text-slate-600 leading-relaxed space-y-4"
+            class="max-w-[28rem] text-sm text-[#4a4743] leading-relaxed space-y-4"
         >
           <div>
             <p>
               Registered Member
-              <strong class="text-slate-800">MBACP</strong>
+              <strong class="text-[#3c3a36]">MBACP</strong>
               (Membership No. 00948196)
               ·
               <a
                   href="https://www.bacp.co.uk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-slate-700 hover:text-slate-900"
+                  class="text-[#6d5f52] hover:text-[#3c3a36]"
               >
                 British Association for Counselling and Psychotherapy
               </a>
@@ -68,14 +68,14 @@
                   href="https://www.chi.ac.uk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-slate-700 hover:text-slate-900"
+                  class="text-[#6d5f52] hover:text-[#3c3a36]"
               >
                 University of Chichester
               </a>
 
               <a
-                  href="mailto:emdrifs@robormiston.com"
-                  class="ml-1 text-slate-700 hover:text-slate-900 underline underline-offset-2"
+                  :href="mailtoHref"
+                  class="ml-1 text-[#6d5f52] hover:text-[#3c3a36] underline underline-offset-2"
               >
                 emdrifs@robormiston.com
               </a>
@@ -85,7 +85,7 @@
                   href="https://www.syzygy.org.uk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-slate-700 hover:text-slate-900"
+                  class="text-[#6d5f52] hover:text-[#3c3a36]"
               >
                 SYZERGY
               </a>
@@ -94,7 +94,7 @@
                   href="https://www.emdrmasterclass.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-slate-700 hover:text-slate-900"
+                  class="text-[#6d5f52] hover:text-[#3c3a36]"
               >
                 EMDR Masterclass
               </a>
@@ -105,7 +105,7 @@
           <div>
             <button
                 @click="expanded = !expanded"
-                class="text-sm text-slate-700 underline hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-200 rounded px-1 py-0.5"
+                class="text-sm text-[#6d5f52] underline hover:text-[#3c3a36] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c39e8a]/40 rounded px-1 py-0.5"
                 :aria-expanded="expanded.toString()"
                 aria-controls="footerExtra"
             >
@@ -115,7 +115,7 @@
             <div
                 v-if="expanded"
                 id="footerExtra"
-                class="mt-3 text-slate-700 text-sm leading-relaxed"
+                class="mt-3 text-[#4a4743] text-sm leading-relaxed"
             >
               <p>
                 Experience includes: clinical leadership in NHS settings,
@@ -130,35 +130,34 @@
 
         <!-- RIGHT BLOCK: practice / reassurance / contact / socials -->
         <div
-            class="max-w-[20rem] text-left text-slate-600 leading-relaxed space-y-4 mt-8 md:mt-0"
+            class="max-w-[20rem] text-left text-[#4a4743] leading-relaxed space-y-4 mt-8 md:mt-0"
         >
           <div class="space-y-1">
             <p
-                class="text-[11px] uppercase tracking-wide text-slate-500 font-medium"
+                class="text-[11px] uppercase tracking-wide text-[#6e6a66] font-medium"
             >
               Practice
             </p>
-            <p class="text-sm font-medium text-slate-800">
+            <p class="text-sm font-medium text-[#3c3a36]">
               Chrysalis Psychotherapy
             </p>
-            <p class="text-sm text-slate-600">
+            <p class="text-sm text-[#4a4743]">
               Robert Ormiston — Psychotherapist
             </p>
           </div>
 
-          <div class="text-xs text-slate-600 leading-relaxed">
+          <div class="text-xs text-[#6e6a66] leading-relaxed">
             <p>Confidential. Trauma-informed. GDPR aligned. Clinically supervised.</p>
           </div>
 
           <!-- Contact button -->
           <div>
             <a
-                href="mailto:emdrifs@robormiston.com"
-                class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-amber-500 text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+                :href="mailtoHref"
+                class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-[#3c3a36] text-white hover:bg-[#6d5f52] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c39e8a]/40"
             >
               emdrifs@robormiston.com
             </a>
-
           </div>
 
           <!-- Social icons -->
@@ -172,12 +171,12 @@
       <div class="flex flex-col items-center text-center gap-4">
         <router-link
             to="/terms"
-            class="text-slate-500 text-xs underline underline-offset-2 hover:text-slate-700"
+            class="text-[#6d5f52] text-xs underline underline-offset-2 hover:text-[#3c3a36]"
         >
           Terms &amp; Privacy
         </router-link>
 
-        <p class="text-xs text-slate-500 flex items-center gap-2">
+        <p class="text-xs text-[#6e6a66] flex items-center gap-2">
           <!-- compressed footer symbol -->
           <svg
               class="h-5 w-5"
@@ -186,11 +185,10 @@
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
           >
-            <circle cx="9" cy="12" r="6" stroke="#0f766e" stroke-width="1.8" />
-            <circle cx="15" cy="12" r="6" stroke="#0f766e" stroke-width="1.8" />
-            <circle cx="12" cy="12" r="3" fill="#f59e0b" />
+            <circle cx="9" cy="12" r="6" stroke="#6d5f52" stroke-width="1.8" />
+            <circle cx="15" cy="12" r="6" stroke="#6d5f52" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="3" fill="#c39e8a" />
           </svg>
-
 
           © {{ new Date().getFullYear() }} Robert Ormiston · Chrysalis Therapy Services · All rights reserved
         </p>
@@ -203,9 +201,9 @@
         v-if="showScrollTop"
         @click="scrollToTop"
         class="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full
-         bg-amber-500 border border-amber-500 text-white text-sm font-medium
-         hover:bg-amber-600 hover:border-amber-600 shadow-lg transition-opacity duration-300
-         focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300"
+               bg-[#3c3a36] border border-[#3c3a36] text-white text-sm font-medium
+               hover:bg-[#6d5f52] hover:border-[#6d5f52] shadow-lg transition-opacity duration-300
+               focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c39e8a]/40"
         aria-label="Back to Top"
     >
       ↑
@@ -290,7 +288,7 @@ footer {
 a:focus-visible,
 button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.28);
+  box-shadow: 0 0 0 4px rgba(195, 158, 138, 0.35);
   border-radius: 6px;
 }
 </style>

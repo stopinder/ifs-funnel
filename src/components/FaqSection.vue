@@ -2,51 +2,51 @@
   <section
       id="faq"
       ref="faqSection"
-      class="relative px-6 py-24 max-w-5xl mx-auto
-           bg-surface text-textsurface
-           transition-colors-bg duration-300 ease-subtle
-           opacity-0 translate-y-4
-           motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+      class="relative px-6 py-24
+             bg-[#f3e8dd] text-[#4a4743]
+             transition-colors-bg duration-300 ease-subtle
+             opacity-0 translate-y-4
+             motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
       itemscope
       itemtype="https://schema.org/FAQPage"
       aria-labelledby="faq-heading"
   >
-    <!-- subtle radial teal haze behind panel -->
+    <!-- subtle warm radial haze behind panel -->
     <div
         class="absolute top-12 left-1/2 -translate-x-1/2 w-[80%] max-w-xl h-64
-             bg-[radial-gradient(circle_at_top,rgba(13,148,136,0.08),transparent_70%)]
-             blur-3xl pointer-events-none"
+               bg-[radial-gradient(circle_at_top,rgba(195,158,138,0.18),transparent_70%)]
+               blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
     <!-- panel container -->
     <div
-        class="relative z-10 bg-white/90 rounded-2xl shadow-soft border border-bordercol-light
-             max-w-3xl mx-auto px-6 md:px-10 py-12 md:py-16"
+        class="relative z-10 bg-[#f9f3ee] rounded-2xl shadow-soft border border-[#e4d9d1]
+               max-w-3xl mx-auto px-6 md:px-10 py-12 md:py-16"
     >
       <!-- Heading + intro -->
       <header class="text-center mb-10">
         <h2
             id="faq-heading"
-            class="text-3xl md:text-4xl font-serif font-semibold text-textsurface leading-snug"
+            class="text-3xl md:text-4xl font-serif font-semibold text-[#3c3a36] leading-snug"
         >
           Frequently Asked Questions
         </h2>
 
         <div
-            class="mt-4 mx-auto h-1 w-16 bg-primary/50 rounded"
+            class="mt-4 mx-auto h-1 w-16 bg-[#c39e8a] rounded"
             aria-hidden="true"
         ></div>
 
         <p
-            class="text-base md:text-lg leading-relaxed text-textsurface/80 max-w-2xl mx-auto mt-6"
+            class="text-base md:text-lg leading-relaxed text-[#4a4743] max-w-2xl mx-auto mt-6"
         >
           What sessions are like, how reflective summaries work, and how your privacy is protected.
         </p>
       </header>
 
       <!-- FAQ list -->
-      <div class="divide-y divide-bordercol-light">
+      <div class="divide-y divide-[#e4d9d1]">
         <article
             v-for="(faq, index) in faqs"
             :key="index"
@@ -67,16 +67,16 @@
           >
             <div class="pr-6">
               <h3
-                  class="text-lg md:text-xl font-semibold font-serif text-textsurface leading-snug flex items-baseline gap-2"
+                  class="text-lg md:text-xl font-semibold font-serif text-[#3c3a36] leading-snug flex items-baseline gap-2"
                   itemprop="name"
               >
                 <span
-                    class="text-sm font-mono font-medium text-primary/80 tracking-tight"
+                    class="text-sm font-mono font-medium text-[#c39e8a] tracking-tight"
                 >
                   Q{{ index + 1 }}.
                 </span>
                 <span
-                    class="group-hover:text-primary transition-colors-bg duration-200 ease-subtle"
+                    class="group-hover:text-[#c39e8a] transition-colors-bg duration-200 ease-subtle"
                 >
                   {{ faq.question }}
                 </span>
@@ -84,7 +84,7 @@
             </div>
 
             <svg
-                class="mt-1 h-5 w-5 text-textsurface/60 group-hover:text-primary transition-transform duration-300 ease-subtle"
+                class="mt-1 h-5 w-5 text-[#6e6a66] group-hover:text-[#c39e8a] transition-transform duration-300 ease-subtle"
                 :class="{ 'rotate-180': faq.open }"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -106,7 +106,7 @@
             <div
                 v-if="faq.open"
                 :id="'answer-' + index"
-                class="mt-4 text-textsurface text-base md:text-lg leading-relaxed"
+                class="mt-4 text-[#4a4743] text-base md:text-lg leading-relaxed"
                 itemprop="acceptedAnswer"
                 itemscope
                 itemtype="https://schema.org/Answer"
@@ -193,8 +193,6 @@ onMounted(() => {
   const el = faqSection.value
   if (!el) return
 
-  // Respect reduced motion: if user prefers reduced motion,
-  // show immediately and skip animate-in.
   const prefersReduced =
       window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -256,5 +254,4 @@ span {
   }
 }
 </style>
-
 

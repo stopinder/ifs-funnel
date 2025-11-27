@@ -1,39 +1,40 @@
 <template>
   <section
       id="philosophy"
-      class="relative px-6 pt-6 pb-12 max-w-4xl mx-auto
-         bg-surface text-textsurface
-         transition-colors-bg duration-300 ease-subtle"
+      class="relative px-6 pt-6 pb-12
+       bg-[#f3e8dd] text-[#4a4743]
+       transition-colors-bg duration-300 ease-subtle"
+
   >
-    <!-- soft radial teal haze behind panel -->
+    <!-- soft warm haze behind panel -->
     <div
         class="absolute top-16 left-1/2 -translate-x-1/2 w-[80%] max-w-xl h-64
-           bg-[radial-gradient(circle_at_top,rgba(13,148,136,0.08),transparent_70%)]
-           blur-3xl pointer-events-none"
+               bg-[radial-gradient(circle_at_top,rgba(195,158,138,0.18),transparent_70%)]
+               blur-3xl pointer-events-none"
         aria-hidden="true"
     ></div>
 
     <!-- content panel -->
     <div
-        class="relative z-10 bg-white/90 rounded-2xl shadow-soft border border-bordercol-light
-           max-w-3xl mx-auto px-6 md:px-10 py-10 md:py-12"
+        class="relative z-10 bg-[#f9f3ee] rounded-2xl shadow-soft border border-[#e4d9d1]
+               max-w-3xl mx-auto px-6 md:px-10 py-10 md:py-12"
     >
       <!-- Section Heading -->
       <header class="text-center mb-8">
         <h2
-            class="text-3xl md:text-4xl font-serif font-semibold text-textsurface leading-snug"
+            class="text-3xl md:text-4xl font-serif font-semibold text-[#3c3a36] leading-snug"
         >
           Philosophy of Practice
         </h2>
 
         <div
-            class="mt-3 mx-auto h-1 w-16 bg-primary/50 rounded"
+            class="mt-3 mx-auto h-1 w-16 bg-[#c39e8a] rounded"
             aria-hidden="true"
         ></div>
       </header>
 
       <!-- Introductory Paragraphs -->
-      <div class="space-y-6 text-base md:text-lg leading-relaxed text-textsurface">
+      <div class="space-y-6 text-base md:text-lg leading-relaxed text-[#4a4743]">
         <p>
           Over the years, my work has evolved. What began as talking therapy has
           become something quieter — an inquiry into attention itself. The
@@ -49,7 +50,7 @@
       </div>
 
       <!-- Accordion Blocks -->
-      <div class="mt-10 divide-y divide-bordercol-light">
+      <div class="mt-10 divide-y divide-[#e4d9d1]">
         <article
             v-for="(block, index) in philosophy"
             :key="block.title"
@@ -64,25 +65,25 @@
           >
             <div class="pr-6">
               <h3
-                  class="text-lg md:text-xl font-semibold font-serif text-textsurface
-                     group-hover:text-primary transition-colors-bg duration-200 ease-subtle
-                     flex items-baseline gap-2"
+                  class="text-lg md:text-xl font-semibold font-serif text-[#3c3a36]
+                         group-hover:text-[#c39e8a] transition-colors-bg duration-200 ease-subtle
+                         flex items-baseline gap-2"
               >
-              <span
-                  class="text-sm font-mono font-medium text-primary/80 tracking-tight"
-              >
-                {{ String(index + 1).padStart(2, '0') }} ·
-              </span>
+                <span
+                    class="text-sm font-mono font-medium text-[#c39e8a] tracking-tight"
+                >
+                  {{ String(index + 1).padStart(2, '0') }} ·
+                </span>
 
                 <span class="leading-snug">
-                {{ block.title }}
-              </span>
+                  {{ block.title }}
+                </span>
               </h3>
             </div>
 
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="mt-1 h-5 w-5 text-textsurface/60 group-hover:text-primary transition-transform duration-300 ease-subtle"
+                class="mt-1 h-5 w-5 text-[#6e6a66] group-hover:text-[#c39e8a] transition-transform duration-300 ease-subtle"
                 :class="{ 'rotate-180': block.open }"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -101,7 +102,7 @@
           <transition name="fade">
             <div
                 v-if="block.open"
-                class="mt-4 space-y-4 text-textsurface text-base md:text-lg leading-relaxed"
+                class="mt-4 space-y-4 text-[#4a4743] text-base md:text-lg leading-relaxed"
             >
               <p v-for="p in block.text" :key="p">
                 {{ p }}
@@ -113,15 +114,15 @@
 
       <!-- Signature -->
       <footer class="mt-10 text-center">
-        <p class="text-sm italic text-textsurface/70 leading-relaxed">
+        <p class="text-sm italic text-[#6e6a66] leading-relaxed">
           — Robert Ormiston · Integrative Psychotherapist · IFS Practitioner
         </p>
-        <p class="text-sm text-textsurface/70 leading-relaxed">
+        <p class="text-sm text-[#6e6a66] leading-relaxed">
           <a
               href="https://www.bacp.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-primary hover:text-primary-hover underline/50 transition-colors-bg duration-200 ease-subtle"
+              class="text-[#6d5f52] hover:text-[#3c3a36] underline/50 transition-colors-bg duration-200 ease-subtle"
           >
             Registered Member MBACP · British Association for Counselling and Psychotherapy
           </a>
@@ -129,8 +130,8 @@
       </footer>
     </div>
   </section>
-
 </template>
+
 
 <script setup>
 import { reactive } from 'vue'
