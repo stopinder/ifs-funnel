@@ -43,9 +43,12 @@ function handleImgError(e: Event) {
     <div class="relative z-10 mx-auto w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start gap-16">
       <!-- TEXT -->
       <div class="flex-1 max-w-xl -mt-4">
-        <p class="text-xs font-medium tracking-[0.18em] text-slate-700 uppercase">
+        <p class="inline-block text-[11px] font-bold tracking-[0.25em] uppercase
+          text-[#243040] border-b border-[#243040]/30 pb-1">
           IFS &amp; EMDR-informed
         </p>
+
+
 
         <p class="mt-3 text-lg font-medium text-[#5a5753]">
           Chrysalis Psychotherapy Services
