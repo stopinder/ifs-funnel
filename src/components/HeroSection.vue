@@ -58,7 +58,7 @@ function handleImgError(e: Event) {
             id="hero-title"
             class="mt-8 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-snug text-[#3c3a36]"
         >
-          A steady, reflective space for adults experiencing overwhelm, exhaustion, or inner strain.
+          A steady, reflective space for adults experiencing overwhelm, depletion, or inner strain.
         </h1>
 
         <p
