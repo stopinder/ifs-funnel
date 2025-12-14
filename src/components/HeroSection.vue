@@ -25,7 +25,7 @@ function handleImgError(e: Event) {
 <template>
   <section
       id="hero"
-      class="relative min-h-[calc(100vh-64px)] flex items-start px-6 pt-16 pb-20 bg-[#f4ebe1] text-[#4a4743] overflow-hidden"
+      class="relative min-h-[calc(100vh-64px)] flex items-start px-6 pt-12 pb-20 bg-[#f4ebe1] text-[#4a4743] overflow-hidden"
       aria-label="Hero section"
   >
     <!-- BACKGROUND -->
