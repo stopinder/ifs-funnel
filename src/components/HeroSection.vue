@@ -58,16 +58,14 @@ function handleImgError(e: Event) {
             id="hero-title"
             class="mt-8 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-snug text-[#3c3a36]"
         >
-          For adults who feel overwhelmed, worn down, or carrying too much on the inside.
+          A steady, reflective space for adults experiencing overwhelm, exhaustion, or inner strain.
         </h1>
 
         <p
             id="hero-intro"
             class="mt-5 text-base md:text-lg text-slate-700 leading-relaxed"
         >
-          We work at a steady pace, focused on what’s really happening underneath. No pressure
-          to be “sorted” — just clear, grounded space to help your system settle and find its
-          bearings again.
+          Our work focuses on what’s happening beneath the surface, approached carefully and without urgency. Rather than pushing for solutions, we create the conditions for your system to stabilise, orient, and respond with greater coherence over time.
         </p>
 
         <!-- CTA -->
