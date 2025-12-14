@@ -1,12 +1,14 @@
 <template>
   <header
-      class="sticky top-0 z-50
-             border-b border-[#e4d9d1]/80
-             bg-[#f3e8dd]/70
-             backdrop-blur-xl
-             shadow-[0_10px_30px_rgba(44,35,28,0.12)]"
+      class="sticky top-2 z-50
+         bg-white/60 backdrop-blur-md
+         border-b border-black/10
+         shadow-[0_6px_16px_rgba(0,0,0,0.06)]"
   >
-    <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
+
+
+
+  <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
       <!-- On mobile: logo left, burger right.
            On desktop: logo + nav grouped together (no huge gulf). -->
       <div class="flex items-center h-16 gap-4 md:gap-8 justify-between md:justify-start">
@@ -36,7 +38,8 @@
           <button
               @click="goHomeAndScroll('about')"
               class="text-sm font-medium
-                     text-[#4a4743]
+                     text-[#1f2a37]
+
                      hover:text-[#c39e8a]
                      transition-colors-bg duration-200 ease-subtle"
           >
