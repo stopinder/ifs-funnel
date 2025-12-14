@@ -42,15 +42,15 @@ function handleImgError(e: Event) {
     <!-- CONTENT -->
     <div class="relative z-10 mx-auto w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start gap-16">
       <!-- TEXT -->
-      <div class="flex-1 max-w-xl -mt-4">
-        <p class="inline-block text-[11px] font-bold tracking-[0.25em] uppercase
-          text-[#243040] border-b border-[#243040]/30 pb-1">
+      <div class="flex-1 max-w-xl -mt-2">
+        <p
+            class="inline-block text-[11px] font-bold tracking-[0.25em] uppercase
+                 text-[#243040] border-b border-[#243040]/30 pb-1"
+        >
           IFS &amp; EMDR-informed
         </p>
 
-
-
-        <p class="mt-3 text-lg font-medium text-[#5a5753]">
+        <p class="mt-3 text-lg font-semibold text-[#5a5753]">
           Chrysalis Psychotherapy Services
         </p>
 
@@ -58,7 +58,7 @@ function handleImgError(e: Event) {
             id="hero-title"
             class="mt-8 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-snug text-[#3c3a36]"
         >
-          A steady, reflective space for adults experiencing overwhelm, depletion, or inner strain.
+          A steady, reflective space for adults navigating overwhelm, sustained pressure, or inner strain.
         </h1>
 
         <p
@@ -109,7 +109,6 @@ function handleImgError(e: Event) {
             aria-hidden="true"
         ></div>
 
-        <!-- IMAGE -->
         <div class="relative w-56 md:w-64 lg:w-80 overflow-hidden">
           <div
               class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.5)_0%,rgba(244,235,225,0)_70%)]
@@ -145,8 +144,6 @@ function handleImgError(e: Event) {
             MBACP Registered
           </p>
         </div>
-
-
       </div>
     </div>
   </section>
