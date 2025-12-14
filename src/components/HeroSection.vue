@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const mailtoHref =
     "mailto:emdrifs@robormiston.com?subject=Therapy%20enquiry"
 
-const profileJpg = '/images/profile.jpg'
+const profileJpg = '/images/profile.png'
 const imgEl = ref(null)
 
 function scrollTo(selector: string) {
@@ -114,22 +114,37 @@ function handleImgError(e: Event) {
             aria-hidden="true"
         ></div>
 
-        <div
-            class="relative bg-[#f9f3ee] border border-[#e4d9d1] rounded-lg p-1 shadow-soft"
-        >
-          <picture>
+        <div class="relative p-1">
+
+        <picture>
+          <div class="relative w-56 md:w-64 lg:w-80 overflow-hidden">
+            <!-- soft warm glow behind portrait -->
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.5)_0%,rgba(244,235,225,0)_70%)] blur-2xl opacity-50 scale-110"
+                aria-hidden="true"
+            ></div>
+
             <img
-                :src="profileJpg"
+                src="/images/profile.png"
                 alt="Portrait of psychotherapist Robert Ormiston"
-                class="w-48 h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full object-cover border-2 border-[#c39e8a]"
-                width="240"
-                height="240"
+                class="relative z-10 w-full h-auto object-contain drop-shadow-[0_6px_12px_rgba(60,58,54,0.18)]"
+                width="320"
+                height="320"
                 loading="lazy"
                 decoding="async"
                 @error="handleImgError"
                 ref="imgEl"
             />
-          </picture>
+
+            <!-- soft bottom fade -->
+            <div
+                class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f4ebe1] via-transparent to-transparent z-20 pointer-events-none"
+                aria-hidden="true"
+            ></div>
+          </div>
+
+
+        </picture>
         </div>
       </div>
     </div>
