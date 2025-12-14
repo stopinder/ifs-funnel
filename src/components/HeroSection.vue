@@ -40,8 +40,9 @@ function handleImgError(e: Event) {
     <!-- CONTENT LAYOUT -->
     <div class="relative z-10 mx-auto w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start gap-16">
       <!-- TEXT BLOCK -->
-      <div class="flex-1 max-w-xl">
-        <p class="text-xs font-medium tracking-[0.18em] text-slate-700 uppercase">
+      <div class="flex-1 max-w-xl -mt-4">
+
+      <p class="text-xs font-medium tracking-[0.18em] text-slate-700 uppercase">
           IFS &amp; EMDR-informed
         </p>
 
