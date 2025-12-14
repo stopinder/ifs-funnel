@@ -28,21 +28,22 @@ function handleImgError(e: Event) {
       class="relative min-h-[calc(100vh-64px)] flex items-start px-6 pt-16 pb-20 bg-[#f4ebe1] text-[#4a4743] overflow-hidden"
       aria-label="Hero section"
   >
-    <!-- Layered background -->
+    <!-- BACKGROUND -->
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
       <div class="absolute inset-0 bg-gradient-to-b from-[#f9f3ee] via-[#f4ebe1] to-[#ecd7c5]"></div>
       <div
-          class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0)_45%),radial-gradient(circle_at_90%_100%,rgba(210,174,145,0.25)_0%,rgba(210,174,145,0)_55%)] opacity-80"
+          class="absolute inset-0 opacity-80
+               bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0)_45%),
+                   radial-gradient(circle_at_90%_100%,rgba(210,174,145,0.25)_0%,rgba(210,174,145,0)_55%)]"
       ></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(210,174,145,0.12)_0%,transparent_70%)]"></div>
     </div>
 
-    <!-- CONTENT LAYOUT -->
+    <!-- CONTENT -->
     <div class="relative z-10 mx-auto w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start gap-16">
-      <!-- TEXT BLOCK -->
+      <!-- TEXT -->
       <div class="flex-1 max-w-xl -mt-4">
-
-      <p class="text-xs font-medium tracking-[0.18em] text-slate-700 uppercase">
+        <p class="text-xs font-medium tracking-[0.18em] text-slate-700 uppercase">
           IFS &amp; EMDR-informed
         </p>
 
@@ -61,11 +62,13 @@ function handleImgError(e: Event) {
             id="hero-intro"
             class="mt-5 text-base md:text-lg text-slate-700 leading-relaxed"
         >
-          Our work focuses on what’s happening beneath the surface, approached carefully and without urgency. Rather than pushing for solutions, we create the conditions for your system to stabilise, orient, and respond with greater coherence over time.
+          Our work focuses on what’s happening beneath the surface, approached carefully and without urgency.
+          Rather than pushing for solutions, we create the conditions for your system to stabilise, orient,
+          and respond with greater coherence over time.
         </p>
 
         <!-- CTA -->
-        <div class="mt-10 flex flex-col sm:flex-row md:justify-start sm:items-center gap-3 sm:gap-4">
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
           <a
               :href="mailtoHref"
               class="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium
@@ -79,6 +82,7 @@ function handleImgError(e: Event) {
           </a>
 
           <button
+              type="button"
               @click.prevent="scrollTo('#philosophy')"
               class="inline-flex items-center justify-center px-5 py-2.5 rounded-md
                    border border-[#e4d9d1]
@@ -92,22 +96,21 @@ function handleImgError(e: Event) {
             How I work
           </button>
         </div>
-
-        <p class="mt-6 text-xs text-slate-600 leading-relaxed">
-          Online sessions for adults. MBACP Registered. 15+ years’ experience.
-        </p>
       </div>
 
       <!-- PORTRAIT -->
-      <div class="relative flex-shrink-0 flex justify-center md:justify-end w-full md:w-auto md:self-center lg:self-end">
+      <div class="relative flex-shrink-0 flex flex-col items-center md:items-end w-full md:w-auto">
         <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.6)_0%,rgba(244,235,225,0)_70%)] scale-125 blur-2xl opacity-70"
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.6)_0%,rgba(244,235,225,0)_70%)]
+                 scale-125 blur-2xl opacity-70"
             aria-hidden="true"
         ></div>
 
+        <!-- IMAGE -->
         <div class="relative w-56 md:w-64 lg:w-80 overflow-hidden">
           <div
-              class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.5)_0%,rgba(244,235,225,0)_70%)] blur-2xl opacity-50 scale-110"
+              class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.5)_0%,rgba(244,235,225,0)_70%)]
+                   blur-2xl opacity-50 scale-110"
               aria-hidden="true"
           ></div>
 
@@ -128,6 +131,19 @@ function handleImgError(e: Event) {
               aria-hidden="true"
           ></div>
         </div>
+
+        <!-- CREDENTIALS -->
+        <div class="mt-4 max-w-[14rem] mx-auto text-center">
+          <p class="text-sm font-bold text-[#4a4743]">
+            Online sessions for adults,<br />
+            couples &amp; children
+          </p>
+          <p class="mt-1 text-sm font-bold text-[#4a4743]">
+            MBACP Registered
+          </p>
+        </div>
+
+
       </div>
     </div>
   </section>
