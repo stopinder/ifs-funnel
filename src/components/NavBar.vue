@@ -20,11 +20,10 @@
                 src="/images/ChrysalisLogo.svg"
                 alt="Chrysalis logo"
                 class="h-16 md:h-[72px] w-auto
-         scale-110
-         object-contain
-         -translate-y-1"
+                     scale-110
+                     object-contain
+                     -translate-y-1"
             />
-
           </div>
 
           <!-- NAME -->
@@ -73,6 +72,18 @@
           >
             EMDR
           </button>
+
+          <!-- MINDWORKS EXTERNAL LINK -->
+          <a
+              href="https://therapy-orientation-quiz.vercel.app/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium text-[#1f2a37]
+                   hover:text-[#243040]
+                   transition-colors duration-200"
+          >
+            MindWorks
+          </a>
         </nav>
 
         <!-- MOBILE TOGGLE -->
@@ -157,12 +168,24 @@
           >
             EMDR
           </button>
+
+          <!-- MINDWORKS (MOBILE) -->
+          <a
+              href="https://therapy-orientation-quiz.vercel.app/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              @click="closeMobile()"
+              class="px-3 py-2 rounded text-sm font-medium
+                   text-[#1f2a37]
+                   hover:bg-black/5"
+          >
+            Mindworks
+          </a>
         </nav>
       </div>
     </div>
   </header>
 </template>
-
 
 <script setup>
 import { ref } from 'vue'
@@ -230,4 +253,3 @@ function goEmdr() {
   transition: opacity 0.15s ease;
 }
 </style>
-
