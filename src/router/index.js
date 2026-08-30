@@ -16,13 +16,13 @@ const routes = [
         name: 'home',
         component: HomePage,
         meta: {
-            title: 'IFS & EMDR-Informed Psychotherapy · Robert Ormiston MBACP',
+            title: 'Robert Ormiston · Clinician, Psychotherapist, Writer & Helios Founder',
             description:
-                'Brief, integrative psychotherapy online — Internal Family Systems (IFS) and EMDR-informed work, with optional reflective summaries.',
+                'Robert Ormiston is a mental health clinician, psychotherapist and writer with more than four decades of experience across clinical practice, service development and mental health systems, and the founder of Helios.',
             canonical: 'https://www.robormiston.com/',
-            ogTitle: 'IFS & EMDR-Informed Psychotherapy · Robert Ormiston MBACP',
+            ogTitle: 'Robert Ormiston · Clinician, Psychotherapist, Writer & Helios Founder',
             ogDescription:
-                'Calm, focused psychotherapy for clinicians, carers, and long-term seekers.',
+                'Robert Ormiston is a mental health clinician, psychotherapist and writer with more than four decades of experience across clinical practice, service development and mental health systems, and the founder of Helios.',
             ogImage: 'https://www.robormiston.com/images/social-card.jpg',
             ogUrl: 'https://www.robormiston.com/'
         }

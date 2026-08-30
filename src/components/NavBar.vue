@@ -11,35 +11,25 @@
         <!-- BRAND -->
         <button
             @click="goHomeAndScroll(null)"
-            class="flex items-center gap-4 md:gap-5 h-16"
-            aria-label="Chrysalis Therapy home"
+            class="flex flex-col items-start gap-0.5"
+            aria-label="Robert Ormiston home"
         >
-          <!-- LOGO -->
-          <div class="flex items-center h-16">
-            <img
-                src="/images/ChrysalisLogo.svg"
-                alt="Chrysalis logo"
-                class="h-16 md:h-[72px] w-auto
-                     scale-110
-                     object-contain
-                     -translate-y-1"
-            />
-          </div>
-
-          <!-- NAME -->
-          <span class="text-sm md:text-base font-semibold text-[#3c3a36]">
-            Robert Ormiston MBACP
+          <span class="text-lg md:text-xl font-serif font-semibold text-[#3c3a36]">
+            Robert Ormiston
+          </span>
+          <span class="text-[10px] md:text-xs tracking-wider uppercase text-[#5a5753] font-medium">
+            Clinician &middot; Psychotherapist &middot; Writer
           </span>
         </button>
 
         <!-- DESKTOP NAV -->
         <nav
-            class="hidden md:flex items-center gap-6 md:ml-8"
+            class="hidden md:flex items-center gap-8 md:ml-auto"
             aria-label="Primary navigation"
         >
           <button
               @click="goHomeAndScroll('about')"
-              class="text-sm font-medium text-[#1f2a37]
+              class="text-sm font-medium text-[#4a4743]
                    hover:text-[#243040]
                    transition-colors duration-200"
           >
@@ -47,47 +37,29 @@
           </button>
 
           <button
-              @click="goHomeAndScroll('philosophy')"
-              class="text-sm font-medium text-[#1f2a37]
+              @click="goHomeAndScroll('experience')"
+              class="text-sm font-medium text-[#4a4743]
                    hover:text-[#243040]
                    transition-colors duration-200"
           >
-            Approach
+            Experience
           </button>
 
-          <button
-              @click="goIfs()"
-              class="text-sm font-medium text-[#1f2a37]
-                   hover:text-[#243040]
-                   transition-colors duration-200"
-          >
-            IFS Therapy
-          </button>
-
-          <button
-              @click="goEmdr()"
-              class="text-sm font-medium text-[#1f2a37]
-                   hover:text-[#243040]
-                   transition-colors duration-200"
-          >
-            EMDR
-          </button>
-
-          <!-- MINDWORKS EXTERNAL LINK -->
+          <!-- HELIOS EXTERNAL LINK -->
           <a
-              href="https://therapy-orientation-quiz.vercel.app/about"
+              href="https://therapyworks.works"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-sm font-medium text-[#1f2a37]
-                   hover:text-[#243040]
-                   transition-colors duration-200"
+              class="inline-flex items-center px-4 py-2 rounded-full
+                   bg-[#2d4a43] text-[#f9f3ee] text-sm font-medium
+                   hover:bg-[#3d5a53] transition-colors duration-200"
           >
-            MindWorks
+            Helios
           </a>
         </nav>
 
         <!-- MOBILE TOGGLE -->
-        <div class="flex items-center md:hidden">
+        <div class="flex items-center md:hidden ml-auto">
           <button
               @click="mobileOpen = !mobileOpen"
               :aria-expanded="mobileOpen.toString()"
@@ -128,14 +100,14 @@
     <div
         v-if="mobileOpen"
         id="mobile-menu"
-        class="md:hidden bg-white/90 backdrop-blur-md
-             border-t border-black/10 shadow-sm"
+        class="md:hidden bg-white/95 backdrop-blur-md
+             border-t border-black/10 shadow-lg"
     >
-      <div class="max-w-6xl mx-auto px-4 py-4">
-        <nav class="flex flex-col gap-3 text-center">
+      <div class="max-w-6xl mx-auto px-4 py-6">
+        <nav class="flex flex-col gap-4 text-center">
           <button
               @click="goHomeAndScroll('about'); closeMobile()"
-              class="px-3 py-2 rounded text-sm font-medium
+              class="px-3 py-2 rounded text-base font-medium
                    text-[#1f2a37]
                    hover:bg-black/5"
           >
@@ -143,43 +115,25 @@
           </button>
 
           <button
-              @click="goHomeAndScroll('philosophy'); closeMobile()"
-              class="px-3 py-2 rounded text-sm font-medium
+              @click="goHomeAndScroll('experience'); closeMobile()"
+              class="px-3 py-2 rounded text-base font-medium
                    text-[#1f2a37]
                    hover:bg-black/5"
           >
-            Approach
+            Experience
           </button>
 
-          <button
-              @click="goIfs(); closeMobile()"
-              class="px-3 py-2 rounded text-sm font-medium
-                   text-[#1f2a37]
-                   hover:bg-black/5"
-          >
-            IFS Therapy
-          </button>
-
-          <button
-              @click="goEmdr(); closeMobile()"
-              class="px-3 py-2 rounded text-sm font-medium
-                   text-[#1f2a37]
-                   hover:bg-black/5"
-          >
-            EMDR
-          </button>
-
-          <!-- MINDWORKS (MOBILE) -->
+          <!-- HELIOS (MOBILE) -->
           <a
-              href="https://therapy-orientation-quiz.vercel.app/about"
+              href="https://therapyworks.works"
               target="_blank"
               rel="noopener noreferrer"
               @click="closeMobile()"
-              class="px-3 py-2 rounded text-sm font-medium
-                   text-[#1f2a37]
-                   hover:bg-black/5"
+              class="px-3 py-3 rounded text-base font-semibold
+                   bg-[#2d4a43] text-[#f9f3ee]
+                   hover:bg-[#3d5a53]"
           >
-            Mindworks
+            Helios
           </a>
         </nav>
       </div>

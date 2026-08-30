@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const mailtoHref =
-    'mailto:emdrifs@robormiston.com?subject=Therapy%20enquiry'
-
 const imgEl = ref<HTMLImageElement | null>(null)
 
 function scrollTo(selector: string) {
@@ -25,124 +22,84 @@ function handleImgError(e: Event) {
 <template>
   <section
       id="hero"
-      class="relative min-h-[calc(100vh-64px)] flex items-start px-6 pt-12 pb-20 bg-[#f4ebe1] text-[#4a4743] overflow-hidden"
+      class="relative min-h-[80vh] flex items-center px-6 pt-20 pb-24 bg-[#f9f3ee] text-[#4a4743] overflow-hidden"
       aria-label="Hero section"
   >
-    <!-- BACKGROUND -->
+    <!-- BACKGROUND - Simplified and cleaner -->
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#f9f3ee] via-[#f4ebe1] to-[#ecd7c5]"></div>
+      <div class="absolute inset-0 bg-[#f9f3ee]"></div>
       <div
-          class="absolute inset-0 opacity-80
-               bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0)_45%),
-                   radial-gradient(circle_at_90%_100%,rgba(210,174,145,0.25)_0%,rgba(210,174,145,0)_55%)]"
+          class="absolute inset-0 opacity-40
+               bg-[radial-gradient(circle_at_70%_20%,rgba(45,74,67,0.05)_0%,transparent_50%)]"
       ></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(210,174,145,0.12)_0%,transparent_70%)]"></div>
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 mx-auto w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start gap-16">
+    <div class="relative z-10 mx-auto w-full max-w-6xl flex flex-col md:flex-row items-center gap-16 md:gap-24">
       <!-- TEXT -->
-      <div class="flex-1 max-w-xl -mt-2">
-        <p
-            class="inline-block text-[11px] font-bold tracking-[0.25em] uppercase
-                 text-[#243040] border-b border-[#243040]/30 pb-1"
-        >
-          IFS &amp; EMDR-informed
-        </p>
-
-        <p class="mt-3 text-lg font-semibold text-[#5a5753]">
-          Chrysalis Psychotherapy Services
-        </p>
-
+      <div class="flex-1 max-w-2xl text-center md:text-left">
         <h1
             id="hero-title"
-            class="mt-8 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-snug text-[#3c3a36]"
+            class="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-[#3c3a36] leading-tight"
         >
-          A steady, reflective space for adults navigating overwhelm, sustained pressure, or inner strain.
+          Robert Ormiston
         </h1>
 
-        <p
-            id="hero-intro"
-            class="mt-5 text-base md:text-lg text-slate-700 leading-relaxed"
-        >
-          Our work focuses on what’s happening beneath the surface, approached carefully and without urgency.
-          Rather than pushing for solutions, we create the conditions for your system to stabilise, orient,
-          and respond with greater coherence over time.
+        <p class="mt-4 text-lg md:text-xl text-[#5a5753] font-medium tracking-wide uppercase">
+          Clinician &middot; Psychotherapist &middot; Writer &middot; Builder
         </p>
 
+        <div class="mt-10 space-y-6 text-lg md:text-xl text-[#4a4743] leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p>
+            I've spent more than four decades working in and around mental health — from acute and forensic services to community care, psychotherapy, clinical leadership and service development.
+          </p>
+          <p>
+            Alongside clinical practice, my work has included journalism, writing and international professional exchange. I'm interested in people, ideas and the systems we build around both.
+          </p>
+          <p>
+            I'm currently bringing those strands together in <span class="font-semibold text-[#2d4a43]">Helios</span>, a clinical workspace designed around how therapists actually think and work.
+          </p>
+        </div>
+
         <!-- CTA -->
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <div class="mt-12 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-8">
           <a
-              :href="mailtoHref"
-              class="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium
-                   bg-[#3c3a36] text-[#f9f3ee]
-                   shadow-[0_10px_30px_rgba(44,35,28,0.18)]
-                   hover:bg-[#6d5f52]
-                   focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c39e8a]/45
+              href="https://therapyworks.works"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold
+                   bg-[#2d4a43] text-[#f9f3ee]
+                   shadow-sm
+                   hover:bg-[#3d5a53]
+                   focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2d4a43]/30
                    transition-all duration-200"
           >
-            Contact me
+            Explore Helios &rarr;
           </a>
 
           <button
               type="button"
-              @click.prevent="scrollTo('#philosophy')"
-              class="inline-flex items-center justify-center px-5 py-2.5 rounded-md
-                   border border-[#e4d9d1]
-                   bg-[#f9f3ee]/90
-                   text-sm font-medium text-[#4a4743]
-                   hover:bg-[#f3e8dd]
-                   shadow-sm
-                   focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c39e8a]/35
-                   transition-all duration-200"
+              @click.prevent="scrollTo('#about')"
+              class="text-sm font-semibold text-[#5a5753] hover:text-[#3c3a36]
+                   transition-colors duration-200 border-b border-transparent hover:border-[#3c3a36]"
           >
-            How I work
+            My work
           </button>
         </div>
       </div>
 
       <!-- PORTRAIT -->
-      <div class="relative flex-shrink-0 flex flex-col items-center md:items-end w-full md:w-auto">
-        <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.6)_0%,rgba(244,235,225,0)_70%)]
-                 scale-125 blur-2xl opacity-70"
-            aria-hidden="true"
-        ></div>
-
-        <div class="relative w-56 md:w-64 lg:w-80 overflow-hidden">
-          <div
-              class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,240,225,0.5)_0%,rgba(244,235,225,0)_70%)]
-                   blur-2xl opacity-50 scale-110"
-              aria-hidden="true"
-          ></div>
-
+      <div class="relative flex-shrink-0 w-64 md:w-72 lg:w-96 grayscale-[20%] contrast-[1.05]">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl border border-white/20">
           <img
               ref="imgEl"
               src="/images/profile.png"
-              alt="Portrait of psychotherapist Robert Ormiston"
-              class="relative z-10 w-full h-auto object-contain drop-shadow-[0_6px_12px_rgba(60,58,54,0.18)]"
-              width="320"
-              height="320"
+              alt="Portrait of Robert Ormiston"
+              class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
               @error="handleImgError"
           />
-
-          <div
-              class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f4ebe1] via-transparent to-transparent z-20 pointer-events-none"
-              aria-hidden="true"
-          ></div>
-        </div>
-
-        <!-- CREDENTIALS -->
-        <div class="mt-4 max-w-[14rem] mx-auto text-center">
-          <p class="text-sm font-bold text-[#4a4743]">
-            Online sessions for adults,<br />
-            couples &amp; children
-          </p>
-          <p class="mt-1 text-sm font-bold text-[#4a4743]">
-            MBACP Registered
-          </p>
         </div>
       </div>
     </div>
