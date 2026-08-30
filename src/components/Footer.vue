@@ -12,7 +12,7 @@
         <!-- Identity -->
         <div>
           <p class="font-serif text-2xl text-surface">
-            Robert Ormiston
+            Robert Ormiston MBACP
           </p>
 
           <p

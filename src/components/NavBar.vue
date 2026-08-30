@@ -55,11 +55,21 @@ function goHomeAndScroll(id?: string) {
 
         <button
             type="button"
-            class="font-serif text-xl font-normal tracking-[-0.015em] text-text transition-colors hover:text-accent"
-            aria-label="Robert Ormiston home"
+            class="group flex items-baseline gap-2 transition-colors"
+            aria-label="Robert Ormiston MBACP home"
             @click="goHomeAndScroll()"
         >
-          Robert Ormiston
+          <span
+              class="font-serif text-xl font-normal tracking-[-0.015em] text-text transition-colors group-hover:text-accent"
+          >
+            Robert Ormiston
+          </span>
+
+          <span
+              class="text-[10px] font-semibold uppercase tracking-[0.14em] text-text-muted transition-colors group-hover:text-text"
+          >
+            · MBACP
+          </span>
         </button>
 
         <nav
