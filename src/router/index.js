@@ -64,13 +64,13 @@ const routes = [
         name: 'terms',
         component: TermsAndPrivacy,
         meta: {
-            title: 'Terms & Privacy · Chrysalis Therapy Services',
+            title: 'Terms & Privacy · Robert Ormiston',
             description:
-                'Terms of use and privacy policy for Chrysalis Therapy Services, operated by Robert Ormiston MBACP.',
+                'Terms of use and privacy policy for Robert Ormiston.',
             canonical: 'https://www.robormiston.com/terms',
-            ogTitle: 'Terms & Privacy · Chrysalis Therapy Services',
+            ogTitle: 'Terms & Privacy · Robert Ormiston',
             ogDescription:
-                'Confidentiality, GDPR basis, data retention, and client rights under UK data protection law.',
+                'Confidentiality, GDPR basis, and data protection policy.',
             ogImage: 'https://www.robormiston.com/images/social-card.jpg',
             ogUrl: 'https://www.robormiston.com/terms'
         }

@@ -1,40 +1,84 @@
-/* src/main.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --nav-height: 72px;
+
+    /* New Palette */
+    --color-surface: #F7F3EC; /* Warm Ivory */
+    --color-surface-muted: #DDD7CE; /* Muted neutral border */
+    --color-surface-dark: #1E2430; /* Deep Charcoal */
+
+    --color-text: #1E2430; /* Deep charcoal */
+    --color-text-muted: #646A73; /* Muted text */
+
+    --color-border: #DDD7CE; /* Warm neutral border */
+
+    --color-cobalt: #3157C8;
+    --color-cobalt-hover: #2646A5;
+    --color-cobalt-deep: #1A2E69;
+
+    /* Semantic Mappings */
+    --color-accent: var(--color-cobalt);
+    --color-accent-hover: var(--color-cobalt-hover);
+}
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+    background: var(--color-surface);
 }
 
 body {
-  @apply text-white font-sans bg-black;
-}
-/* put this in your global CSS (not in scoped <style>) */
-:root{
-  --navH: 64px;
-  --bg-page: #f7fafc; /* even paler */
-  --surface: #ffffff;
-  --text: #0b1220;
-  --muted: #566370;
-  --accent: #b98340; /* slightly desaturated amber */
-  --glass-alpha: 0.96;
-  --border-subtle: rgba(11,18,32,0.04);
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-/* simpler hero background */
-.hero-section {
-  background: linear-gradient(180deg, var(--bg-page) 0%, #f1f6fa 48%, var(--bg-page) 100%);
+::selection {
+    background: rgba(49, 87, 200, 0.15);
 }
 
-/* lighten overlay for clarity */
-.overlay {
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.9) 100%);
-  backdrop-filter: blur(0.6px);
-}
-@keyframes drift {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(0.6deg) scale(1.005); }
-    100% { transform: rotate(0deg) scale(1); }
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
