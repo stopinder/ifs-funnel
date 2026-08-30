@@ -11,14 +11,28 @@
       >
         <!-- Identity -->
         <div>
-          <p class="font-serif text-2xl text-surface">
-            Robert Ormiston MBACP
-          </p>
+          <div class="flex items-baseline gap-2">
+            <p class="font-serif text-2xl text-surface">
+              Robert Ormiston
+            </p>
+
+            <span
+                class="text-[10px] font-semibold uppercase tracking-[0.14em] text-surface/45"
+            >
+              MBACP
+            </span>
+          </div>
 
           <p
               class="mt-3 max-w-xs text-[11px] uppercase leading-relaxed tracking-[0.18em] text-surface/50"
           >
             Psychotherapist · Writer · Founder of Helios
+          </p>
+
+          <p
+              class="mt-3 max-w-sm text-xs leading-relaxed text-surface/40"
+          >
+            Member of the British Association for Counselling and Psychotherapy
           </p>
 
           <div class="mt-5">
