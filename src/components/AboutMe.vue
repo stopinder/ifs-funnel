@@ -44,7 +44,7 @@
 
             <p class="text-text-muted">
               I also trained in journalism and have worked as a writer. That
-              combination has left me interested not only in individual
+              combination has left me curious not only in individual
               experience, but in language, institutions, culture and the way
               professional systems shape what people are able to do.
             </p>
