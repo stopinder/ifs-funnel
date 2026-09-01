@@ -37,6 +37,7 @@ module.exports = {
                 ],
 
                 serif: [
+                    'Lora',
                     'Georgia',
                     'Cambria',
                     '"Times New Roman"',
