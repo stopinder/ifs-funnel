@@ -8,8 +8,8 @@ function handleImageError(event: Event) {
 <template>
   <section id="hero" class="bg-surface px-6 py-12 md:py-14 lg:px-8" aria-labelledby="hero-title">
     <div class="mx-auto max-w-7xl">
-      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
-        <div>
+      <div class="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] md:items-center md:gap-10 lg:gap-16">
+        <div class="min-w-0">
           <p class="mb-5 text-xs font-semibold uppercase tracking-[0.13em] text-text-muted md:text-sm">
             Psychotherapist · Writer · Founder of Helios
           </p>
@@ -35,11 +35,11 @@ function handleImageError(event: Event) {
           </div>
         </div>
 
-        <div class="overflow-hidden rounded-md bg-border/30">
+        <div class="mx-auto w-full max-w-[680px] overflow-hidden rounded-md bg-border/30 md:mx-0 md:justify-self-end">
           <img
             src="/images/profile.png"
             alt="Robert Ormiston"
-            class="aspect-[16/10] h-full w-full object-cover object-center"
+            class="aspect-[4/3] w-full object-cover object-center"
             @error="handleImageError"
           />
         </div>
