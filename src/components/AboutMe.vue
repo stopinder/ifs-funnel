@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="bg-surface py-20 md:py-28" aria-labelledby="about-heading">
+  <section id="about" class="bg-surface pb-20 pt-8 md:pb-24 md:pt-12" aria-labelledby="about-heading">
     <div class="page-shell">
       <div class="grid gap-10 lg:grid-cols-12 lg:gap-x-16">
         <header class="lg:col-span-4">
