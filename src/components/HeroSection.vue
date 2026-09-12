@@ -7,7 +7,7 @@ function handleImageError(event: Event) {
 
 <template>
   <section id="hero" class="bg-surface" aria-labelledby="hero-title">
-    <div class="page-shell pb-12 pt-9 md:pb-16 md:pt-12">
+    <div class="page-shell pb-6 pt-9 md:pb-8 md:pt-12">
       <div class="grid gap-10 md:grid-cols-[minmax(0,1fr)_280px] md:items-center md:gap-14 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-20">
         <div class="min-w-0">
           <p class="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
@@ -47,7 +47,7 @@ function handleImageError(event: Event) {
         href="https://helio.works"
         target="_blank"
         rel="noopener noreferrer"
-        class="group mt-10 flex w-full items-center justify-between border-y border-border py-4 text-xs font-semibold uppercase tracking-[0.16em] text-text transition-colors hover:border-cobalt hover:text-cobalt md:mt-12"
+        class="group mt-8 flex w-full items-center justify-between border-y border-border py-4 text-xs font-semibold uppercase tracking-[0.16em] text-text transition-colors hover:border-cobalt hover:text-cobalt md:mt-10"
       >
         <span class="flex items-center gap-4">
           <span class="h-px w-8 bg-current transition-all group-hover:w-11" aria-hidden="true"></span>
