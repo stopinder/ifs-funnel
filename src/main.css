@@ -71,7 +71,9 @@ img {
 
     .section-kicker::before {
         content: "";
-        @apply h-px w-9 bg-cobalt/35;
+        width: 2.25rem;
+        height: 1px;
+        background: rgba(49, 87, 200, 0.35);
     }
 
     .section-title {
