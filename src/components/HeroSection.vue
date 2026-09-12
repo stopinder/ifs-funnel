@@ -8,25 +8,25 @@ function handleImageError(event: Event) {
 <template>
   <section
       id="hero"
-      class="bg-surface px-6 pb-8 pt-12 md:pb-10 md:pt-16 lg:px-8"
+      class="bg-surface px-6 pb-10 pt-8 md:pb-12 md:pt-10 lg:px-8"
       aria-labelledby="hero-title"
   >
     <div class="mx-auto max-w-7xl">
       <div
-          class="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(260px,420px)] md:items-start md:gap-12 lg:gap-16"
+          class="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(220px,320px)] md:items-start md:gap-14 lg:gap-20"
       >
         <div class="min-w-0">
           <p
-              class="mb-5 text-sm font-medium tracking-tight text-text-muted md:text-base"
+              class="mb-4 text-sm font-medium tracking-tight text-text-muted md:text-base"
           >
             Psychotherapist · Writer · Founder of Helios
           </p>
 
           <h1
               id="hero-title"
-              class="max-w-[42rem] font-serif text-5xl font-normal leading-[1.06] tracking-[-0.03em] text-text md:text-6xl lg:text-7xl"
+              class="max-w-[46rem] font-serif text-4xl font-normal leading-[1.08] tracking-[-0.03em] text-text sm:text-5xl lg:text-6xl"
           >
-            I’ve spent my working life around
+            A working life shaped by
             <span class="text-cobalt">people</span>,
             stories,
             <span class="text-cobalt">systems</span>
@@ -34,24 +34,26 @@ function handleImageError(event: Event) {
           </h1>
 
           <p
-              class="mt-7 max-w-[36rem] text-lg leading-[1.65] text-text md:text-xl"
+              class="mt-6 max-w-[40rem] text-base leading-[1.7] text-text-muted md:text-lg"
           >
-            My work has moved through psychiatric nursing, journalism,
-            psychotherapy, writing and technology.
+            My work has moved through psychiatry, journalism, psychotherapy,
+            writing and technology. Across each of them, I’ve remained interested
+            in how people make sense of their lives—and what makes meaningful
+            change possible.
           </p>
         </div>
 
         <figure
-            class="mx-auto w-full max-w-[420px] overflow-hidden rounded-md md:mx-0 md:justify-self-end"
+            class="mx-auto w-full max-w-[280px] overflow-hidden rounded-md md:mx-0 md:max-w-[320px] md:justify-self-end"
         >
           <img
               src="/images/profile.png"
               alt="Robert Ormiston"
-              width="840"
-              height="1080"
+              width="640"
+              height="800"
               decoding="async"
               fetchpriority="high"
-              class="h-[500px] w-full object-cover object-center lg:h-[540px]"
+              class="aspect-[4/5] w-full object-cover object-center"
               @error="handleImageError"
           />
         </figure>
@@ -61,7 +63,7 @@ function handleImageError(event: Event) {
           href="https://helio.works"
           target="_blank"
           rel="noopener noreferrer"
-          class="group mt-10 flex w-full items-center justify-between border-y border-text/20 py-5 text-sm font-bold uppercase tracking-wider text-text transition-colors hover:border-cobalt hover:text-cobalt focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt focus-visible:ring-offset-4 md:mt-12"
+          class="group mt-10 flex w-full items-center justify-between border-y border-text/20 py-4 text-sm font-bold uppercase tracking-wider text-text transition-colors hover:border-cobalt hover:text-cobalt focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt focus-visible:ring-offset-4 md:mt-12"
       >
         <span class="flex items-center gap-4">
           <span
