@@ -1,46 +1,33 @@
 <template>
-  <section
-      id="helios"
-      class="overflow-hidden bg-cobalt px-6 py-14 md:py-20"
-      aria-labelledby="helios-heading"
-  >
-    <div class="mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-16">
-        <div class="relative z-10 lg:col-span-8">
-          <div class="mb-7 flex items-center gap-5">
-            <div class="h-px w-10 bg-surface/35"></div>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-surface/80">
-              Current project
-            </p>
-          </div>
+  <section id="helios" class="bg-cobalt-deep py-20 text-surface md:py-24" aria-labelledby="helios-heading">
+    <div class="page-shell">
+      <div class="grid gap-8 lg:grid-cols-12 lg:gap-x-16">
+        <div class="lg:col-span-8">
+          <p class="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-surface/65 before:h-px before:w-9 before:bg-surface/30 before:content-['']">
+            Current project
+          </p>
 
-          <h2
-              id="helios-heading"
-              class="font-serif text-[3.25rem] font-normal leading-[1.05] tracking-[-0.025em] text-surface md:text-[4.5rem]"
-          >
+          <h2 id="helios-heading" class="mt-6 font-serif text-5xl font-normal leading-none tracking-[-0.035em] text-surface md:text-6xl">
             Helios
           </h2>
 
-          <div class="mt-6 max-w-[42rem] text-lg leading-[1.75] text-surface md:text-xl">
-            <p>
-              I’m building Helios, an AI-supported clinical workspace for psychotherapists, shaped by my experience of clinical work and the systems surrounding it.
-            </p>
-          </div>
+          <p class="mt-6 max-w-[40rem] text-lg leading-[1.72] text-surface/75 md:text-xl">
+            I’m building Helios, an AI-supported clinical workspace for
+            psychotherapists, shaped by my experience of clinical work and the
+            systems surrounding it.
+          </p>
 
           <a
-              href="https://helio.works"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group mt-9 inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.16em] text-surface transition-colors hover:text-surface/80"
+            href="https://helio.works"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group mt-9 inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.16em] text-surface transition-colors hover:text-surface/70"
           >
             Visit Helios ↗
-            <span class="h-px w-8 bg-surface/80 transition-colors group-hover:bg-surface/60"></span>
+            <span class="h-px w-9 bg-current transition-all group-hover:w-12" aria-hidden="true"></span>
           </a>
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-</script>

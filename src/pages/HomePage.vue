@@ -13,4 +13,3 @@ import AboutMe from '@/components/AboutMe.vue'
 import ExperienceSection from '@/components/ExperienceSection.vue'
 import HeliosSection from '@/components/HeliosSection.vue'
 </script>
-
