@@ -47,7 +47,7 @@ function handleImageError(event: Event) {
             class="mx-auto w-full max-w-[280px] overflow-hidden rounded-md md:mx-0 md:max-w-[320px] md:justify-self-end"
         >
           <img
-              src="/images/profile-2026.jpg"
+              src="/images/profile-stone-2026.jpg"
               alt="Robert Ormiston"
               width="640"
               height="800"
