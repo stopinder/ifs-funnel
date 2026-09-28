@@ -1,7 +1,7 @@
 <template>
   <section
       id="work"
-      class="bg-surface px-6 pt-10 pb-14 md:pt-12 md:pb-20"
+      class="bg-surface px-6 pt-8 pb-12 md:pt-10 md:pb-14"
       aria-labelledby="work-heading"
   >
     <div class="mx-auto max-w-7xl">
@@ -29,14 +29,14 @@
         </div>
       </div>
 
-      <div class="mt-12 md:mt-14">
-        <article class="grid grid-cols-1 gap-6 border-t border-border py-9 md:grid-cols-12 md:gap-x-12 md:py-10">
-          <div class="md:col-span-4 lg:col-span-3">
+      <div class="mt-8 md:mt-10">
+        <article class="grid grid-cols-1 gap-4 border-t border-border py-6 md:grid-cols-12 md:gap-x-10 md:py-7">
+          <div class="md:col-span-4">
             <h3 class="font-serif text-[1.75rem] font-normal leading-[1.2] tracking-[-0.015em] text-text md:text-[2rem]">
               Early clinical work
             </h3>
           </div>
-          <div class="md:col-span-8 lg:col-span-6 lg:col-start-6">
+          <div class="md:col-span-8">
             <p class="max-w-[39rem] text-[17px] leading-[1.8] text-text">
               Beginning at age 22, I worked as a group therapist in the UK's
               largest inpatient detoxification and rehabilitation unit — an
@@ -46,13 +46,13 @@
           </div>
         </article>
 
-        <article class="grid grid-cols-1 gap-6 border-t border-border py-9 md:grid-cols-12 md:gap-x-12 md:py-10">
-          <div class="md:col-span-4 lg:col-span-3">
+        <article class="grid grid-cols-1 gap-4 border-t border-border py-6 md:grid-cols-12 md:gap-x-10 md:py-7">
+          <div class="md:col-span-4">
             <h3 class="font-serif text-[1.75rem] font-normal leading-[1.2] tracking-[-0.015em] text-text md:text-[2rem]">
               Changing psychiatric services
             </h3>
           </div>
-          <div class="md:col-span-8 lg:col-span-6 lg:col-start-6">
+          <div class="md:col-span-8">
             <p class="max-w-[39rem] text-[17px] leading-[1.8] text-text">
               My NHS career spanned acute, community and forensic services. I
               was part of the team that established the first mental-health
@@ -63,13 +63,13 @@
           </div>
         </article>
 
-        <article class="grid grid-cols-1 gap-6 border-t border-border py-9 md:grid-cols-12 md:gap-x-12 md:py-10">
-          <div class="md:col-span-4 lg:col-span-3">
+        <article class="grid grid-cols-1 gap-4 border-t border-border py-6 md:grid-cols-12 md:gap-x-10 md:py-7">
+          <div class="md:col-span-4">
             <h3 class="font-serif text-[1.75rem] font-normal leading-[1.2] tracking-[-0.015em] text-text md:text-[2rem]">
               Writing and humanities
             </h3>
           </div>
-          <div class="md:col-span-8 lg:col-span-6 lg:col-start-6">
+          <div class="md:col-span-8">
             <p class="max-w-[39rem] text-[17px] leading-[1.8] text-text">
               Trained in journalism at City University, I have worked as a
               published writer and journalist. I served on the planning
@@ -79,13 +79,13 @@
           </div>
         </article>
 
-        <article class="grid grid-cols-1 gap-6 border-y border-border py-9 md:grid-cols-12 md:gap-x-12 md:py-10">
-          <div class="md:col-span-4 lg:col-span-3">
+        <article class="grid grid-cols-1 gap-4 border-y border-border py-6 md:grid-cols-12 md:gap-x-10 md:py-7">
+          <div class="md:col-span-4">
             <h3 class="font-serif text-[1.75rem] font-normal leading-[1.2] tracking-[-0.015em] text-text md:text-[2rem]">
               Clinical practice
             </h3>
           </div>
-          <div class="md:col-span-8 lg:col-span-6 lg:col-start-6">
+          <div class="md:col-span-8">
             <p class="max-w-[39rem] text-[17px] leading-[1.8] text-text">
               I remain a practising psychotherapist and mental-health
               clinician. My work continues to be informed by Internal Family

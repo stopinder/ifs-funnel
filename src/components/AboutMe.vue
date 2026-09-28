@@ -1,11 +1,11 @@
 <template>
   <section
       id="about"
-      class="bg-surface px-6 pt-10 pb-0 md:pt-14"
+      class="bg-surface px-6 pt-8 pb-0 md:pt-10"
       aria-labelledby="about-heading"
   >
     <div class="mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-16">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-12">
         <div class="lg:col-span-4">
           <div class="mb-7 flex items-center gap-5">
             <div class="h-px w-10 bg-cobalt/35" aria-hidden="true"></div>
@@ -22,8 +22,8 @@
           </h2>
         </div>
 
-        <div class="lg:col-span-7 lg:col-start-6">
-          <div class="max-w-[42rem] space-y-7 text-lg leading-[1.78] text-text md:text-xl md:leading-[1.75]">
+        <div class="lg:col-span-8">
+          <div class="max-w-[46rem] space-y-5 text-lg leading-[1.7] text-text md:text-xl md:leading-[1.65]">
             <p>
               My background includes more than four decades working in and
               around mental health, as a Registered Mental Health Nurse,
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="mt-16 flex items-center gap-4 md:mt-20" aria-hidden="true">
+      <div class="mt-10 flex items-center gap-4 md:mt-12" aria-hidden="true">
         <div class="h-px flex-1 bg-border"></div>
         <span class="relative -top-px px-2 font-serif text-xs leading-none text-cobalt/55">✦</span>
         <div class="h-px flex-1 bg-border"></div>
