@@ -1,7 +1,7 @@
 <template>
   <section
       id="work"
-      class="bg-surface px-6 pt-8 pb-12 md:pt-10 md:pb-14"
+      class="bg-surface px-6 pt-6 pb-12 md:pt-8 md:pb-14"
       aria-labelledby="work-heading"
   >
     <div class="mx-auto max-w-7xl">

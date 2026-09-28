@@ -8,7 +8,7 @@ function handleImageError(event: Event) {
 <template>
   <section
       id="hero"
-      class="bg-surface px-6 pb-8 pt-8 md:pb-10 md:pt-10 lg:px-8"
+      class="bg-surface px-6 pb-6 pt-8 md:pb-6 md:pt-10 lg:px-8"
       aria-labelledby="hero-title"
   >
     <div class="mx-auto max-w-7xl">
